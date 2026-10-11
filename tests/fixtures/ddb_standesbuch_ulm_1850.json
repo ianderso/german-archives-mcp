@@ -1,0 +1,458 @@
+{
+  "responseHeader":{
+    "zkConnected":true,
+    "status":0,
+    "QTime":3040,
+    "params":{
+      "q":"title:\"Ulm\" OR (apd_reference_number:(\"Staatsarchiv Ludwigsburg, F 901\" OR \"Staatsarchiv Sigmaringen, Wü 110 T 1\") AND apd_context:\"Ulm\")",
+      "fl":"id,title,apd_reference_number,apd_context,begin_time,end_time,provider_item_id,digitalisat",
+      "start":"0",
+      "fq":["provider_fct:Landesarchiv\\ Baden\\-Württemberg","apd_reference_number:(\"Staatsarchiv Freiburg, L 10\" OR \"Generallandesarchiv Karlsruhe, 390\" OR \"Staatsarchiv Ludwigsburg, F 901\" OR \"Staatsarchiv Sigmaringen, Wü 110 T 1\" OR \"Hauptstaatsarchiv Stuttgart, J 386\" OR \"Staatsarchiv Sigmaringen, Dep. 1 T 37\" OR \"Staatsarchiv Sigmaringen, Dep. 1 T 44\")","-apd_level_of_description:(htype_030 OR htype_031 OR htype_037)","begin_time:[* TO 675699]","end_time:[675335 TO *]"],
+      "rows":"60"
+    }
+  },
+  "response":{
+    "numFound":49,
+    "start":0,
+    "numFoundExact":true,
+    "docs":[{
+      "id":"6ME5XAJKZV3WJM7V5IE5PHH5J7Z7WVNI",
+      "apd_context":"Evangelische Pfarrämter: Zweitschriften der Kirchenbücher für Württemberg und Hohenzollern >> U >> Übr - Unl >> Ulm, Garnison (Ulm UL)",
+      "apd_reference_number":["Abt. Staatsarchiv Sigmaringen, Wü 110 T 1 Nr. 4618"],
+      "begin_time":[661090],
+      "digitalisat":"true",
+      "end_time":[685196],
+      "provider_item_id":"labw-6-2785128",
+      "title":["Eheregister I"]
+    },{
+      "id":"DLEUFYWKNKW2IYSX6AVYJQOSX63AASGF",
+      "apd_context":"Evangelische Pfarrämter: Zweitschriften der Kirchenbücher für Württemberg und Hohenzollern >> U >> Übr - Unl >> Ulm, Münster (Ulm UL)",
+      "apd_reference_number":["Abt. Staatsarchiv Sigmaringen, Wü 110 T 1 Nr. 4590"],
+      "begin_time":[674970],
+      "digitalisat":"true",
+      "end_time":[676795],
+      "provider_item_id":"labw-6-2785167",
+      "title":["Totenregister XI Register (A-K)"]
+    },{
+      "id":"F6ZDFN3GLOOLZEMZE6HA4PALMIQYCP6Z",
+      "apd_context":"Evangelische Pfarrämter: Zweitschriften der Kirchenbücher für Württemberg und Hohenzollern >> U >> Übr - Unl >> Ulm, Münster (Ulm UL)",
+      "apd_reference_number":["Abt. Staatsarchiv Sigmaringen, Wü 110 T 1 Nr. 4566"],
+      "begin_time":[674604],
+      "digitalisat":"true",
+      "end_time":[676430],
+      "provider_item_id":"labw-6-2785143",
+      "title":["Taufregister XII mit Register"]
+    },{
+      "id":"FJDA5HDBK3YZPCUJY4EI2N5JP4HNTMON",
+      "apd_context":"Evangelische Pfarrämter: Zweitschriften der Kirchenbücher für Württemberg und Hohenzollern >> U >> Übr - Unl >> Ulm, Münster (Ulm UL)",
+      "apd_reference_number":["Abt. Staatsarchiv Sigmaringen, Wü 110 T 1 Nr. 4577"],
+      "begin_time":[675335],
+      "digitalisat":"true",
+      "end_time":[679352],
+      "provider_item_id":"labw-6-2785154",
+      "title":["Eheregister VI mit Register"]
+    },{
+      "id":"UPBOVEEFWWYRDOJTB53Z27JYXUCOU6N6",
+      "apd_context":"Evangelische Pfarrämter: Zweitschriften der Kirchenbücher für Württemberg und Hohenzollern >> U >> Übr - Unl >> Ulm, Garnison (Ulm UL)",
+      "apd_reference_number":["Abt. Staatsarchiv Sigmaringen, Wü 110 T 1 Nr. 4617"],
+      "begin_time":[675335],
+      "digitalisat":"true",
+      "end_time":[685196],
+      "provider_item_id":"labw-6-2785127",
+      "title":["Taufregister II"]
+    },{
+      "id":"UXPZRALGQC54JIFJNM7FE5CR4LJUFW3U",
+      "apd_context":"Evangelische Pfarrämter: Zweitschriften der Kirchenbücher für Württemberg und Hohenzollern >> U >> Übr - Unl >> Ulm, Garnison (Ulm UL)",
+      "apd_reference_number":["Abt. Staatsarchiv Sigmaringen, Wü 110 T 1 Nr. 4616"],
+      "begin_time":[661090],
+      "digitalisat":"true",
+      "end_time":[675699],
+      "provider_item_id":"labw-6-2785126",
+      "title":["Taufregister I"]
+    },{
+      "id":"XKFVZBRQXWDIYPP3IT3JH4AS52ZUMGVB",
+      "apd_context":"Evangelische Pfarrämter: Zweitschriften der Kirchenbücher für Württemberg und Hohenzollern >> U >> Übr - Unl >> Ulm, Garnison (Ulm UL)",
+      "apd_reference_number":["Abt. Staatsarchiv Sigmaringen, Wü 110 T 1 Nr. 4619"],
+      "begin_time":[661090],
+      "digitalisat":"true",
+      "end_time":[683004],
+      "provider_item_id":"labw-6-2785129",
+      "title":["Totenregister I"]
+    },{
+      "id":"6L4VZDA4FDRD3RGA5RSVKXY3XQLUAD7E",
+      "apd_context":"Evangelische Pfarrämter: Zweitschriften der Kirchenbücher für Württemberg und Hohenzollern >> U >> Übr - Unl >> Ulm, Dreieinigkeits- und Dreifaltigkeitskirche (Ulm UL)",
+      "apd_reference_number":["Abt. Staatsarchiv Sigmaringen, Wü 110 T 1 Nr. 4600"],
+      "begin_time":[674604],
+      "digitalisat":"true",
+      "end_time":[677525],
+      "provider_item_id":"labw-6-2785109",
+      "title":["Taufregister VI Dreifaltigkeitskirche mit Register"]
+    },{
+      "id":"DWPQHEOOUA3V7S5KUJRERMPYK3LRTAOU",
+      "apd_context":"Evangelische Pfarrämter: Zweitschriften der Kirchenbücher für Württemberg und Hohenzollern >> U >> Übr - Unl >> Ulm, Dreieinigkeits- und Dreifaltigkeitskirche (Ulm UL)",
+      "apd_reference_number":["Abt. Staatsarchiv Sigmaringen, Wü 110 T 1 Nr. 4613"],
+      "begin_time":[673874],
+      "digitalisat":"true",
+      "end_time":[676064],
+      "provider_item_id":"labw-6-2785122",
+      "title":["Totenregister V mit Register (A-S)"]
+    },{
+      "id":"RBOCCWENSVLVOXJRSW6FLMT6SR7HC6LI",
+      "apd_context":"Evangelische Pfarrämter: Zweitschriften der Kirchenbücher für Württemberg und Hohenzollern >> U >> Übr - Unl >> Ulm, Dreieinigkeits- und Dreifaltigkeitskirche (Ulm UL)",
+      "apd_reference_number":["Abt. Staatsarchiv Sigmaringen, Wü 110 T 1 Nr. 4607"],
+      "begin_time":[674970],
+      "digitalisat":"true",
+      "end_time":[683369],
+      "provider_item_id":"labw-6-2785116",
+      "title":["Eheregister IV"]
+    },{
+      "id":"2MS62TOJ3BLZTV3R72ZOKBVL7XBOKJ5T",
+      "apd_context":"Evangelische Pfarrämter: Zweitschriften der Kirchenbücher für Württemberg und Hohenzollern >> G >> Gra - Grö >> Grimmelfingen, Ulm UL",
+      "apd_reference_number":["Abt. Staatsarchiv Sigmaringen, Wü 110 T 1 Nr. 1071"],
+      "begin_time":[661090],
+      "digitalisat":"true",
+      "end_time":[677160],
+      "provider_item_id":"labw-6-2781596",
+      "title":["Taufregister I"]
+    },{
+      "id":"VF5EAKNMQSE2WWKYIZG24HLGIOH4MEYL",
+      "apd_context":"Evangelische Pfarrämter: Zweitschriften der Kirchenbücher für Württemberg und Hohenzollern >> G >> Gra - Grö >> Grimmelfingen, Ulm UL",
+      "apd_reference_number":["Abt. Staatsarchiv Sigmaringen, Wü 110 T 1 Nr. 1074"],
+      "begin_time":[661090],
+      "digitalisat":"true",
+      "end_time":[679717],
+      "provider_item_id":"labw-6-2781599",
+      "title":["Totenregister I"]
+    },{
+      "id":"YNGJDGF7ZYS5JY2PZWIOBOB4R7XP3TQ4",
+      "apd_context":"Evangelische Pfarrämter: Zweitschriften der Kirchenbücher für Württemberg und Hohenzollern >> G >> Gra - Grö >> Grimmelfingen, Ulm UL",
+      "apd_reference_number":["Abt. Staatsarchiv Sigmaringen, Wü 110 T 1 Nr. 1073"],
+      "begin_time":[661090],
+      "digitalisat":"true",
+      "end_time":[684830],
+      "provider_item_id":"labw-6-2781598",
+      "title":["Eheregister I"]
+    },{
+      "id":"54NPADZJJ43RMUWJXQSWAZ66FY5KEUL3",
+      "apd_context":"Evangelische Pfarrämter: Zweitschriften der Kirchenbücher für Württemberg und Hohenzollern >> L >> Lai - Leh >> Lehr, Ulm UL (vgl. auch Mähringen)",
+      "apd_reference_number":["Abt. Staatsarchiv Sigmaringen, Wü 110 T 1 Nr. 1642"],
+      "begin_time":[674239],
+      "digitalisat":"true",
+      "end_time":[684830],
+      "provider_item_id":"labw-6-2782624",
+      "title":["Eheregister I"]
+    },{
+      "id":"BZRDOUS65VYCR2BW3434GFF7F663BDXU",
+      "apd_context":"Evangelische Pfarrämter: Zweitschriften der Kirchenbücher für Württemberg und Hohenzollern >> L >> Lai - Leh >> Lehr, Ulm UL (vgl. auch Mähringen)",
+      "apd_reference_number":["Abt. Staatsarchiv Sigmaringen, Wü 110 T 1 Nr. 1643"],
+      "begin_time":[674239],
+      "digitalisat":"true",
+      "end_time":[684830],
+      "provider_item_id":"labw-6-2782625",
+      "title":["Totenregister I"]
+    },{
+      "id":"RT4WRZFLLJT343MX554B5NHXJ2Q3XDXI",
+      "apd_context":"Evangelische Pfarrämter: Zweitschriften der Kirchenbücher für Württemberg und Hohenzollern >> L >> Lai - Leh >> Lehr, Ulm UL (vgl. auch Mähringen)",
+      "apd_reference_number":["Abt. Staatsarchiv Sigmaringen, Wü 110 T 1 Nr. 1641"],
+      "begin_time":[674239],
+      "digitalisat":"true",
+      "end_time":[684830],
+      "provider_item_id":"labw-6-2782623",
+      "title":["Taufregister I"]
+    },{
+      "id":"4IGUL7P7QEQGGLXKKQPRFEEWFB22FCZJ",
+      "apd_context":"Evangelische Pfarrämter: Zweitschriften der Kirchenbücher für Württemberg und Hohenzollern >> M >> Mac - Mau >> Mähringen, Ulm UL (vgl. auch Filial Lehr)",
+      "apd_reference_number":["Abt. Staatsarchiv Sigmaringen, Wü 110 T 1 {1754: nicht vorhanden}"],
+      "begin_time":[661090],
+      "end_time":[681908],
+      "provider_item_id":"labw-6-2782814",
+      "title":["Taufregister I"]
+    },{
+      "id":"KQPXP56PRG3H5ROA3I47NW7YBQJPPUGF",
+      "apd_context":"Evangelische Pfarrämter: Zweitschriften der Kirchenbücher für Württemberg und Hohenzollern >> M >> Mac - Mau >> Mähringen, Ulm UL (vgl. auch Filial Lehr)",
+      "apd_reference_number":["Abt. Staatsarchiv Sigmaringen, Wü 110 T 1 {1757: nicht vorhanden}"],
+      "begin_time":[671682],
+      "end_time":[684830],
+      "provider_item_id":"labw-6-2782817",
+      "title":["Totenregister I"]
+    },{
+      "id":"TKKENSQZ3R6OI6XESRBTJVRTK53A5KDO",
+      "apd_context":"Evangelische Pfarrämter: Zweitschriften der Kirchenbücher für Württemberg und Hohenzollern >> M >> Mac - Mau >> Mähringen, Ulm UL (vgl. auch Filial Lehr)",
+      "apd_reference_number":["Abt. Staatsarchiv Sigmaringen, Wü 110 T 1 {1756: nicht vorhanden}"],
+      "begin_time":[661090],
+      "end_time":[684830],
+      "provider_item_id":"labw-6-2782816",
+      "title":["Eheregister I"]
+    },{
+      "id":"6MTFCERXFGBJT4IMCQUBEBND6PIOHO7P",
+      "apd_context":"Katholische Kirchenbücher: Zweitschriften (Bitte Einführung beachten!) >> 5. ORTSBUCHSTABE E >> 5.10 Einsingen, Ulm UL",
+      "apd_reference_number":["Abt. Staatsarchiv Ludwigsburg, F 901 Bd 398"],
+      "begin_time":[673874],
+      "digitalisat":"true",
+      "end_time":[684830],
+      "provider_item_id":"labw-2-180142",
+      "title":["Taufregister vom 6.3.1846 - 1.11.1875"]
+    },{
+      "id":"AVQJCXEXGMO6IZACALHIERCGA4AKTVNC",
+      "apd_context":"Katholische Kirchenbücher: Zweitschriften (Bitte Einführung beachten!) >> 5. ORTSBUCHSTABE E >> 5.10 Einsingen, Ulm UL",
+      "apd_reference_number":["Abt. Staatsarchiv Ludwigsburg, F 901 Bd 400"],
+      "begin_time":[659994],
+      "digitalisat":"true",
+      "end_time":[676795],
+      "provider_item_id":"labw-2-180140",
+      "title":["Totenregister vom 10.2.1808 - 14.11.1853"]
+    },{
+      "id":"G3B52SXDKKLO5WFBN5L7J5DMQRG2ZKUP",
+      "apd_context":"Katholische Kirchenbücher: Zweitschriften (Bitte Einführung beachten!) >> 4. ORTSBUCHSTABE D >> 4.24 Donaustetten, Ulm UL",
+      "apd_reference_number":["Abt. Staatsarchiv Ludwigsburg, F 901 Bd 328"],
+      "begin_time":[672048],
+      "digitalisat":"true",
+      "end_time":[685196],
+      "provider_item_id":"labw-2-180045",
+      "title":["Sterberegister vom 5.10.1841 - 13.12.1876"]
+    },{
+      "id":"GLNWUOX6LKK4XNTYXE7CRNY62AIGTKOZ",
+      "apd_context":"Katholische Kirchenbücher: Zweitschriften (Bitte Einführung beachten!) >> 5. ORTSBUCHSTABE E >> 5.7 Eggingen, Ulm UL",
+      "apd_reference_number":["Abt. Staatsarchiv Ludwigsburg, F 901 Bd 385"],
+      "begin_time":[659994],
+      "digitalisat":"true",
+      "end_time":[684830],
+      "provider_item_id":"labw-2-180124",
+      "title":["Eheregister vom 3.5.1808 - 8.6.1875"]
+    },{
+      "id":"IFTIMMBTQC37Y4AYBNSZ53A2NKCXDHDW",
+      "apd_context":"Katholische Kirchenbücher: Zweitschriften (Bitte Einführung beachten!) >> 4. ORTSBUCHSTABE D >> 4.24 Donaustetten, Ulm UL",
+      "apd_reference_number":["Abt. Staatsarchiv Ludwigsburg, F 901 Bd 325"],
+      "begin_time":[672778],
+      "digitalisat":"true",
+      "end_time":[685196],
+      "provider_item_id":"labw-2-180046",
+      "title":["Taufregister vom 27.2.1843 - 17.1.1876"]
+    },{
+      "id":"NXS46AIDRXMK4SRGNTSVUCX2ZCJ4ZMKU",
+      "apd_context":"Katholische Kirchenbücher: Zweitschriften (Bitte Einführung beachten!) >> 5. ORTSBUCHSTABE E >> 5.10 Einsingen, Ulm UL",
+      "apd_reference_number":["Abt. Staatsarchiv Ludwigsburg, F 901 Bd 399"],
+      "begin_time":[659994],
+      "digitalisat":"true",
+      "end_time":[683369],
+      "provider_item_id":"labw-2-180141",
+      "title":["Eheregister vom 16.2.1808 - 9.5.1871"]
+    },{
+      "id":"ODLNKN3FOVIOPJ4XNCMSE7MVTYNVJPXY",
+      "apd_context":"Katholische Kirchenbücher: Zweitschriften (Bitte Einführung beachten!) >> 7. ORTSBUCHSTABE G >> 7.8 Gögglingen, Ulm UL",
+      "apd_reference_number":["Abt. Staatsarchiv Ludwigsburg, F 901 Bd 534"],
+      "begin_time":[659994],
+      "digitalisat":"true",
+      "end_time":[678621],
+      "provider_item_id":"labw-2-180319",
+      "title":["a) Eheregister vom 16.1.1808 - 18.1.1876; b) Taufregister vom 20.1.1808 - 31.12.1857; c) Sterberegister vom 14.1.1808 - 20.1.1858"]
+    },{
+      "id":"T4SZRSLM2JPJEVS2QY4TP2DA6BSGCNIZ",
+      "apd_context":"Katholische Kirchenbücher: Zweitschriften (Bitte Einführung beachten!) >> 5. ORTSBUCHSTABE E >> 5.7 Eggingen, Ulm UL",
+      "apd_reference_number":["Abt. Staatsarchiv Ludwigsburg, F 901 Bd 383"],
+      "begin_time":[659994],
+      "digitalisat":"true",
+      "end_time":[678256],
+      "provider_item_id":"labw-2-180122",
+      "title":["Taufregister vom 11.2.1808 - 17.1.1857"]
+    },{
+      "id":"ZFJDPBB3XJT7AKGVPSNFQI2WMF7TED7S",
+      "apd_context":"Katholische Kirchenbücher: Zweitschriften (Bitte Einführung beachten!) >> 5. ORTSBUCHSTABE E >> 5.7 Eggingen, Ulm UL",
+      "apd_reference_number":["Abt. Staatsarchiv Ludwigsburg, F 901 Bd 386"],
+      "begin_time":[659994],
+      "digitalisat":"true",
+      "end_time":[680813],
+      "provider_item_id":"labw-2-180123",
+      "title":["Totenregister vom 9.1.1808 - 24.12.1864"]
+    },{
+      "id":"ZZHL44DP4SKT2GK6MN374QGCCCFVFI2L",
+      "apd_context":"Katholische Kirchenbücher: Zweitschriften (Bitte Einführung beachten!) >> 4. ORTSBUCHSTABE D >> 4.24 Donaustetten, Ulm UL",
+      "apd_reference_number":["Abt. Staatsarchiv Ludwigsburg, F 901 Bd 326"],
+      "begin_time":[651229],
+      "digitalisat":"true",
+      "end_time":[684830],
+      "provider_item_id":"labw-2-180044",
+      "title":["Trauungsregister vom 16.12.1784 - 13.5.1875"]
+    },{
+      "id":"AEJE4CNBDQHAGEXA6TMC2OI3GUAZK3EC",
+      "apd_context":"Katholische Kirchenbücher: Zweitschriften (Bitte Einführung beachten!) >> 20. ORTSBUCHSTABE U >> 20.2 Ulm (St. Michael zu den Wengen)",
+      "apd_reference_number":["Abt. Staatsarchiv Ludwigsburg, F 901 Bd 1514"],
+      "begin_time":[673143],
+      "digitalisat":"true",
+      "end_time":[684830],
+      "provider_item_id":"labw-2-181571",
+      "title":["Eheregister vom 8.1.1844 - 19.12.1875"]
+    },{
+      "id":"FNQ7GXOIZB3DEWYCYU5TEZCSYOU6DCEA",
+      "apd_context":"Katholische Kirchenbücher: Zweitschriften (Bitte Einführung beachten!) >> 20. ORTSBUCHSTABE U >> 20.2 Ulm (St. Michael zu den Wengen)",
+      "apd_reference_number":["Abt. Staatsarchiv Ludwigsburg, F 901 Bd 1511"],
+      "begin_time":[674970],
+      "digitalisat":"true",
+      "end_time":[681908],
+      "provider_item_id":"labw-2-181572",
+      "title":["Taufregister vom 17.5.1849 - 17.5.1867"]
+    },{
+      "id":"2ZE2RK52WBSFZYRA5GAWKVGSWVPEGZHF",
+      "apd_context":"Katholische Kirchenbücher: Zweitschriften (Bitte Einführung beachten!) >> 20. ORTSBUCHSTABE U >> 20.4 Ulm-Wiblingen mit Filialen Ober- und Unterweiler",
+      "apd_reference_number":["Abt. Staatsarchiv Ludwigsburg, F 901 Bd 1521"],
+      "begin_time":[670221],
+      "digitalisat":"true",
+      "end_time":[683735],
+      "provider_item_id":"labw-2-181580",
+      "title":["Taufregister vom 7.8.1836 - 19.9.1872"]
+    },{
+      "id":"YLHUT3ZOEJM5XX2SNPOHO6MXDTXS4SUS",
+      "apd_context":"Katholische Kirchenbücher: Zweitschriften (Bitte Einführung beachten!) >> 20. ORTSBUCHSTABE U >> 20.4 Ulm-Wiblingen mit Filialen Ober- und Unterweiler",
+      "apd_reference_number":["Abt. Staatsarchiv Ludwigsburg, F 901 Bd 1523"],
+      "begin_time":[672413],
+      "digitalisat":"true",
+      "end_time":[683735],
+      "provider_item_id":"labw-2-181581",
+      "title":["Totenregister vom 19.3.1842 - 6.10.1872"]
+    },{
+      "id":"F5RQA2ZZCLYTQFRA5XNPVCWR7TYKTARE",
+      "apd_context":"Katholische Kirchenbücher: Zweitschriften (Bitte Einführung beachten!) >> 8. ORTSBUCHSTABE H >> 8.6 Harthausen, Ulm UL, mit Filialen Ermingen, Allewind und Schaffelkingen",
+      "apd_reference_number":["Abt. Staatsarchiv Ludwigsburg, F 901 Bd 609"],
+      "begin_time":[661090],
+      "digitalisat":"true",
+      "end_time":[685196],
+      "provider_item_id":"labw-2-180415",
+      "title":["a) Butzental: Taufregister vom 14.5.1811 - 9.1.1876; b) Schaffelkingen: Taufregister vom 16.1.1811 - 27.4.1864"]
+    },{
+      "id":"H3ZDZQK5BQ52ZLPMKKHTQ5BZIFGVNH72",
+      "apd_context":"Katholische Kirchenbücher: Zweitschriften (Bitte Einführung beachten!) >> 8. ORTSBUCHSTABE H >> 8.6 Harthausen, Ulm UL, mit Filialen Ermingen, Allewind und Schaffelkingen",
+      "apd_reference_number":["Abt. Staatsarchiv Ludwigsburg, F 901 Bd 606"],
+      "begin_time":[659994],
+      "digitalisat":"true",
+      "end_time":[684830],
+      "provider_item_id":"labw-2-180413",
+      "title":["Harthausen: Taufregister vom 11.4.1808 - 8.2.1875"]
+    },{
+      "id":"JEIJ72RGETZLM3I2QAPKHSCZQ3GNY7RY",
+      "apd_context":"Katholische Kirchenbücher: Zweitschriften (Bitte Einführung beachten!) >> 8. ORTSBUCHSTABE H >> 8.6 Harthausen, Ulm UL, mit Filialen Ermingen, Allewind und Schaffelkingen",
+      "apd_reference_number":["Abt. Staatsarchiv Ludwigsburg, F 901 Bd 610"],
+      "begin_time":[663647],
+      "digitalisat":"true",
+      "end_time":[685196],
+      "provider_item_id":"labw-2-180416",
+      "title":["Harthausen, Butzental und Schaffelkingen: a) Trauungsregister vom 5.5.1818 - 27.4.1874; b) Sterberegister vom 6.8.1811 - 25.2.1876"]
+    },{
+      "id":"PKL76JV76G5GWNEGMGK72ZPTGVBL7SMM",
+      "apd_context":"Katholische Kirchenbücher: Zweitschriften (Bitte Einführung beachten!) >> 8. ORTSBUCHSTABE H >> 8.6 Harthausen, Ulm UL, mit Filialen Ermingen, Allewind und Schaffelkingen",
+      "apd_reference_number":["Abt. Staatsarchiv Ludwigsburg, F 901 Bd 608"],
+      "begin_time":[659994],
+      "digitalisat":"true",
+      "end_time":[685196],
+      "provider_item_id":"labw-2-180414",
+      "title":["Ermingen, Allewind und Schaffelkingen: Totenregister vom 12.2.1808 - 23.1.1876"]
+    },{
+      "id":"XO4327TNZENDO7JVHWEQZESEZ675X4N6",
+      "apd_context":"Katholische Kirchenbücher: Zweitschriften (Bitte Einführung beachten!) >> 8. ORTSBUCHSTABE H >> 8.6 Harthausen, Ulm UL, mit Filialen Ermingen, Allewind und Schaffelkingen",
+      "apd_reference_number":["Abt. Staatsarchiv Ludwigsburg, F 901 Bd 607"],
+      "begin_time":[659994],
+      "digitalisat":"true",
+      "end_time":[684100],
+      "provider_item_id":"labw-2-180412",
+      "title":["Ermingen, Allewind und Schaffelkingen: Trauungsregister vom 7.9.1808 - 23.11.1873"]
+    },{
+      "id":"ANUXS6OYZY4P4NXOH3WGNXRA5RLXIODQ",
+      "apd_context":"Filme von Personenstandsregistern jüdischer Gemeinden in Württemberg, Baden und Hohenzollern >> Anfangsbuchstabe U",
+      "apd_reference_number":["Abt. Hauptstaatsarchiv Stuttgart, J 386 Bü 583","RSA-Nr.: 3072","Mikrofilm-Nr.: HF 272, 279"],
+      "begin_time":[657073],
+      "digitalisat":"true",
+      "end_time":[689579],
+      "provider_item_id":"labw-1-446805",
+      "title":["Ulm"]
+    },{
+      "id":"BL3H2GJEA5Z3CXY4D4ZR3WGA7I7OKG5H",
+      "apd_context":"Filme von Personenstandsregistern jüdischer Gemeinden in Württemberg, Baden und Hohenzollern >> Anfangsbuchstabe U",
+      "apd_reference_number":["Abt. Hauptstaatsarchiv Stuttgart, J 386 Bü 596","RSA-Nr.: 3070","Mikrofilm-Nr.: HF 271, 279"],
+      "begin_time":[659994],
+      "digitalisat":"true",
+      "end_time":[689579],
+      "provider_item_id":"labw-1-446818",
+      "title":["Ulm"]
+    },{
+      "id":"CJIJVJKF5TARZMP6XIUW6QQ6IKBSOSBT",
+      "apd_context":"Filme von Personenstandsregistern jüdischer Gemeinden in Württemberg, Baden und Hohenzollern >> Anfangsbuchstabe U",
+      "apd_reference_number":["Abt. Hauptstaatsarchiv Stuttgart, J 386 Bü 595","RSA-Nr.: 3081","Mikrofilm-Nr.: HF 277, 279"],
+      "begin_time":[657073],
+      "digitalisat":"true",
+      "end_time":[689579],
+      "provider_item_id":"labw-1-446817",
+      "title":["Ulm"]
+    },{
+      "id":"DXVUG3CUD4OQD5SHVNKWUNXEJDU67VXW",
+      "apd_context":"Filme von Personenstandsregistern jüdischer Gemeinden in Württemberg, Baden und Hohenzollern >> Anfangsbuchstabe U",
+      "apd_reference_number":["Abt. Hauptstaatsarchiv Stuttgart, J 386 Bü 587","RSA-Nr.: 3076","Mikrofilm-Nr.: HF 273, 279"],
+      "begin_time":[664012],
+      "digitalisat":"true",
+      "end_time":[689213],
+      "provider_item_id":"labw-1-446809",
+      "title":["Ulm"]
+    },{
+      "id":"SQA6SJKEJJXFKDTA7T3KKZHREP6PBZHJ",
+      "apd_context":"Filme von Personenstandsregistern jüdischer Gemeinden in Württemberg, Baden und Hohenzollern >> Anfangsbuchstabe U",
+      "apd_reference_number":["Abt. Hauptstaatsarchiv Stuttgart, J 386 Bü 584","RSA-Nr.: 3073","Mikrofilm-Nr.: HF 272"],
+      "begin_time":[657073],
+      "digitalisat":"true",
+      "end_time":[690309],
+      "provider_item_id":"labw-1-446806",
+      "title":["Ulm"]
+    },{
+      "id":"XDSPBTG2F6BQBOT6FSP4AFNACNFALNRB",
+      "apd_context":"Filme von Personenstandsregistern jüdischer Gemeinden in Württemberg, Baden und Hohenzollern >> Anfangsbuchstabe U",
+      "apd_reference_number":["Abt. Hauptstaatsarchiv Stuttgart, J 386 Bü 589","RSA-Nr.: 3078","Mikrofilm-Nr.: HF 274, 279"],
+      "begin_time":[657073],
+      "digitalisat":"true",
+      "end_time":[703457],
+      "provider_item_id":"labw-1-446811",
+      "title":["Ulm"]
+    },{
+      "id":"YD4FFT7KK7YMO5KJRUXHHAYNA32ZP5TA",
+      "apd_context":"Filme von Personenstandsregistern jüdischer Gemeinden in Württemberg, Baden und Hohenzollern >> Anfangsbuchstabe U",
+      "apd_reference_number":["Abt. Hauptstaatsarchiv Stuttgart, J 386 Bü 586","RSA-Nr.: 3075","Mikrofilm-Nr.: HF 273"],
+      "begin_time":[664012],
+      "digitalisat":"true",
+      "end_time":[691770],
+      "provider_item_id":"labw-1-446808",
+      "title":["Ulm"]
+    },{
+      "id":"B63UBT4BTAX7OYUVLOM7G6G35L2QTI5B",
+      "apd_context":"Standesbücher >> Amtsgerichtsbezirk Bühl",
+      "apd_reference_number":["Abt. Generallandesarchiv Karlsruhe, 390 Nr. 924"],
+      "begin_time":[660725],
+      "digitalisat":"true",
+      "end_time":[683004],
+      "provider_item_id":"labw-4-1120184",
+      "title":["Ulm, katholische Gemeinde: Heiratsbuch 1810-1870"]
+    },{
+      "id":"I55PGRGUOIYXDBOITSB47J4TFZ3Y5WJ2",
+      "apd_context":"Standesbücher >> Amtsgerichtsbezirk Bühl",
+      "apd_reference_number":["Abt. Generallandesarchiv Karlsruhe, 390 Nr. 925"],
+      "begin_time":[660725],
+      "digitalisat":"true",
+      "end_time":[683004],
+      "provider_item_id":"labw-4-1120185",
+      "title":["Ulm, katholische Gemeinde: Sterbebuch 1810-1870"]
+    },{
+      "id":"YXRJQIZS6GGF2QG4TL7FUNZ5XQ6RZEJU",
+      "apd_context":"Standesbücher >> Amtsgerichtsbezirk Bühl",
+      "apd_reference_number":["Abt. Generallandesarchiv Karlsruhe, 390 Nr. 923"],
+      "begin_time":[660725],
+      "digitalisat":"true",
+      "end_time":[683004],
+      "provider_item_id":"labw-4-1120129",
+      "title":["Ulm, katholische Gemeinde: Geburtenbuch 1810-1870"]
+    },{
+      "id":"OJQV3KGCZKW2Q3RD5RT2BM7XH3AYNG5Q",
+      "apd_context":"Standesbücher >> Oberkirch; Amtsgericht",
+      "apd_reference_number":["Abt. Staatsarchiv Freiburg, L 10 Nr. 3639"],
+      "begin_time":[674604],
+      "digitalisat":"true",
+      "end_time":[682639],
+      "provider_item_id":"labw-5-489912",
+      "title":["Ulm, Renchen OG; Katholische Gemeinde: Standesbuch 1848-1869"]
+    }]
+  }
+}

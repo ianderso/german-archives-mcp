@@ -14,27 +14,33 @@ only.
 ## Scope
 
 In scope: this server — the requests it makes, the files it writes (its cache
-and the images `labw_image` saves), and anything a tool argument or a site's
-response can make it do.
+and the images `labw_image` and `nrw_image` save), and anything a tool
+argument or a site's response can make it do.
 
 Out of scope: the Deutsche Digitale Bibliothek, the Landesarchiv
-Baden-Württemberg and the archives whose finding aids they publish, which
-this project does not operate. Report problems with those to them.
+Baden-Württemberg, the Landesarchiv Nordrhein-Westfalen, the Archive in NRW
+portal and the archives whose finding aids they publish, which this project
+does not operate. Report problems with those to them.
 
 ## The security model, briefly
 
-- **No credentials.** The DDB's version 2 API and the Landesarchiv's online
-  finding aids need none. The server holds no key and sends none.
+- **No credentials.** The DDB's version 2 API, the Landesarchiv
+  Baden-Württemberg's online finding aids and the Archive in NRW portal need
+  none. The server holds no key and sends none.
 - **Tool arguments are treated as the attacker's.** A model writes them, and
   the model reads finding-aid text, image links and web pages that may carry
   injected instructions. Everything below is about what such an argument can
   make the server do.
-- **A fixed allowlist of two hosts.** `api.deutsche-digitale-bibliothek.de`
-  and `www2.landesarchiv-bw.de`. A request to any other host, or over plain
-  http, is refused before it is resolved, so not even a DNS query carries a
-  name an attacker chose. That holds for addresses taken from responses: the
-  image links in a DDB record are returned as data and never requested, and
-  the Landesarchiv's permalink redirects are read, never followed.
+- **A fixed allowlist of four hosts.** `api.deutsche-digitale-bibliothek.de`,
+  `www2.landesarchiv-bw.de`, `www.archive.nrw.de` and
+  `www.landesarchiv-nrw.de`. A request to any other host, or over plain http,
+  is refused before it is resolved, so not even a DNS query carries a name an
+  attacker chose. That holds for addresses taken from responses: the image
+  links in a DDB record and the viewer links in an NRW hit are returned as
+  data and never requested, an NRW METS file's image addresses are fetched
+  only if they are JPEGs on the Landesarchiv NRW's server, and the
+  Landesarchiv Baden-Württemberg's permalink redirects are read, never
+  followed.
 - **Public addresses only, checked at connect time.** The transport resolves
   each host itself, refuses the connection if any address is private,
   loopback, link-local, shared (CGNAT), multicast, reserved, unspecified or
@@ -44,26 +50,30 @@ this project does not operate. Report problems with those to them.
   gains nothing. Proxy settings in the environment are not used.
 - **Redirects are followed by hand,** and only within one host. A redirect
   anywhere else is reported to the caller and not followed.
-- **Bounded answers.** A JSON or HTML answer over 10 MB or an image over 60 MB
-  is refused as it streams in, whether or not its size was declared. A
+- **Bounded answers.** A JSON, HTML or XML answer over 10 MB or an image over
+  60 MB is refused as it streams in, whether or not its size was declared. A
   search asks for at most 50 hits.
 - **Read-only calls.** The client sends GET requests to the DDB's search and
-  item routes and to the Landesarchiv's permalink, image-list and image
-  scripts. The DDB's account, favourites and saved-search routes are never
-  called.
+  item routes, to the Landesarchiv Baden-Württemberg's permalink, image-list
+  and image scripts, to the Archive in NRW portal's search service, and for
+  METS files and page images on the Landesarchiv NRW's server. The DDB's
+  account, favourites and saved-search routes are never called.
 - **Arguments are validated** before they are placed in a request. Search
   words have Solr's syntax characters (`\ : / [ ] { } ^ ~ !`) escaped, so no
   field, range, local parameter or regular expression reaches the index; a
   holder's name is escaped character by character as a literal; a place must
   be letters, spaces and a few punctuation marks; a DDB id must be 32
   base32 characters; a signature or permalink must match a narrow pattern;
-  and an image file name must come from the archive's own list and have the
+  an image file name must come from the archive's own list and have the
   archive's file-name shape, so no path can be smuggled into the image
-  script's parameter.
+  script's parameter; and an NRW item must be a METS address on the
+  Landesarchiv NRW's server (or a DFG-Viewer link holding one), with no `..`
+  and no query.
 - **Local writes.** The cache lives under `GERMAN_ARCHIVES_CACHE_DIR`, in
   files named by a hash of the request address and written atomically.
-  `labw_image` writes only the absolute path it is given, and only if that
-  path, with its links resolved, ends in `.jpg` or `.jpeg`, has no hidden
+  `labw_image` and `nrw_image` write only the absolute path they are given,
+  and only if that path, with its links resolved, ends in `.jpg` or `.jpeg`,
+  has no hidden
   component, is not under `~/Library`, and lies inside
   `GERMAN_ARCHIVES_DOWNLOAD_DIR` when that is set (the operator's folder may
   itself be hidden or under `~/Library`; what a model adds below it may not).

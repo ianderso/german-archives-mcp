@@ -21,6 +21,16 @@ from .conftest import fixture
         ("390 Nr. 1875", ("390", 1875)),
         ("GLA 390 Nr. 1875", ("390", 1875)),
         ("Abt. Generallandesarchiv Karlsruhe, 390 Nr. 1875", ("390", 1875)),
+        ("F 901 Bd 1511", ("F 901", 1511)),
+        ("StAL F 901 Bd. 1511", ("F 901", 1511)),
+        ("Abt. Staatsarchiv Ludwigsburg, F 901 Bd 1511", ("F 901", 1511)),
+        ("Wü 110 T 1 Nr. 4566", ("Wü 110 T 1", 4566)),
+        ("Wue 110 T 1 Nr 4566", ("Wü 110 T 1", 4566)),
+        ("StAS Wü 110 T 1 Nr. 4566", ("Wü 110 T 1", 4566)),
+        ("J 386 Bü 583", ("J 386", 583)),
+        ("HStAS J 386 Bü 583", ("J 386", 583)),
+        ("Dep. 1 T 37 Nr. 4", ("Dep. 1 T 37", 4)),
+        ("Staatsarchiv Sigmaringen, Dep. 1 T 44 Nr. 3", ("Dep. 1 T 44", 3)),
     ],
 )
 def test_signatures_are_read_in_their_usual_forms(text, expected):
@@ -35,6 +45,10 @@ def test_signatures_are_read_in_their_usual_forms(text, expected):
         "B 10 Nr. 5",
         "Generallandesarchiv Karlsruhe, L 10 Nr. 510",
         "Staatsarchiv Freiburg, 390 Nr. 1",
+        "StAS F 901 Bd 1",
+        "Staatsarchiv Ludwigsburg, J 386 Bü 1",
+        "F 9010 Bd 1",
+        "Dep. 1 T 3 Nr. 1",
         "L 10 Nr. 510; rm -rf",
         "",
     ],
@@ -187,6 +201,107 @@ def test_the_citation_names_archive_signature_image_and_permalink():
     assert cite["permalink"] == "https://www.landesarchiv-bw.de/plink/?f=5-475861-380"
 
 
-def test_the_two_fonds_are_known_with_their_ids():
+def test_the_baden_fonds_are_known_with_their_ids():
     assert labw.FONDS["L 10"].reference == "Abt. Staatsarchiv Freiburg, L 10"
     assert (labw.FONDS["390"].olf_bestand, labw.FONDS["390"].scopeid_besta) == (12390, 5405)
+
+
+def test_every_fonds_is_known_with_its_ids_and_unit():
+    assert list(labw.FONDS) == [
+        "L 10",
+        "390",
+        "F 901",
+        "Wü 110 T 1",
+        "J 386",
+        "Dep. 1 T 37",
+        "Dep. 1 T 44",
+    ]
+    f901 = labw.FONDS["F 901"]
+    assert f901.signature(1511) == "Abt. Staatsarchiv Ludwigsburg, F 901 Bd 1511"
+    assert (f901.olf_bestand, f901.scopeid_besta) == (18750, 3493)
+    assert labw.FONDS["J 386"].signature(583) == "Abt. Hauptstaatsarchiv Stuttgart, J 386 Bü 583"
+    assert labw.FONDS["Wü 110 T 1"].place_in == "context"
+
+
+def test_a_signature_is_matched_to_its_fonds_and_not_a_longer_one():
+    assert labw.fonds_of("Abt. Staatsarchiv Ludwigsburg, F 901 Bd 1511").key == "F 901"
+    assert labw.fonds_of(
+        "Abt. Staatsarchiv Sigmaringen, Wü 110 T 1 {1754: nicht vorhanden}"
+    ).key == ("Wü 110 T 1")
+    assert labw.fonds_of("Abt. Staatsarchiv Freiburg, L 100 Nr. 1") is None
+    assert labw.fonds_of("Abt. Hauptstaatsarchiv Stuttgart, J 389") is None
+
+
+@pytest.mark.parametrize(
+    "olf_id,bestand,signature,department,fonds,count",
+    [
+        (380914, 18750, "F 901 Bd 1511", "Staatsarchiv Ludwigsburg", "F 901", 290),
+        (9165727, 54526, "Wü 110 T 1 Nr. 4566", "Staatsarchiv Sigmaringen", "Wü 110 T 1", 294),
+        (1172270, 5632, "J 386 Bü 583", "Hauptstaatsarchiv Stuttgart", "J 386", 137),
+    ],
+)
+def test_the_image_list_of_every_fonds_is_read(
+    olf_id, bestand, signature, department, fonds, count
+):
+    book = labw.parse_thumbnails(
+        fixture(f"labw_thumbnails_{olf_id}.html"), olf_bestand=bestand, olf_id=olf_id
+    )
+    assert book.signature == signature and book.department == department
+    assert book.fonds == fonds and len(book.files) == count
+    assert labw.fonds_of_book(book) is labw.FONDS[fonds]
+    assert book.scopeid_besta == labw.FONDS[fonds].scopeid_besta
+
+
+def test_a_fonds_title_with_markup_in_the_page_title_is_read():
+    book = labw.parse_thumbnails(
+        fixture("labw_thumbnails_380914.html"), olf_bestand=18750, olf_id=380914
+    )
+    assert book.fonds_title.startswith("Katholische Kirchenbücher: Zweitschriften")
+
+
+def test_a_books_place_is_its_heading_wherever_the_archive_writes_it():
+    wue = labw.FONDS["Wü 110 T 1"]
+    context = "Evangelische Pfarrämter ... >> U >> Übr - Unl >> Ulm, Münster (Ulm UL)"
+    assert labw.place_heading("Taufregister XII", context, wue) == "Ulm, Münster (Ulm UL)"
+    f901 = labw.FONDS["F 901"]
+    context = "Katholische Kirchenbücher ... >> 20. ORTSBUCHSTABE U >> 20.2 Ulm (St. Michael)"
+    assert labw.place_heading("Taufregister", context, f901) == "Ulm (St. Michael)"
+    civil = labw.FONDS["Dep. 1 T 37"]
+    assert labw.place_heading("Geburtenregister Sigmaringen", "", civil) == "Sigmaringen"
+    assert (
+        labw.place_heading("Namensverzeichnis zum Sterberegister Sigmaringen", "", civil)
+        == "Sigmaringen"
+    )
+    assert labw.place_heading("Breisach am Rhein", "x", labw.FONDS["J 386"]) == "Breisach am Rhein"
+
+
+def test_registers_are_read_from_the_title():
+    assert labw.registers_of("Taufregister vom 17.5.1849 - 17.5.1867") == ["baptisms"]
+    assert labw.registers_of("a) Eheregister vom 1808; b) Taufregister") == [
+        "baptisms",
+        "marriages",
+    ]
+    assert labw.registers_of("Trauungsregister vom 1784") == ["marriages"]
+    assert labw.registers_of("Sterberegister Sigmaringen") == ["deaths"]
+    assert labw.registers_of("Totenregister XI Register (A-K)") == ["deaths"]
+    assert labw.registers_of("Familienregister I") == ["family"]
+    assert labw.registers_of("Breisach am Rhein FR; Katholische Gemeinde") == []
+
+
+def test_a_wuerttemberg_book_row_carries_fonds_place_and_confession():
+    docs = fixture("ddb_standesbuch_ulm_1850.json")["response"]["docs"]
+    doc = next(d for d in docs if d["apd_reference_number"][0].endswith("F 901 Bd 1511"))
+    row = labw.book_row(doc, "Ulm")
+    assert row["fonds"] == "F 901" and row["signature"] == "F 901 Bd 1511"
+    assert row["confessions"] == ["catholic"] and row["registers"] == ["baptisms"]
+    assert row["place"] == "Ulm (St. Michael zu den Wengen)"
+    assert row["permalink"] == "https://www.landesarchiv-bw.de/plink/?f=2-181572"
+    assert "district_court" not in row
+
+
+def test_the_book_query_searches_headings_only_where_the_place_is_written_there():
+    assert labw.books_query("Ulm", ["L 10"]) == 'title:"Ulm"'
+    query = labw.books_query("Ulm")
+    assert query.startswith('title:"Ulm" OR (apd_reference_number:(')
+    assert '"Staatsarchiv Ludwigsburg, F 901"' in query and 'apd_context:"Ulm"' in query
+    assert "L 10" not in query

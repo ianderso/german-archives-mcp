@@ -8,6 +8,50 @@ adding one is a minor release. Before 1.0, a minor release may do either.
 
 ## [Unreleased]
 
+## [0.2.0] — 2026-10-11
+
+Every register fonds the Landesarchiv Baden-Württemberg has online, and the
+Landesarchiv Nordrhein-Westfalen's civil registers.
+
+### Added
+
+- `labw_standesbuch` and `labw_image` cover every fonds of vital registers in
+  the Landesarchiv Baden-Württemberg's online finding aids, not only Baden's
+  Standesbücher: F 901 (Staatsarchiv Ludwigsburg, Württemberg's Catholic
+  church-book duplicates, 1808-1875), Wü 110 T 1 (Staatsarchiv Sigmaringen,
+  the Protestant duplicates of Württemberg and Hohenzollern, 1808-1875),
+  J 386 (Hauptstaatsarchiv Stuttgart, the films of the Jewish communities'
+  registers) and Dep. 1 T 37 and T 44 (Staatsarchiv Sigmaringen, the civil
+  registers of Sigmaringen and Sigmaringen-Laiz to 1899), beside L 10 and
+  390.
+- `labw_standesbuch` takes `fonds` to search one of them, finds Württemberg
+  volumes by the parish heading above them, and returns each book's `fonds`,
+  `place`, `registers` and `has_images`. Only books with images are counted.
+- `labw_image` takes the signatures of every fonds (`F 901 Bd 1511`,
+  `Wü 110 T 1 Nr. 4566`, `J 386 Bü 583`, `Dep. 1 T 37 Nr. 4`), with or
+  without the department.
+- `nrw_search`: the Archive in NRW portal's keyless search, with filters for
+  the Landesarchiv NRW's departments, years and digitised units; each hit
+  names the archive, signature, dates, fonds and permalink, and for a
+  digitised unit its METS address.
+- `nrw_image`: one page of a Landesarchiv NRW unit, by its METS address, a
+  DFG-Viewer link or the path below `/digitalisate/`, saved as a new `.jpg`
+  under the same rules as `labw_image`, cited with the signature, the
+  permalink and the URN.
+- `cache_status` reports the seconds between database searches.
+
+### Changed
+
+- Every host is asked at most once in two seconds (the DDB's API included,
+  which was once a second), and the Archive in NRW portal's searches at most
+  once in ten. `GERMAN_ARCHIVES_MIN_INTERVAL` defaults to 2 and may not be set
+  lower.
+- The allowlist has four hosts: `www.archive.nrw.de` and
+  `www.landesarchiv-nrw.de` join the DDB's API and the Landesarchiv
+  Baden-Württemberg's finding aids.
+- `labw_standesbuch` leaves out fonds and series headings, and lists the
+  place's own books first, then by fonds, place and year.
+
 ## [0.1.0] — 2026-10-11
 
 First release.

@@ -26,7 +26,7 @@ def clean_environment(monkeypatch, tmp_path):
 
 def test_nothing_is_required():
     cfg = load_config()
-    assert cfg.timeout == 30.0 and cfg.min_interval == 1.0 and cfg.contact == ""
+    assert cfg.timeout == 30.0 and cfg.min_interval == 2.0 and cfg.contact == ""
     assert cfg.cache_dir == Path.home() / ".cache" / "german-archives-mcp"
     assert cfg.download_dir is None
 
@@ -49,8 +49,8 @@ def test_an_unusable_timeout_names_the_variable(monkeypatch, raw):
 
 
 def test_the_interval_has_a_floor(monkeypatch):
-    monkeypatch.setenv("GERMAN_ARCHIVES_MIN_INTERVAL", "0.1")
-    with pytest.raises(ConfigError, match="at least 0.5"):
+    monkeypatch.setenv("GERMAN_ARCHIVES_MIN_INTERVAL", "1.5")
+    with pytest.raises(ConfigError, match="at least 2.0"):
         load_config()
 
 

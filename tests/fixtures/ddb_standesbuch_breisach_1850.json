@@ -1,94 +1,56 @@
 {
- "responseHeader": {
-  "zkConnected": true,
-  "status": 0,
-  "QTime": 2215,
-  "params": {
-   "q": "title:\"Breisach\"",
-   "fl": "id,title,apd_reference_number,apd_context,begin_time,end_time,provider_item_id",
-   "start": "0",
-   "fq": [
-    "provider_fct:Landesarchiv\\ Baden\\-Württemberg",
-    "apd_reference_number:(\"Staatsarchiv Freiburg, L 10\" OR \"Generallandesarchiv Karlsruhe, 390\")",
-    "begin_time:[* TO 675699]",
-    "end_time:[675335 TO *]"
-   ],
-   "rows": "60"
+  "responseHeader":{
+    "zkConnected":true,
+    "status":0,
+    "QTime":982,
+    "params":{
+      "q":"title:\"Breisach\"",
+      "fl":"id,title,apd_reference_number,apd_context,begin_time,end_time,provider_item_id,digitalisat",
+      "start":"0",
+      "fq":["provider_fct:Landesarchiv\\ Baden\\-Württemberg","apd_reference_number:(\"Staatsarchiv Freiburg, L 10\")","-apd_level_of_description:(htype_030 OR htype_031 OR htype_037)","begin_time:[* TO 675699]","end_time:[675335 TO *]"],
+      "rows":"60"
+    }
+  },
+  "response":{
+    "numFound":4,
+    "start":0,
+    "numFoundExact":true,
+    "docs":[{
+      "id":"XQADK4NVH6B2I2MECFYYWTSP5CAG3RGT",
+      "apd_context":"Standesbücher >> Breisach; Amtsgericht",
+      "apd_reference_number":["Abt. Staatsarchiv Freiburg, L 10 Nr. 469"],
+      "begin_time":[674604],
+      "digitalisat":"true",
+      "end_time":[677160],
+      "provider_item_id":"labw-5-475820",
+      "title":["Breisach am Rhein FR; Katholische Gemeinde: Standesbücher 1848-1854 Breisach am Rhein FR; Israelitische Gemeinde: Standesbücher 1848-1854"]
+    },{
+      "id":"2EF3J2O7CMX2HKZ7YX3GRUT3WIWLCAA5",
+      "apd_context":"Standesbücher >> Breisach; Amtsgericht",
+      "apd_reference_number":["Abt. Staatsarchiv Freiburg, L 10 Nr. 510"],
+      "begin_time":[674239],
+      "digitalisat":"true",
+      "end_time":[683004],
+      "provider_item_id":"labw-5-475861",
+      "title":["Niederrimsingen, Breisach am Rhein FR; Katholische Gemeinde: Standesbuch 1847-1870"]
+    },{
+      "id":"PHVZHT3NQY4CX6C4PCUXLVIQX5M5HHOQ",
+      "apd_context":"Standesbücher >> Breisach; Amtsgericht",
+      "apd_reference_number":["Abt. Staatsarchiv Freiburg, L 10 Nr. 517"],
+      "begin_time":[674604],
+      "digitalisat":"true",
+      "end_time":[683004],
+      "provider_item_id":"labw-5-475868",
+      "title":["Oberrimsingen, Breisach am Rhein FR; Katholische Gemeinde: Standesbuch 1848-1870"]
+    },{
+      "id":"VB4WJO4442WWCA3A2IUPYOWKGVV6VXRZ",
+      "apd_context":"Standesbücher >> Breisach; Amtsgericht",
+      "apd_reference_number":["Abt. Staatsarchiv Freiburg, L 10 Nr. 481"],
+      "begin_time":[671317],
+      "digitalisat":"true",
+      "end_time":[677525],
+      "provider_item_id":"labw-5-475832",
+      "title":["Gündlingen, Breisach am Rhein FR; Katholische Gemeinde: Standesbuch 1839-1855"]
+    }]
   }
- },
- "response": {
-  "numFound": 4,
-  "start": 0,
-  "numFoundExact": true,
-  "docs": [
-   {
-    "id": "XQADK4NVH6B2I2MECFYYWTSP5CAG3RGT",
-    "apd_context": "Standesbücher >> Breisach; Amtsgericht",
-    "apd_reference_number": [
-     "Abt. Staatsarchiv Freiburg, L 10 Nr. 469"
-    ],
-    "begin_time": [
-     674604
-    ],
-    "end_time": [
-     677160
-    ],
-    "provider_item_id": "labw-5-475820",
-    "title": [
-     "Breisach am Rhein FR; Katholische Gemeinde: Standesbücher 1848-1854 Breisach am Rhein FR; Israelitische Gemeinde: Standesbücher 1848-1854"
-    ]
-   },
-   {
-    "id": "2EF3J2O7CMX2HKZ7YX3GRUT3WIWLCAA5",
-    "apd_context": "Standesbücher >> Breisach; Amtsgericht",
-    "apd_reference_number": [
-     "Abt. Staatsarchiv Freiburg, L 10 Nr. 510"
-    ],
-    "begin_time": [
-     674239
-    ],
-    "end_time": [
-     683004
-    ],
-    "provider_item_id": "labw-5-475861",
-    "title": [
-     "Niederrimsingen, Breisach am Rhein FR; Katholische Gemeinde: Standesbuch 1847-1870"
-    ]
-   },
-   {
-    "id": "PHVZHT3NQY4CX6C4PCUXLVIQX5M5HHOQ",
-    "apd_context": "Standesbücher >> Breisach; Amtsgericht",
-    "apd_reference_number": [
-     "Abt. Staatsarchiv Freiburg, L 10 Nr. 517"
-    ],
-    "begin_time": [
-     674604
-    ],
-    "end_time": [
-     683004
-    ],
-    "provider_item_id": "labw-5-475868",
-    "title": [
-     "Oberrimsingen, Breisach am Rhein FR; Katholische Gemeinde: Standesbuch 1848-1870"
-    ]
-   },
-   {
-    "id": "VB4WJO4442WWCA3A2IUPYOWKGVV6VXRZ",
-    "apd_context": "Standesbücher >> Breisach; Amtsgericht",
-    "apd_reference_number": [
-     "Abt. Staatsarchiv Freiburg, L 10 Nr. 481"
-    ],
-    "begin_time": [
-     671317
-    ],
-    "end_time": [
-     677525
-    ],
-    "provider_item_id": "labw-5-475832",
-    "title": [
-     "Gündlingen, Breisach am Rhein FR; Katholische Gemeinde: Standesbuch 1839-1855"
-    ]
-   }
-  ]
- }
 }

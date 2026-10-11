@@ -1,0 +1,27 @@
+{
+  "responseHeader":{
+    "zkConnected":true,
+    "status":0,
+    "QTime":161,
+    "params":{
+      "q":"apd_reference_number:\"Abt. Staatsarchiv Ludwigsburg, F 901 Bd 1511\"",
+      "fl":"id,title,apd_reference_number,begin_time,end_time,provider_item_id",
+      "start":"0",
+      "fq":"provider_fct:Landesarchiv\\ Baden\\-Württemberg",
+      "rows":"5"
+    }
+  },
+  "response":{
+    "numFound":1,
+    "start":0,
+    "numFoundExact":true,
+    "docs":[{
+      "id":"FNQ7GXOIZB3DEWYCYU5TEZCSYOU6DCEA",
+      "apd_reference_number":["Abt. Staatsarchiv Ludwigsburg, F 901 Bd 1511"],
+      "begin_time":[674970],
+      "end_time":[681908],
+      "provider_item_id":"labw-2-181572",
+      "title":["Taufregister vom 17.5.1849 - 17.5.1867"]
+    }]
+  }
+}

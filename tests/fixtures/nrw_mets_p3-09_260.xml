@@ -1,0 +1,276 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<mets:mets xmlns:mets="http://www.loc.gov/METS/" xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd http://www.w3.org/1999/xlink http://www.loc.gov/standards/xlink/xlink.xsd http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+  <mets:dmdSec ID="dmd37245">
+    <mets:mdWrap MDTYPE="MODS">
+      <mets:xmlData>
+        <mods:mods>
+          <mods:titleInfo>
+            <mods:title>Abteilung Ostwestfalen-Lippe, P 3 / 9 (Standesämter Landkreis Lemgo), Nr. 260</mods:title>
+          </mods:titleInfo>
+          <mods:identifier type="VERA dockey">Vz      4f087f7d-4aba-4b88-8558-434bd11d9c87</mods:identifier>
+          <mods:identifier type="urn">urn:nbn:de:danrw:de2191-4f087f7d-4aba-4b88-8558-434bd11d9c875</mods:identifier>
+          <mods:relatedItem>
+            <mods:identifier>Best    1373c77e-0f5b-4d06-ac2f-4542b02cd729</mods:identifier>
+          </mods:relatedItem>
+          <mods:accessCondition type="use and reproduction" href="https://creativecommons.org/licenses/by-sa/4.0/deed.de" displayLabel="CC-BY-SA-Lizenz">CC-BY-SA - https://www.landesarchiv-nrw.de/digitalisate/LAV_NRW_Nutzungsbedingungen_Digitalisate.pdf</mods:accessCondition>
+        </mods:mods>
+      </mets:xmlData>
+    </mets:mdWrap>
+  </mets:dmdSec>
+  <mets:amdSec ID="amd37245">
+    <mets:rightsMD ID="rights37245">
+      <mets:mdWrap MDTYPE="OTHER" MIMETYPE="text/xml" OTHERMDTYPE="DVRIGHTS">
+        <mets:xmlData>
+          <dv:rights xmlns:dv="http://dfg-viewer.de/">
+            <dv:owner>Landesarchiv NRW</dv:owner>
+            <dv:ownerContact>mailto:poststelle@lav.nrw.de</dv:ownerContact>
+            <dv:ownerLogo>https://www.landesarchiv-nrw.de/images/logo_dfg_viewer.png</dv:ownerLogo>
+            <dv:ownerSiteURL>https://www.archive.nrw.de/landesarchiv-nrw</dv:ownerSiteURL>
+          </dv:rights>
+        </mets:xmlData>
+      </mets:mdWrap>
+    </mets:rightsMD>
+    <mets:digiprovMD ID="digiprov37245">
+      <mets:mdWrap MDTYPE="OTHER" MIMETYPE="text/xml" OTHERMDTYPE="DVLINKS">
+        <mets:xmlData>
+          <dv:links xmlns:dv="http://dfg-viewer.de/">
+            <dv:reference linktext="Verzeichnungseinheit bei archive.nrw.de">https://www.archive.nrw.de/archivsuche?link=VERZEICHUNGSEINHEIT-Vz_4f087f7d-4aba-4b88-8558-434bd11d9c87</dv:reference>
+            <dv:reference linktext="'Familienforschung digital' bei archive.nrw.de">https://www.archive.nrw.de/landesarchiv-nrw/geschichte-erfahren/familienforschung/familienforschung-digital</dv:reference>
+            <dv:reference linktext="Nutzungsbedingungen LAV NRW">https://www.landesarchiv-nrw.de/digitalisate/LAV_NRW_Nutzungsbedingungen_Digitalisate.pdf</dv:reference>
+          </dv:links>
+        </mets:xmlData>
+      </mets:mdWrap>
+    </mets:digiprovMD>
+  </mets:amdSec>
+  <mets:fileSec>
+    <mets:fileGrp ID="mets-fgrp-00001" USE="DEFAULT">
+      <mets:file ID="FID_0000000001_DEF" MIMETYPE="image/jpeg" SIZE="229377">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data01/Abt_Ostwestfalen-Lippe/P3/P3-09/~002/P3-09_00260/OWL_P3-09_00260_00001.jpg" />
+      </mets:file>
+      <mets:file ID="FID_0000000002_DEF" MIMETYPE="image/jpeg" SIZE="609471">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data01/Abt_Ostwestfalen-Lippe/P3/P3-09/~002/P3-09_00260/OWL_P3-09_00260_00002.jpg" />
+      </mets:file>
+      <mets:file ID="FID_0000000003_DEF" MIMETYPE="image/jpeg" SIZE="912657">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data01/Abt_Ostwestfalen-Lippe/P3/P3-09/~002/P3-09_00260/OWL_P3-09_00260_00003.jpg" />
+      </mets:file>
+      <mets:file ID="FID_0000000004_DEF" MIMETYPE="image/jpeg" SIZE="374838">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data01/Abt_Ostwestfalen-Lippe/P3/P3-09/~002/P3-09_00260/OWL_P3-09_00260_00004.jpg" />
+      </mets:file>
+      <mets:file ID="FID_0000000005_DEF" MIMETYPE="image/jpeg" SIZE="353911">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data01/Abt_Ostwestfalen-Lippe/P3/P3-09/~002/P3-09_00260/OWL_P3-09_00260_00005.jpg" />
+      </mets:file>
+      <mets:file ID="FID_0000000006_DEF" MIMETYPE="image/jpeg" SIZE="354474">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data01/Abt_Ostwestfalen-Lippe/P3/P3-09/~002/P3-09_00260/OWL_P3-09_00260_00006.jpg" />
+      </mets:file>
+      <mets:file ID="FID_0000000007_DEF" MIMETYPE="image/jpeg" SIZE="405852">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data01/Abt_Ostwestfalen-Lippe/P3/P3-09/~002/P3-09_00260/OWL_P3-09_00260_00007.jpg" />
+      </mets:file>
+      <mets:file ID="FID_0000000008_DEF" MIMETYPE="image/jpeg" SIZE="355440">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data01/Abt_Ostwestfalen-Lippe/P3/P3-09/~002/P3-09_00260/OWL_P3-09_00260_00008.jpg" />
+      </mets:file>
+      <mets:file ID="FID_0000000009_DEF" MIMETYPE="image/jpeg" SIZE="427195">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data01/Abt_Ostwestfalen-Lippe/P3/P3-09/~002/P3-09_00260/OWL_P3-09_00260_00009.jpg" />
+      </mets:file>
+      <mets:file ID="FID_0000000010_DEF" MIMETYPE="image/jpeg" SIZE="408951">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data01/Abt_Ostwestfalen-Lippe/P3/P3-09/~002/P3-09_00260/OWL_P3-09_00260_00010.jpg" />
+      </mets:file>
+      <mets:file ID="FID_0000000011_DEF" MIMETYPE="image/jpeg" SIZE="401141">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data01/Abt_Ostwestfalen-Lippe/P3/P3-09/~002/P3-09_00260/OWL_P3-09_00260_00011.jpg" />
+      </mets:file>
+      <mets:file ID="FID_0000000012_DEF" MIMETYPE="image/jpeg" SIZE="402409">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data01/Abt_Ostwestfalen-Lippe/P3/P3-09/~002/P3-09_00260/OWL_P3-09_00260_00012.jpg" />
+      </mets:file>
+      <mets:file ID="FID_0000000013_DEF" MIMETYPE="image/jpeg" SIZE="384532">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data01/Abt_Ostwestfalen-Lippe/P3/P3-09/~002/P3-09_00260/OWL_P3-09_00260_00013.jpg" />
+      </mets:file>
+      <mets:file ID="FID_0000000014_DEF" MIMETYPE="image/jpeg" SIZE="290125">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data01/Abt_Ostwestfalen-Lippe/P3/P3-09/~002/P3-09_00260/OWL_P3-09_00260_00014.jpg" />
+      </mets:file>
+    </mets:fileGrp>
+    <mets:fileGrp ID="mets-fgrp-00002" USE="DOWNLOAD">
+      <mets:file ID="FID_0000000015_DWL" MIMETYPE="image/jpeg" SIZE="229377">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data01/Abt_Ostwestfalen-Lippe/P3/P3-09/~002/P3-09_00260/OWL_P3-09_00260_00001.jpg" />
+      </mets:file>
+      <mets:file ID="FID_0000000016_DWL" MIMETYPE="image/jpeg" SIZE="609471">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data01/Abt_Ostwestfalen-Lippe/P3/P3-09/~002/P3-09_00260/OWL_P3-09_00260_00002.jpg" />
+      </mets:file>
+      <mets:file ID="FID_0000000017_DWL" MIMETYPE="image/jpeg" SIZE="912657">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data01/Abt_Ostwestfalen-Lippe/P3/P3-09/~002/P3-09_00260/OWL_P3-09_00260_00003.jpg" />
+      </mets:file>
+      <mets:file ID="FID_0000000018_DWL" MIMETYPE="image/jpeg" SIZE="374838">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data01/Abt_Ostwestfalen-Lippe/P3/P3-09/~002/P3-09_00260/OWL_P3-09_00260_00004.jpg" />
+      </mets:file>
+      <mets:file ID="FID_0000000019_DWL" MIMETYPE="image/jpeg" SIZE="353911">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data01/Abt_Ostwestfalen-Lippe/P3/P3-09/~002/P3-09_00260/OWL_P3-09_00260_00005.jpg" />
+      </mets:file>
+      <mets:file ID="FID_0000000020_DWL" MIMETYPE="image/jpeg" SIZE="354474">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data01/Abt_Ostwestfalen-Lippe/P3/P3-09/~002/P3-09_00260/OWL_P3-09_00260_00006.jpg" />
+      </mets:file>
+      <mets:file ID="FID_0000000021_DWL" MIMETYPE="image/jpeg" SIZE="405852">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data01/Abt_Ostwestfalen-Lippe/P3/P3-09/~002/P3-09_00260/OWL_P3-09_00260_00007.jpg" />
+      </mets:file>
+      <mets:file ID="FID_0000000022_DWL" MIMETYPE="image/jpeg" SIZE="355440">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data01/Abt_Ostwestfalen-Lippe/P3/P3-09/~002/P3-09_00260/OWL_P3-09_00260_00008.jpg" />
+      </mets:file>
+      <mets:file ID="FID_0000000023_DWL" MIMETYPE="image/jpeg" SIZE="427195">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data01/Abt_Ostwestfalen-Lippe/P3/P3-09/~002/P3-09_00260/OWL_P3-09_00260_00009.jpg" />
+      </mets:file>
+      <mets:file ID="FID_0000000024_DWL" MIMETYPE="image/jpeg" SIZE="408951">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data01/Abt_Ostwestfalen-Lippe/P3/P3-09/~002/P3-09_00260/OWL_P3-09_00260_00010.jpg" />
+      </mets:file>
+      <mets:file ID="FID_0000000025_DWL" MIMETYPE="image/jpeg" SIZE="401141">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data01/Abt_Ostwestfalen-Lippe/P3/P3-09/~002/P3-09_00260/OWL_P3-09_00260_00011.jpg" />
+      </mets:file>
+      <mets:file ID="FID_0000000026_DWL" MIMETYPE="image/jpeg" SIZE="402409">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data01/Abt_Ostwestfalen-Lippe/P3/P3-09/~002/P3-09_00260/OWL_P3-09_00260_00012.jpg" />
+      </mets:file>
+      <mets:file ID="FID_0000000027_DWL" MIMETYPE="image/jpeg" SIZE="384532">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data01/Abt_Ostwestfalen-Lippe/P3/P3-09/~002/P3-09_00260/OWL_P3-09_00260_00013.jpg" />
+      </mets:file>
+      <mets:file ID="FID_0000000028_DWL" MIMETYPE="image/jpeg" SIZE="290125">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data01/Abt_Ostwestfalen-Lippe/P3/P3-09/~002/P3-09_00260/OWL_P3-09_00260_00014.jpg" />
+      </mets:file>
+      <mets:file ID="FULLDOWNLOAD" MIMETYPE="application/zip">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/dwl?f=Abt_Ostwestfalen-Lippe/P3/P3-09/~002/P3-09_00260&amp;v=618D84BE720DA27B8F179E03E89F4E96" />
+      </mets:file>
+    </mets:fileGrp>
+    <mets:fileGrp ID="mets-fgrp-00003" USE="THUMBS">
+      <mets:file ID="FID_0000000029_THB" MIMETYPE="image/jpeg" SIZE="9723">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data01/Abt_Ostwestfalen-Lippe/P3/P3-09/~002/P3-09_00260/thumbs/OWL_P3-09_00260_00001.jpg" />
+      </mets:file>
+      <mets:file ID="FID_0000000030_THB" MIMETYPE="image/jpeg" SIZE="8605">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data01/Abt_Ostwestfalen-Lippe/P3/P3-09/~002/P3-09_00260/thumbs/OWL_P3-09_00260_00002.jpg" />
+      </mets:file>
+      <mets:file ID="FID_0000000031_THB" MIMETYPE="image/jpeg" SIZE="10051">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data01/Abt_Ostwestfalen-Lippe/P3/P3-09/~002/P3-09_00260/thumbs/OWL_P3-09_00260_00003.jpg" />
+      </mets:file>
+      <mets:file ID="FID_0000000032_THB" MIMETYPE="image/jpeg" SIZE="11529">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data01/Abt_Ostwestfalen-Lippe/P3/P3-09/~002/P3-09_00260/thumbs/OWL_P3-09_00260_00004.jpg" />
+      </mets:file>
+      <mets:file ID="FID_0000000033_THB" MIMETYPE="image/jpeg" SIZE="9743">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data01/Abt_Ostwestfalen-Lippe/P3/P3-09/~002/P3-09_00260/thumbs/OWL_P3-09_00260_00005.jpg" />
+      </mets:file>
+      <mets:file ID="FID_0000000034_THB" MIMETYPE="image/jpeg" SIZE="10171">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data01/Abt_Ostwestfalen-Lippe/P3/P3-09/~002/P3-09_00260/thumbs/OWL_P3-09_00260_00006.jpg" />
+      </mets:file>
+      <mets:file ID="FID_0000000035_THB" MIMETYPE="image/jpeg" SIZE="11226">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data01/Abt_Ostwestfalen-Lippe/P3/P3-09/~002/P3-09_00260/thumbs/OWL_P3-09_00260_00007.jpg" />
+      </mets:file>
+      <mets:file ID="FID_0000000036_THB" MIMETYPE="image/jpeg" SIZE="9594">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data01/Abt_Ostwestfalen-Lippe/P3/P3-09/~002/P3-09_00260/thumbs/OWL_P3-09_00260_00008.jpg" />
+      </mets:file>
+      <mets:file ID="FID_0000000037_THB" MIMETYPE="image/jpeg" SIZE="13361">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data01/Abt_Ostwestfalen-Lippe/P3/P3-09/~002/P3-09_00260/thumbs/OWL_P3-09_00260_00009.jpg" />
+      </mets:file>
+      <mets:file ID="FID_0000000038_THB" MIMETYPE="image/jpeg" SIZE="13751">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data01/Abt_Ostwestfalen-Lippe/P3/P3-09/~002/P3-09_00260/thumbs/OWL_P3-09_00260_00010.jpg" />
+      </mets:file>
+      <mets:file ID="FID_0000000039_THB" MIMETYPE="image/jpeg" SIZE="13976">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data01/Abt_Ostwestfalen-Lippe/P3/P3-09/~002/P3-09_00260/thumbs/OWL_P3-09_00260_00011.jpg" />
+      </mets:file>
+      <mets:file ID="FID_0000000040_THB" MIMETYPE="image/jpeg" SIZE="14339">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data01/Abt_Ostwestfalen-Lippe/P3/P3-09/~002/P3-09_00260/thumbs/OWL_P3-09_00260_00012.jpg" />
+      </mets:file>
+      <mets:file ID="FID_0000000041_THB" MIMETYPE="image/jpeg" SIZE="13387">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data01/Abt_Ostwestfalen-Lippe/P3/P3-09/~002/P3-09_00260/thumbs/OWL_P3-09_00260_00013.jpg" />
+      </mets:file>
+      <mets:file ID="FID_0000000042_THB" MIMETYPE="image/jpeg" SIZE="7440">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data01/Abt_Ostwestfalen-Lippe/P3/P3-09/~002/P3-09_00260/thumbs/OWL_P3-09_00260_00014.jpg" />
+      </mets:file>
+    </mets:fileGrp>
+  </mets:fileSec>
+  <mets:structMap ID="mets-struct-00001" TYPE="LOGICAL">
+    <mets:div ADMID="amd37245" DMDID="dmd37245" ID="LOG" TYPE="file" LABEL="(Abbildungen sind nicht weiter strukturiert)" />
+  </mets:structMap>
+  <mets:structMap ID="mets-struct-00002" TYPE="PHYSICAL">
+    <mets:div DMDID="dmd37245" ID="physSequence" TYPE="physSequence">
+      <mets:fptr FILEID="FULLDOWNLOAD" />
+      <mets:div ID="ID_0000000001" ORDER="1" TYPE="page">
+        <mets:fptr FILEID="FID_0000000001_DEF" />
+        <mets:fptr FILEID="FID_0000000015_DWL" />
+        <mets:fptr FILEID="FID_0000000029_THB" />
+      </mets:div>
+      <mets:div ID="ID_0000000002" ORDER="2" TYPE="page">
+        <mets:fptr FILEID="FID_0000000002_DEF" />
+        <mets:fptr FILEID="FID_0000000016_DWL" />
+        <mets:fptr FILEID="FID_0000000030_THB" />
+      </mets:div>
+      <mets:div ID="ID_0000000003" ORDER="3" TYPE="page">
+        <mets:fptr FILEID="FID_0000000003_DEF" />
+        <mets:fptr FILEID="FID_0000000017_DWL" />
+        <mets:fptr FILEID="FID_0000000031_THB" />
+      </mets:div>
+      <mets:div ID="ID_0000000004" ORDER="4" TYPE="page">
+        <mets:fptr FILEID="FID_0000000004_DEF" />
+        <mets:fptr FILEID="FID_0000000018_DWL" />
+        <mets:fptr FILEID="FID_0000000032_THB" />
+      </mets:div>
+      <mets:div ID="ID_0000000005" ORDER="5" TYPE="page">
+        <mets:fptr FILEID="FID_0000000005_DEF" />
+        <mets:fptr FILEID="FID_0000000019_DWL" />
+        <mets:fptr FILEID="FID_0000000033_THB" />
+      </mets:div>
+      <mets:div ID="ID_0000000006" ORDER="6" TYPE="page">
+        <mets:fptr FILEID="FID_0000000006_DEF" />
+        <mets:fptr FILEID="FID_0000000020_DWL" />
+        <mets:fptr FILEID="FID_0000000034_THB" />
+      </mets:div>
+      <mets:div ID="ID_0000000007" ORDER="7" TYPE="page">
+        <mets:fptr FILEID="FID_0000000007_DEF" />
+        <mets:fptr FILEID="FID_0000000021_DWL" />
+        <mets:fptr FILEID="FID_0000000035_THB" />
+      </mets:div>
+      <mets:div ID="ID_0000000008" ORDER="8" TYPE="page">
+        <mets:fptr FILEID="FID_0000000008_DEF" />
+        <mets:fptr FILEID="FID_0000000022_DWL" />
+        <mets:fptr FILEID="FID_0000000036_THB" />
+      </mets:div>
+      <mets:div ID="ID_0000000009" ORDER="9" TYPE="page">
+        <mets:fptr FILEID="FID_0000000009_DEF" />
+        <mets:fptr FILEID="FID_0000000023_DWL" />
+        <mets:fptr FILEID="FID_0000000037_THB" />
+      </mets:div>
+      <mets:div ID="ID_0000000010" ORDER="10" TYPE="page">
+        <mets:fptr FILEID="FID_0000000010_DEF" />
+        <mets:fptr FILEID="FID_0000000024_DWL" />
+        <mets:fptr FILEID="FID_0000000038_THB" />
+      </mets:div>
+      <mets:div ID="ID_0000000011" ORDER="11" TYPE="page">
+        <mets:fptr FILEID="FID_0000000011_DEF" />
+        <mets:fptr FILEID="FID_0000000025_DWL" />
+        <mets:fptr FILEID="FID_0000000039_THB" />
+      </mets:div>
+      <mets:div ID="ID_0000000012" ORDER="12" TYPE="page">
+        <mets:fptr FILEID="FID_0000000012_DEF" />
+        <mets:fptr FILEID="FID_0000000026_DWL" />
+        <mets:fptr FILEID="FID_0000000040_THB" />
+      </mets:div>
+      <mets:div ID="ID_0000000013" ORDER="13" TYPE="page">
+        <mets:fptr FILEID="FID_0000000013_DEF" />
+        <mets:fptr FILEID="FID_0000000027_DWL" />
+        <mets:fptr FILEID="FID_0000000041_THB" />
+      </mets:div>
+      <mets:div ID="ID_0000000014" ORDER="14" TYPE="page">
+        <mets:fptr FILEID="FID_0000000014_DEF" />
+        <mets:fptr FILEID="FID_0000000028_DWL" />
+        <mets:fptr FILEID="FID_0000000042_THB" />
+      </mets:div>
+    </mets:div>
+  </mets:structMap>
+  <mets:structLink>
+    <mets:smLink from="LOG" to="ID_0000000001" />
+    <mets:smLink from="LOG" to="ID_0000000002" />
+    <mets:smLink from="LOG" to="ID_0000000003" />
+    <mets:smLink from="LOG" to="ID_0000000004" />
+    <mets:smLink from="LOG" to="ID_0000000005" />
+    <mets:smLink from="LOG" to="ID_0000000006" />
+    <mets:smLink from="LOG" to="ID_0000000007" />
+    <mets:smLink from="LOG" to="ID_0000000008" />
+    <mets:smLink from="LOG" to="ID_0000000009" />
+    <mets:smLink from="LOG" to="ID_0000000010" />
+    <mets:smLink from="LOG" to="ID_0000000011" />
+    <mets:smLink from="LOG" to="ID_0000000012" />
+    <mets:smLink from="LOG" to="ID_0000000013" />
+    <mets:smLink from="LOG" to="ID_0000000014" />
+  </mets:structLink>
+</mets:mets>

@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mets:mets xmlns:mets="http://www.loc.gov/METS/" xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd http://www.w3.org/1999/xlink http://www.loc.gov/standards/xlink/xlink.xsd http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+  <mets:dmdSec ID="dmd91454">
+    <mets:mdWrap MDTYPE="MODS">
+      <mets:xmlData>
+        <mods:mods>
+          <mods:titleInfo>
+            <mods:title>Abteilung Rheinland, PA 2104 (Zivilstandsregister Landgerichtsbezirk Elberfeld), Nr. 69 1</mods:title>
+          </mods:titleInfo>
+          <mods:identifier type="VERA dockey">Vz      05B2B3A3-B59E-4267-A806-968A3F98FC4D</mods:identifier>
+          <mods:identifier type="urn">urn:nbn:de:danrw:de2189-05B2B3A3-B59E-4267-A806-968A3F98FC4D4</mods:identifier>
+          <mods:relatedItem>
+            <mods:identifier>Best    97cf363e-77c3-4caf-a78f-840cce158d37</mods:identifier>
+          </mods:relatedItem>
+          <mods:accessCondition type="use and reproduction" href="https://creativecommons.org/licenses/by-sa/4.0/deed.de" displayLabel="CC-BY-SA-Lizenz">CC-BY-SA - https://www.landesarchiv-nrw.de/digitalisate/LAV_NRW_Nutzungsbedingungen_Digitalisate.pdf</mods:accessCondition>
+        </mods:mods>
+      </mets:xmlData>
+    </mets:mdWrap>
+  </mets:dmdSec>
+  <mets:amdSec ID="amd91454">
+    <mets:rightsMD ID="rights91454">
+      <mets:mdWrap MDTYPE="OTHER" MIMETYPE="text/xml" OTHERMDTYPE="DVRIGHTS">
+        <mets:xmlData>
+          <dv:rights xmlns:dv="http://dfg-viewer.de/">
+            <dv:owner>Landesarchiv NRW</dv:owner>
+            <dv:ownerContact>mailto:poststelle@lav.nrw.de</dv:ownerContact>
+            <dv:ownerLogo>https://www.landesarchiv-nrw.de/images/logo_dfg_viewer.png</dv:ownerLogo>
+            <dv:ownerSiteURL>https://www.archive.nrw.de/landesarchiv-nrw</dv:ownerSiteURL>
+          </dv:rights>
+        </mets:xmlData>
+      </mets:mdWrap>
+    </mets:rightsMD>
+    <mets:digiprovMD ID="digiprov91454">
+      <mets:mdWrap MDTYPE="OTHER" MIMETYPE="text/xml" OTHERMDTYPE="DVLINKS">
+        <mets:xmlData>
+          <dv:links xmlns:dv="http://dfg-viewer.de/">
+            <dv:reference linktext="Verzeichnungseinheit bei archive.nrw.de">https://www.archive.nrw.de/archivsuche?link=VERZEICHUNGSEINHEIT-Vz_05B2B3A3-B59E-4267-A806-968A3F98FC4D</dv:reference>
+            <dv:reference linktext="'Familienforschung digital' bei archive.nrw.de">https://www.archive.nrw.de/landesarchiv-nrw/geschichte-erfahren/familienforschung/familienforschung-digital</dv:reference>
+            <dv:reference linktext="Nutzungsbedingungen LAV NRW">https://www.landesarchiv-nrw.de/digitalisate/LAV_NRW_Nutzungsbedingungen_Digitalisate.pdf</dv:reference>
+          </dv:links>
+        </mets:xmlData>
+      </mets:mdWrap>
+    </mets:digiprovMD>
+  </mets:amdSec>
+  <mets:fileSec>
+    <mets:fileGrp ID="mets-fgrp-00001" USE="DEFAULT">
+      <mets:file ID="FID_0000000001_DEF" MIMETYPE="image/jpeg" SIZE="170220">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data02/Abt_Rheinland/PA_2104/~000/00069_Bd1/LAV_NRW_R_PA_2104_00069_Bd1_0001.jpg" />
+      </mets:file>
+      <mets:file ID="FID_0000000002_DEF" MIMETYPE="image/jpeg" SIZE="431478">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data02/Abt_Rheinland/PA_2104/~000/00069_Bd1/LAV_NRW_R_PA_2104_00069_Bd1_0002.jpg" />
+      </mets:file>
+      <mets:file ID="FID_0000000003_DEF" MIMETYPE="image/jpeg" SIZE="383770">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data02/Abt_Rheinland/PA_2104/~000/00069_Bd1/LAV_NRW_R_PA_2104_00069_Bd1_0003.jpg" />
+      </mets:file>
+      <mets:file ID="FID_0000000004_DEF" MIMETYPE="image/jpeg" SIZE="250718">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data02/Abt_Rheinland/PA_2104/~000/00069_Bd1/LAV_NRW_R_PA_2104_00069_Bd1_0004.jpg" />
+      </mets:file>
+      <mets:file ID="FID_0000000005_DEF" MIMETYPE="image/jpeg" SIZE="210491">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data02/Abt_Rheinland/PA_2104/~000/00069_Bd1/LAV_NRW_R_PA_2104_00069_Bd1_0005.jpg" />
+      </mets:file>
+      <mets:file ID="FID_0000000006_DEF" MIMETYPE="image/jpeg" SIZE="256210">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data02/Abt_Rheinland/PA_2104/~000/00069_Bd1/LAV_NRW_R_PA_2104_00069_Bd1_0006.jpg" />
+      </mets:file>
+      <mets:file ID="FID_0000000007_DEF" MIMETYPE="image/jpeg" SIZE="204034">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data02/Abt_Rheinland/PA_2104/~000/00069_Bd1/LAV_NRW_R_PA_2104_00069_Bd1_0007.jpg" />
+      </mets:file>
+      <mets:file ID="FID_0000000008_DEF" MIMETYPE="image/jpeg" SIZE="278986">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data02/Abt_Rheinland/PA_2104/~000/00069_Bd1/LAV_NRW_R_PA_2104_00069_Bd1_0008.jpg" />
+      </mets:file>
+      <mets:file ID="FID_0000000009_DEF" MIMETYPE="image/jpeg" SIZE="302614">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data02/Abt_Rheinland/PA_2104/~000/00069_Bd1/LAV_NRW_R_PA_2104_00069_Bd1_0009.jpg" />
+      </mets:file>
+      <mets:file ID="FID_0000000010_DEF" MIMETYPE="image/jpeg" SIZE="268033">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data02/Abt_Rheinland/PA_2104/~000/00069_Bd1/LAV_NRW_R_PA_2104_00069_Bd1_0010.jpg" />
+      </mets:file>
+      <mets:file ID="FID_0000000011_DEF" MIMETYPE="image/jpeg" SIZE="323809">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data02/Abt_Rheinland/PA_2104/~000/00069_Bd1/LAV_NRW_R_PA_2104_00069_Bd1_0011.jpg" />
+      </mets:file>
+      <mets:file ID="FID_0000000012_DEF" MIMETYPE="image/jpeg" SIZE="287888">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data02/Abt_Rheinland/PA_2104/~000/00069_Bd1/LAV_NRW_R_PA_2104_00069_Bd1_0012.jpg" />
+      </mets:file>
+    </mets:fileGrp>
+    <mets:fileGrp ID="mets-fgrp-00002" USE="DOWNLOAD">
+      <mets:file ID="FID_0000000828_DWL" MIMETYPE="image/jpeg" SIZE="170220">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data02/Abt_Rheinland/PA_2104/~000/00069_Bd1/LAV_NRW_R_PA_2104_00069_Bd1_0001.jpg" />
+      </mets:file>
+      <mets:file ID="FID_0000000829_DWL" MIMETYPE="image/jpeg" SIZE="431478">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data02/Abt_Rheinland/PA_2104/~000/00069_Bd1/LAV_NRW_R_PA_2104_00069_Bd1_0002.jpg" />
+      </mets:file>
+      <mets:file ID="FID_0000000830_DWL" MIMETYPE="image/jpeg" SIZE="383770">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data02/Abt_Rheinland/PA_2104/~000/00069_Bd1/LAV_NRW_R_PA_2104_00069_Bd1_0003.jpg" />
+      </mets:file>
+      <mets:file ID="FID_0000000831_DWL" MIMETYPE="image/jpeg" SIZE="250718">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data02/Abt_Rheinland/PA_2104/~000/00069_Bd1/LAV_NRW_R_PA_2104_00069_Bd1_0004.jpg" />
+      </mets:file>
+      <mets:file ID="FID_0000000832_DWL" MIMETYPE="image/jpeg" SIZE="210491">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data02/Abt_Rheinland/PA_2104/~000/00069_Bd1/LAV_NRW_R_PA_2104_00069_Bd1_0005.jpg" />
+      </mets:file>
+      <mets:file ID="FID_0000000833_DWL" MIMETYPE="image/jpeg" SIZE="256210">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data02/Abt_Rheinland/PA_2104/~000/00069_Bd1/LAV_NRW_R_PA_2104_00069_Bd1_0006.jpg" />
+      </mets:file>
+      <mets:file ID="FID_0000000834_DWL" MIMETYPE="image/jpeg" SIZE="204034">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data02/Abt_Rheinland/PA_2104/~000/00069_Bd1/LAV_NRW_R_PA_2104_00069_Bd1_0007.jpg" />
+      </mets:file>
+      <mets:file ID="FID_0000000835_DWL" MIMETYPE="image/jpeg" SIZE="278986">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data02/Abt_Rheinland/PA_2104/~000/00069_Bd1/LAV_NRW_R_PA_2104_00069_Bd1_0008.jpg" />
+      </mets:file>
+      <mets:file ID="FID_0000000836_DWL" MIMETYPE="image/jpeg" SIZE="302614">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data02/Abt_Rheinland/PA_2104/~000/00069_Bd1/LAV_NRW_R_PA_2104_00069_Bd1_0009.jpg" />
+      </mets:file>
+      <mets:file ID="FID_0000000837_DWL" MIMETYPE="image/jpeg" SIZE="268033">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data02/Abt_Rheinland/PA_2104/~000/00069_Bd1/LAV_NRW_R_PA_2104_00069_Bd1_0010.jpg" />
+      </mets:file>
+      <mets:file ID="FID_0000000838_DWL" MIMETYPE="image/jpeg" SIZE="323809">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data02/Abt_Rheinland/PA_2104/~000/00069_Bd1/LAV_NRW_R_PA_2104_00069_Bd1_0011.jpg" />
+      </mets:file>
+      <mets:file ID="FID_0000000839_DWL" MIMETYPE="image/jpeg" SIZE="287888">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data02/Abt_Rheinland/PA_2104/~000/00069_Bd1/LAV_NRW_R_PA_2104_00069_Bd1_0012.jpg" />
+      </mets:file>
+    </mets:fileGrp>
+    <mets:fileGrp ID="mets-fgrp-00003" USE="THUMBS">
+      <mets:file ID="FID_0000001655_THB" MIMETYPE="image/jpeg" SIZE="8750">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data02/Abt_Rheinland/PA_2104/~000/00069_Bd1/thumbs/LAV_NRW_R_PA_2104_00069_Bd1_0001.jpg" />
+      </mets:file>
+      <mets:file ID="FID_0000001656_THB" MIMETYPE="image/jpeg" SIZE="12487">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data02/Abt_Rheinland/PA_2104/~000/00069_Bd1/thumbs/LAV_NRW_R_PA_2104_00069_Bd1_0002.jpg" />
+      </mets:file>
+      <mets:file ID="FID_0000001657_THB" MIMETYPE="image/jpeg" SIZE="20698">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data02/Abt_Rheinland/PA_2104/~000/00069_Bd1/thumbs/LAV_NRW_R_PA_2104_00069_Bd1_0003.jpg" />
+      </mets:file>
+      <mets:file ID="FID_0000001658_THB" MIMETYPE="image/jpeg" SIZE="10292">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data02/Abt_Rheinland/PA_2104/~000/00069_Bd1/thumbs/LAV_NRW_R_PA_2104_00069_Bd1_0004.jpg" />
+      </mets:file>
+      <mets:file ID="FID_0000001659_THB" MIMETYPE="image/jpeg" SIZE="5436">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data02/Abt_Rheinland/PA_2104/~000/00069_Bd1/thumbs/LAV_NRW_R_PA_2104_00069_Bd1_0005.jpg" />
+      </mets:file>
+      <mets:file ID="FID_0000001660_THB" MIMETYPE="image/jpeg" SIZE="10605">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data02/Abt_Rheinland/PA_2104/~000/00069_Bd1/thumbs/LAV_NRW_R_PA_2104_00069_Bd1_0006.jpg" />
+      </mets:file>
+      <mets:file ID="FID_0000001661_THB" MIMETYPE="image/jpeg" SIZE="5919">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data02/Abt_Rheinland/PA_2104/~000/00069_Bd1/thumbs/LAV_NRW_R_PA_2104_00069_Bd1_0007.jpg" />
+      </mets:file>
+      <mets:file ID="FID_0000001662_THB" MIMETYPE="image/jpeg" SIZE="11336">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data02/Abt_Rheinland/PA_2104/~000/00069_Bd1/thumbs/LAV_NRW_R_PA_2104_00069_Bd1_0008.jpg" />
+      </mets:file>
+      <mets:file ID="FID_0000001663_THB" MIMETYPE="image/jpeg" SIZE="11170">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data02/Abt_Rheinland/PA_2104/~000/00069_Bd1/thumbs/LAV_NRW_R_PA_2104_00069_Bd1_0009.jpg" />
+      </mets:file>
+      <mets:file ID="FID_0000001664_THB" MIMETYPE="image/jpeg" SIZE="11087">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data02/Abt_Rheinland/PA_2104/~000/00069_Bd1/thumbs/LAV_NRW_R_PA_2104_00069_Bd1_0010.jpg" />
+      </mets:file>
+      <mets:file ID="FID_0000001665_THB" MIMETYPE="image/jpeg" SIZE="11262">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data02/Abt_Rheinland/PA_2104/~000/00069_Bd1/thumbs/LAV_NRW_R_PA_2104_00069_Bd1_0011.jpg" />
+      </mets:file>
+      <mets:file ID="FID_0000001666_THB" MIMETYPE="image/jpeg" SIZE="11619">
+        <mets:FLocat LOCTYPE="URL" xlink:href="https://www.landesarchiv-nrw.de/data02/Abt_Rheinland/PA_2104/~000/00069_Bd1/thumbs/LAV_NRW_R_PA_2104_00069_Bd1_0012.jpg" />
+      </mets:file>
+    </mets:fileGrp>
+  </mets:fileSec>
+  <mets:structMap ID="mets-struct-00001" TYPE="LOGICAL">
+    <mets:div ADMID="amd91454" DMDID="dmd91454" ID="LOG" TYPE="file" LABEL="(Abbildungen sind nicht weiter strukturiert)" />
+  </mets:structMap>
+  <mets:structMap ID="mets-struct-00002" TYPE="PHYSICAL">
+    <mets:div DMDID="dmd91454" ID="physSequence" TYPE="physSequence">
+      <mets:div ID="ID_0000000001" ORDER="1" TYPE="page">
+        <mets:fptr FILEID="FID_0000000001_DEF" />
+        <mets:fptr FILEID="FID_0000000828_DWL" />
+        <mets:fptr FILEID="FID_0000001655_THB" />
+      </mets:div>
+      <mets:div ID="ID_0000000002" ORDER="2" TYPE="page">
+        <mets:fptr FILEID="FID_0000000002_DEF" />
+        <mets:fptr FILEID="FID_0000000829_DWL" />
+        <mets:fptr FILEID="FID_0000001656_THB" />
+      </mets:div>
+      <mets:div ID="ID_0000000003" ORDER="3" TYPE="page">
+        <mets:fptr FILEID="FID_0000000003_DEF" />
+        <mets:fptr FILEID="FID_0000000830_DWL" />
+        <mets:fptr FILEID="FID_0000001657_THB" />
+      </mets:div>
+      <mets:div ID="ID_0000000004" ORDER="4" TYPE="page">
+        <mets:fptr FILEID="FID_0000000004_DEF" />
+        <mets:fptr FILEID="FID_0000000831_DWL" />
+        <mets:fptr FILEID="FID_0000001658_THB" />
+      </mets:div>
+      <mets:div ID="ID_0000000005" ORDER="5" TYPE="page">
+        <mets:fptr FILEID="FID_0000000005_DEF" />
+        <mets:fptr FILEID="FID_0000000832_DWL" />
+        <mets:fptr FILEID="FID_0000001659_THB" />
+      </mets:div>
+      <mets:div ID="ID_0000000006" ORDER="6" TYPE="page">
+        <mets:fptr FILEID="FID_0000000006_DEF" />
+        <mets:fptr FILEID="FID_0000000833_DWL" />
+        <mets:fptr FILEID="FID_0000001660_THB" />
+      </mets:div>
+      <mets:div ID="ID_0000000007" ORDER="7" TYPE="page">
+        <mets:fptr FILEID="FID_0000000007_DEF" />
+        <mets:fptr FILEID="FID_0000000834_DWL" />
+        <mets:fptr FILEID="FID_0000001661_THB" />
+      </mets:div>
+      <mets:div ID="ID_0000000008" ORDER="8" TYPE="page">
+        <mets:fptr FILEID="FID_0000000008_DEF" />
+        <mets:fptr FILEID="FID_0000000835_DWL" />
+        <mets:fptr FILEID="FID_0000001662_THB" />
+      </mets:div>
+      <mets:div ID="ID_0000000009" ORDER="9" TYPE="page">
+        <mets:fptr FILEID="FID_0000000009_DEF" />
+        <mets:fptr FILEID="FID_0000000836_DWL" />
+        <mets:fptr FILEID="FID_0000001663_THB" />
+      </mets:div>
+      <mets:div ID="ID_0000000010" ORDER="10" TYPE="page">
+        <mets:fptr FILEID="FID_0000000010_DEF" />
+        <mets:fptr FILEID="FID_0000000837_DWL" />
+        <mets:fptr FILEID="FID_0000001664_THB" />
+      </mets:div>
+      <mets:div ID="ID_0000000011" ORDER="11" TYPE="page">
+        <mets:fptr FILEID="FID_0000000011_DEF" />
+        <mets:fptr FILEID="FID_0000000838_DWL" />
+        <mets:fptr FILEID="FID_0000001665_THB" />
+      </mets:div>
+      <mets:div ID="ID_0000000012" ORDER="12" TYPE="page">
+        <mets:fptr FILEID="FID_0000000012_DEF" />
+        <mets:fptr FILEID="FID_0000000839_DWL" />
+        <mets:fptr FILEID="FID_0000001666_THB" />
+      </mets:div>
+    </mets:div>
+  </mets:structMap>
+  <mets:structLink>
+    <mets:smLink from="LOG" to="ID_0000000001" />
+    <mets:smLink from="LOG" to="ID_0000000002" />
+    <mets:smLink from="LOG" to="ID_0000000003" />
+    <mets:smLink from="LOG" to="ID_0000000004" />
+    <mets:smLink from="LOG" to="ID_0000000005" />
+    <mets:smLink from="LOG" to="ID_0000000006" />
+    <mets:smLink from="LOG" to="ID_0000000007" />
+    <mets:smLink from="LOG" to="ID_0000000008" />
+    <mets:smLink from="LOG" to="ID_0000000009" />
+    <mets:smLink from="LOG" to="ID_0000000010" />
+    <mets:smLink from="LOG" to="ID_0000000011" />
+    <mets:smLink from="LOG" to="ID_0000000012" />
+  </mets:structLink>
+</mets:mets>

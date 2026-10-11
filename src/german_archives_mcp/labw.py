@@ -1,17 +1,34 @@
-"""The Landesarchiv Baden-Württemberg's Standesbücher: finding a book, reading a page.
+"""The Landesarchiv Baden-Württemberg's digitised registers: finding a book, reading a page.
 
-Baden kept civil duplicates of its parish registers from 1810 to 1870, one
-book per parish and confession for a span of years. The Landesarchiv holds
-them in two fonds, both fully digitised:
+The Landesarchiv has put online, in full or nearly so, every fonds of
+nineteenth-century vital registers it holds as a state archive:
 
-* **L 10** at the Staatsarchiv Freiburg: south Baden (the Freiburg district).
-* **390** at the Generallandesarchiv Karlsruhe: north Baden (the Karlsruhe
-  district, with Mannheim, Heidelberg and Pforzheim).
+* **L 10** (Staatsarchiv Freiburg) and **390** (Generallandesarchiv
+  Karlsruhe): the Baden Standesbücher, the civil duplicates of the parish
+  registers, 1810 to 1870, one book per parish and confession for a span of
+  years. L 10 is south Baden, 390 north Baden.
+* **F 901** (Staatsarchiv Ludwigsburg): the duplicates of Württemberg's
+  Catholic parish registers, 1808 to 1875, one volume per register.
+* **Wü 110 T 1** (Staatsarchiv Sigmaringen): the duplicates of the Protestant
+  parish registers of Württemberg and Hohenzollern, 1808 to 1875.
+* **J 386** (Hauptstaatsarchiv Stuttgart): the films the Reichssippenamt made
+  in 1943-1945 of the registers of the Jewish communities of Baden,
+  Württemberg and Hohenzollern, whose originals are lost.
+* **Dep. 1 T 37** and **Dep. 1 T 44** (Staatsarchiv Sigmaringen, deposited by
+  the Stadtarchiv Sigmaringen): the civil registers of the Standesamt
+  Sigmaringen and Sigmaringen-Laiz, digitised for 1870 to 1899.
+
+All are in the same online finding-aid system (``www2``, "OLF") and the same
+image viewer, so one reader serves every fonds.
 
 Finding a book uses the Landesarchiv's own finding aid as it delivers it to
-the DDB (CC0): one keyless query names the books whose title has the place,
-with signature, years and the scope id behind the permalink. Reading a page
-uses the Landesarchiv's online finding-aid system (``www2``, "OLF"):
+the DDB (CC0): one keyless query names the books for a place, with
+signature, years and the scope id behind the permalink. The place is in a
+book's title in Baden, J 386 and the Sigmaringen deposits
+(``Breisach am Rhein FR; Katholische Gemeinde: Standesbücher 1848-1854``),
+and in the heading above it in F 901 and Wü 110 T 1, whose titles name only
+the register (``Taufregister VI``; context ``... >> Reutlingen RT``). Reading
+a page uses the OLF:
 
 1. ``/ofs21/plink.php?f=5-475861`` redirects to the item's structure page,
    naming the fonds (``bestand``) and the item's internal id (``sprungId``).
@@ -48,7 +65,13 @@ OFS = f"https://{LABW_HOST}/ofs21"
 
 @dataclass(frozen=True)
 class Fonds:
-    """One Standesbücher fonds: where it is, and how the OLF names it."""
+    """One fonds of registers: where it is, how the OLF names it, and how it is arranged.
+
+    ``place_in`` says where a book's place is written: ``"title"`` (Baden,
+    J 386, the Sigmaringen deposits) or ``"context"`` (the heading above the
+    book, in F 901 and Wü 110 T 1). ``confession`` is the fonds' own, where
+    every book has the same one; otherwise it is read from each title.
+    """
 
     key: str
     archive: int
@@ -56,25 +79,122 @@ class Fonds:
     region: str
     olf_bestand: int
     scopeid_besta: int
+    unit: str = "Nr."
+    place_in: str = "title"
+    confession: str | None = None
+    first_year: int | None = None
+    last_year: int | None = None
+    kind: str = ""
 
     @property
     def reference(self) -> str:
         """The signature's prefix as the archive writes it: ``Abt. Staatsarchiv Freiburg, L 10``."""
         return f"Abt. {self.department}, {self.key}"
 
+    def signature(self, number: int) -> str:
+        """A book's full signature: ``Abt. Staatsarchiv Ludwigsburg, F 901 Bd 575``."""
+        return f"{self.reference} {self.unit} {number}"
 
-#: The two fonds of Baden Standesbücher. ``olf_bestand`` and ``scopeid_besta``
-#: are the OLF's ids for the fonds (seen in its permalink redirects and image
-#: addresses, 2026-10-11).
+
+#: Every fonds of registers the Landesarchiv has online, in the order books
+#: are listed. ``olf_bestand`` and ``scopeid_besta`` are the OLF's ids for
+#: the fonds, seen in its permalink redirects and image addresses
+#: (2026-10-11). The Staatsarchiv Wertheim's Personenstandszweitbücher
+#: (K-LRA 30, from 1870) have no online finding aid and are not here.
 FONDS: dict[str, Fonds] = {
-    "L 10": Fonds("L 10", 5, "Staatsarchiv Freiburg", "south Baden", 10028, 5698),
-    "390": Fonds("390", 4, "Generallandesarchiv Karlsruhe", "north Baden", 12390, 5405),
+    f.key: f
+    for f in (
+        Fonds(
+            "L 10",
+            5,
+            "Staatsarchiv Freiburg",
+            "south Baden",
+            10028,
+            5698,
+            first_year=1810,
+            last_year=1870,
+            kind="Standesbücher (civil duplicates)",
+        ),
+        Fonds(
+            "390",
+            4,
+            "Generallandesarchiv Karlsruhe",
+            "north Baden",
+            12390,
+            5405,
+            first_year=1810,
+            last_year=1870,
+            kind="Standesbücher (civil duplicates)",
+        ),
+        Fonds(
+            "F 901",
+            2,
+            "Staatsarchiv Ludwigsburg",
+            "Württemberg",
+            18750,
+            3493,
+            unit="Bd",
+            place_in="context",
+            confession="catholic",
+            first_year=1808,
+            last_year=1875,
+            kind="Catholic church-book duplicates",
+        ),
+        Fonds(
+            "Wü 110 T 1",
+            6,
+            "Staatsarchiv Sigmaringen",
+            "Württemberg and Hohenzollern",
+            54526,
+            1496718,
+            place_in="context",
+            confession="protestant",
+            first_year=1808,
+            last_year=1875,
+            kind="Protestant church-book duplicates",
+        ),
+        Fonds(
+            "J 386",
+            1,
+            "Hauptstaatsarchiv Stuttgart",
+            "Baden, Württemberg, Hohenzollern",
+            5632,
+            2764,
+            unit="Bü",
+            confession="jewish",
+            kind="films of Jewish community registers",
+        ),
+        Fonds(
+            "Dep. 1 T 37",
+            6,
+            "Staatsarchiv Sigmaringen",
+            "Sigmaringen",
+            23079,
+            625516,
+            confession="civil",
+            first_year=1870,
+            last_year=1899,
+            kind="civil registers, Standesamt Sigmaringen",
+        ),
+        Fonds(
+            "Dep. 1 T 44",
+            6,
+            "Staatsarchiv Sigmaringen",
+            "Sigmaringen-Laiz",
+            24584,
+            1344989,
+            confession="civil",
+            first_year=1874,
+            last_year=1899,
+            kind="civil registers, Standesamt Sigmaringen-Laiz",
+        ),
+    )
 }
 
-#: The years the Standesbücher cover. A few north Baden books begin earlier.
-FIRST_YEAR, LAST_YEAR = 1810, 1870
+#: The span the church-book duplicates and Standesbücher cover together.
+FIRST_YEAR, LAST_YEAR = 1808, 1875
 
-#: Confessions as the titles write them.
+#: Confessions as the titles write them. ``civil`` is a fonds' own, never read.
 CONFESSIONS: dict[str, re.Pattern[str]] = {
     "catholic": re.compile(r"(?<!alt)(?<!alt-)katholisch", re.I),
     "protestant": re.compile(r"evangelisch|lutherisch|reformiert|protestantisch", re.I),
@@ -83,23 +203,52 @@ CONFESSIONS: dict[str, re.Pattern[str]] = {
     "mennonite": re.compile(r"mennonit", re.I),
 }
 
+#: The registers a title names, in this order.
+REGISTERS: dict[str, re.Pattern[str]] = {
+    "baptisms": re.compile(r"tauf|geburt", re.I),
+    "marriages": re.compile(r"\behe|heirat|trau", re.I),
+    "deaths": re.compile(r"toten|sterbe|begräbnis|beerdigung|totgeboren", re.I),
+    "family": re.compile(r"familienregister", re.I),
+    "index": re.compile(r"namensverzeichnis|verzeichnis zu", re.I),
+}
+
 #: A place as a tool argument may give it.
 _PLACE = re.compile(r"[\w .'()\-]{2,80}")
 
 #: An image file in the OLF: ``05_0000475861_0378_5-475861-377.png``.
 _FILE = re.compile(r"(\d{2})_(\d{10})_(\d{4,5})_(\d)-(\d{1,10})-(\d{1,6})\.(png|jpe?g|tiff?)")
 
-#: A signature: optional department, the fonds, the number.
+#: How each department may be written in a signature, and the fonds it holds.
+_DEPARTMENTS: dict[str, tuple[str, ...]] = {
+    "Staatsarchiv Freiburg": (r"staatsarchiv\s+freiburg", r"sta\s*f(?:reiburg)?", r"staf"),
+    "Generallandesarchiv Karlsruhe": (
+        r"generallandesarchiv(?:\s+karlsruhe)?",
+        r"glak?(?:\s+karlsruhe)?",
+    ),
+    "Staatsarchiv Ludwigsburg": (r"staatsarchiv\s+ludwigsburg", r"stal", r"sta\s+ludwigsburg"),
+    "Staatsarchiv Sigmaringen": (r"staatsarchiv\s+sigmaringen", r"stas", r"sta\s+sigmaringen"),
+    "Hauptstaatsarchiv Stuttgart": (r"hauptstaatsarchiv(?:\s+stuttgart)?", r"hstas?"),
+}
+
+#: How each fonds key may be written.
+_KEYS: dict[str, str] = {
+    "L 10": r"l\s*10",
+    "390": r"390",
+    "F 901": r"f\s*901",
+    "Wü 110 T 1": r"w(?:ü|ue|u)\s*110\s*t\s*1",
+    "J 386": r"j\s*386",
+    "Dep. 1 T 37": r"dep\.?\s*1\s*t\s*37",
+    "Dep. 1 T 44": r"dep\.?\s*1\s*t\s*44",
+}
+
+#: A signature: optional department, a fonds, a unit word, the number.
 _SIGNATURE = re.compile(
-    r"""^\s*
-    (?:abt\.?\s*)?
-    (?P<dept>staatsarchiv\s+freiburg|generallandesarchiv\s+karlsruhe|gla(?:\s+karlsruhe)?
-       |sta(?:\s+freiburg)?)?
-    \s*,?\s*
-    (?P<fonds>l\s*10|390)
-    \s*,?\s*nr\.?\s*
-    (?P<number>\d{1,6})\s*$""",
-    re.I | re.X,
+    r"^\s*(?:abt\.?\s*)?(?P<dept>"
+    + "|".join(f"(?:{a})" for aliases in _DEPARTMENTS.values() for a in aliases)
+    + r")?\s*,?\s*(?P<fonds>"
+    + "|".join(f"(?:{k})" for k in _KEYS.values())
+    + r")\s*,?\s*(?:nr|bd|bü|bue|bu)\.?\s*(?P<number>\d{1,6})\s*$",
+    re.I,
 )
 
 #: A permalink, in any of its forms, or its bare ``f`` value.
@@ -186,15 +335,25 @@ def image_id(file: str) -> int | None:
 
 
 def parse_signature(text: str) -> tuple[Fonds, int] | None:
-    """The fonds and number of an L 10 or 390 signature, or None."""
+    """The fonds and number of a signature in one of the register fonds, or None.
+
+    The department may be given or left out; given, it must be the one that
+    holds the fonds. The unit word (``Nr.``, ``Bd``, ``Bü``) is not checked:
+    the archive's own is used for the lookup.
+    """
     match = _SIGNATURE.match(text or "")
     if not match:
         return None
-    fonds = FONDS["L 10" if match.group("fonds").lower().startswith("l") else "390"]
-    dept = (match.group("dept") or "").lower()
+    raw = match.group("fonds")
+    fonds = next(FONDS[k] for k, pattern in _KEYS.items() if re.fullmatch(pattern, raw, re.I))
+    dept = match.group("dept")
     if dept:
-        freiburg = dept.startswith(("staatsarchiv", "sta"))
-        if freiburg != (fonds.key == "L 10"):
+        named = next(
+            name
+            for name, aliases in _DEPARTMENTS.items()
+            if any(re.fullmatch(a, dept, re.I) for a in aliases)
+        )
+        if named != fonds.department:
             return None
     return fonds, int(match.group("number"))
 
@@ -296,9 +455,10 @@ def valid_place(place: str) -> str | None:
     return text if _PLACE.fullmatch(text) else None
 
 
-def fonds_filter() -> str:
-    """Keep the two Standesbücher fonds."""
-    refs = " OR ".join(f'"{f.department}, {f.key}"' for f in FONDS.values())
+def fonds_filter(keys: list[str] | None = None) -> str:
+    """Keep the register fonds, or the ones named."""
+    chosen = [FONDS[k] for k in keys] if keys else list(FONDS.values())
+    refs = " OR ".join(f'"{f.department}, {f.key}"' for f in chosen)
     return f"apd_reference_number:({refs})"
 
 
@@ -307,22 +467,43 @@ def provider_filter() -> str:
     return f"provider_fct:{escape_term(DDB_PROVIDER)}"
 
 
-def books_url(place: str, year_filters: list[str], rows: int) -> str:
-    """The DDB search for the Standesbücher whose title names ``place``."""
+#: Leaves out the fonds, series and holdings headings, which have no images.
+NO_HEADINGS = "-apd_level_of_description:(htype_030 OR htype_031 OR htype_037)"
+
+#: Fields a book search asks for.
+BOOK_FIELDS = (
+    "id,title,apd_reference_number,apd_context,begin_time,end_time,provider_item_id,digitalisat"
+)
+
+
+def books_query(place: str, keys: list[str] | None = None) -> str:
+    """The query for books naming ``place``: in the title, or for F 901 and
+    Wü 110 T 1 in the heading above the book."""
     phrase = place.replace("\\", " ").replace('"', " ")
+    chosen = [FONDS[k] for k in keys] if keys else list(FONDS.values())
+    by_context = [f for f in chosen if f.place_in == "context"]
+    query = f'title:"{phrase}"'
+    if by_context:
+        refs = " OR ".join(f'"{f.department}, {f.key}"' for f in by_context)
+        query += f' OR (apd_reference_number:({refs}) AND apd_context:"{phrase}")'
+    return query
+
+
+def books_url(place: str, year_filters: list[str], rows: int, keys: list[str] | None = None) -> str:
+    """The DDB search for the books that name ``place``, in every fonds or the ones named."""
     return search_url(
-        query=f'title:"{phrase}"',
-        filters=[provider_filter(), fonds_filter(), *year_filters],
+        query=books_query(place, keys),
+        filters=[provider_filter(), fonds_filter(keys), NO_HEADINGS, *year_filters],
         start=0,
         rows=rows,
-        fields="id,title,apd_reference_number,apd_context,begin_time,end_time,provider_item_id",
+        fields=BOOK_FIELDS,
     )
 
 
 def signature_url(fonds: Fonds, number: int) -> str:
     """The DDB search for one book by its signature."""
     return search_url(
-        query=f'apd_reference_number:"{fonds.reference} Nr. {number}"',
+        query=f'apd_reference_number:"{fonds.signature(number)}"',
         filters=[provider_filter()],
         start=0,
         rows=5,
@@ -330,20 +511,51 @@ def signature_url(fonds: Fonds, number: int) -> str:
     )
 
 
+def fonds_of(reference: str) -> Fonds | None:
+    """The register fonds a signature belongs to, or None."""
+    text = (reference or "").strip()
+    for fonds in FONDS.values():
+        prefix = fonds.reference
+        if text == prefix or text.startswith(prefix + " "):
+            return fonds
+    return None
+
+
 def confessions_of(title: str) -> list[str]:
     """The confessions a book's title names, in the order of :data:`CONFESSIONS`."""
     return [name for name, pattern in CONFESSIONS.items() if pattern.search(title or "")]
 
 
+def registers_of(title: str) -> list[str]:
+    """The registers a title names (baptisms, marriages, deaths, family, index)."""
+    return [name for name, pattern in REGISTERS.items() if pattern.search(title or "")]
+
+
 def court_of(context: str) -> str:
-    """The district court (Amtsgericht) a book is filed under, from its context path."""
+    """The district court (Amtsgericht) a Baden book is filed under, from its context path."""
     last = (context or "").split(">>")[-1].strip()
     last = re.sub(r";\s*Amtsgericht$", "", last)
     return re.sub(r"^Amtsgerichtsbezirk\s+", "", last).strip()
 
 
+def place_heading(title: str, context: str, fonds: Fonds | None) -> str:
+    """The place a book belongs to, as the archive writes it.
+
+    The title in Baden and J 386 (``Breisach am Rhein FR; ...``); the heading
+    above the book in F 901 and Wü 110 T 1 (``17.29 Rottenburg am Neckar TÜ``,
+    numbering dropped); the words after the register in the Sigmaringen
+    deposits (``Geburtenregister Sigmaringen``).
+    """
+    if fonds is not None and fonds.place_in == "context":
+        last = (context or "").split(">>")[-1].strip()
+        return re.sub(r"^\d+(?:\.\d+)*\s+", "", last)
+    if fonds is not None and fonds.confession == "civil":
+        return re.sub(r"^.*register(?:n)?\s+", "", title or "", flags=re.I).strip()
+    return title or ""
+
+
 def named_first(title: str, place: str) -> bool:
-    """Whether the title begins with the place: the book is the place's own.
+    """Whether the heading begins with the place: the book is the place's own.
 
     Otherwise the place is named later, usually as the municipality a village
     now belongs to (``Niederrimsingen, Breisach am Rhein FR; ...``).
@@ -359,35 +571,66 @@ def split_signature(reference: str) -> tuple[str, str]:
 
 
 def signature_number(short: str) -> int:
-    """The number after ``Nr.``, for ordering."""
-    m = re.search(r"Nr\.\s*(\d+)", short or "")
+    """The number after ``Nr.``, ``Bd`` or ``Bü``, for ordering."""
+    m = re.search(r"(?:Nr\.|Bd\.?|Bü)\s*(\d+)", short or "")
     return int(m.group(1)) if m else 0
+
+
+#: Each fonds' place in the listing.
+_ORDER = {key: n for n, key in enumerate(FONDS)}
 
 
 def book_row(doc: dict, place: str) -> dict:
     """One book from a DDB hit, shaped for ``labw_standesbuch``."""
     reference = first(doc.get("apd_reference_number"))
+    fonds = fonds_of(reference)
     department, short = split_signature(reference)
     title = first(doc.get("title"))
+    context = first(doc.get("apd_context"))
     begin, end = from_day_number(doc.get("begin_time")), from_day_number(doc.get("end_time"))
+    heading = place_heading(title, context, fonds)
     row: dict[str, Any] = {
         "signature": short,
         "archive": f"{ARCHIVE}, Abt. {department}" if department else ARCHIVE,
+        "fonds": fonds.key if fonds else "",
         "title": title,
     }
+    if heading and heading != title:
+        row["place"] = heading
     if begin and end:
         row["years"] = f"{begin.year}-{end.year}"
-    row["confessions"] = confessions_of(title)
-    if court := court_of(first(doc.get("apd_context"))):
-        row["district_court"] = court
-    row["place_named_first"] = named_first(title, place)
+    if fonds is not None and fonds.confession:
+        row["confessions"] = [fonds.confession]
+    else:
+        row["confessions"] = confessions_of(title)
+    if registers := registers_of(title):
+        row["registers"] = registers
+    if fonds is not None and fonds.key in ("L 10", "390"):
+        if court := court_of(context):
+            row["district_court"] = court
+    row["place_named_first"] = named_first(heading, place)
+    row["has_images"] = first(doc.get("digitalisat")) == "true"
     match = re.fullmatch(r"labw-(\d)-(\d{1,10})", first(doc.get("provider_item_id")))
     if match:
         row["permalink"] = permalink(int(match.group(1)), int(match.group(2)))
         row["_scope"] = (int(match.group(1)), int(match.group(2)))
     row["ddb_id"] = first(doc.get("id"))
     row["_years"] = (begin.year if begin else 0, end.year if end else 9999)
+    row["_order"] = (
+        _ORDER.get(row["fonds"], 99),
+        heading.lower(),
+        begin.year if begin else 0,
+        signature_number(short),
+    )
     return row
+
+
+def fonds_of_book(book: Book) -> Fonds | None:
+    """The register fonds an item read from the OLF belongs to, or None."""
+    return next(
+        (f for f in FONDS.values() if f.key == book.fonds and f.department == book.department),
+        None,
+    )
 
 
 def citation(book: Book, number: int, file: str) -> dict[str, str]:

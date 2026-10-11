@@ -1,0 +1,83 @@
+{
+  "responseHeader":{
+    "zkConnected":true,
+    "status":0,
+    "QTime":1408,
+    "params":{
+      "q":"title:\"Breisach\" OR (apd_reference_number:(\"Staatsarchiv Ludwigsburg, F 901\" OR \"Staatsarchiv Sigmaringen, Wü 110 T 1\") AND apd_context:\"Breisach\")",
+      "fl":"id,title,apd_reference_number,apd_context,begin_time,end_time,provider_item_id,digitalisat",
+      "start":"0",
+      "fq":["provider_fct:Landesarchiv\\ Baden\\-Württemberg","apd_reference_number:(\"Staatsarchiv Freiburg, L 10\" OR \"Generallandesarchiv Karlsruhe, 390\" OR \"Staatsarchiv Ludwigsburg, F 901\" OR \"Staatsarchiv Sigmaringen, Wü 110 T 1\" OR \"Hauptstaatsarchiv Stuttgart, J 386\" OR \"Staatsarchiv Sigmaringen, Dep. 1 T 37\" OR \"Staatsarchiv Sigmaringen, Dep. 1 T 44\")","-apd_level_of_description:(htype_030 OR htype_031 OR htype_037)","begin_time:[* TO 675699]","end_time:[675335 TO *]"],
+      "rows":"60"
+    }
+  },
+  "response":{
+    "numFound":7,
+    "start":0,
+    "numFoundExact":true,
+    "docs":[{
+      "id":"HUCH74DGQD7AFMX2N3VAQJ7MXYUV5GRQ",
+      "apd_context":"Filme von Personenstandsregistern jüdischer Gemeinden in Württemberg, Baden und Hohenzollern >> Anfangsbuchstabe B",
+      "apd_reference_number":["Abt. Hauptstaatsarchiv Stuttgart, J 386 Bü 105","RSA-Nr.: 0053","Mikrofilm-Nr.: HF 155"],
+      "begin_time":[663647],
+      "digitalisat":"true",
+      "end_time":[680082],
+      "provider_item_id":"labw-1-440620",
+      "title":["Breisach am Rhein"]
+    },{
+      "id":"3DWKHWQSYKZIDMHWFZIZENZWV5TNFU4F",
+      "apd_context":"Filme von Personenstandsregistern jüdischer Gemeinden in Württemberg, Baden und Hohenzollern >> Anfangsbuchstabe B",
+      "apd_reference_number":["Abt. Hauptstaatsarchiv Stuttgart, J 386 Bü 107","RSA-Nr.: 0049","Mikrofilm-Nr.: HF 154"],
+      "begin_time":[663282],
+      "digitalisat":"true",
+      "end_time":[676795],
+      "provider_item_id":"labw-1-440622",
+      "title":["Breisach am Rhein"]
+    },{
+      "id":"OKD7PZJZPYOECXPB3QMONDLOVNEYX3VH",
+      "apd_context":"Filme von Personenstandsregistern jüdischer Gemeinden in Württemberg, Baden und Hohenzollern >> Anfangsbuchstabe B",
+      "apd_reference_number":["Abt. Hauptstaatsarchiv Stuttgart, J 386 Bü 104","RSA-Nr.: 0051","Mikrofilm-Nr.: HF 154"],
+      "begin_time":[663647],
+      "digitalisat":"true",
+      "end_time":[680447],
+      "provider_item_id":"labw-1-440619",
+      "title":["Breisach am Rhein"]
+    },{
+      "id":"XQADK4NVH6B2I2MECFYYWTSP5CAG3RGT",
+      "apd_context":"Standesbücher >> Breisach; Amtsgericht",
+      "apd_reference_number":["Abt. Staatsarchiv Freiburg, L 10 Nr. 469"],
+      "begin_time":[674604],
+      "digitalisat":"true",
+      "end_time":[677160],
+      "provider_item_id":"labw-5-475820",
+      "title":["Breisach am Rhein FR; Katholische Gemeinde: Standesbücher 1848-1854 Breisach am Rhein FR; Israelitische Gemeinde: Standesbücher 1848-1854"]
+    },{
+      "id":"2EF3J2O7CMX2HKZ7YX3GRUT3WIWLCAA5",
+      "apd_context":"Standesbücher >> Breisach; Amtsgericht",
+      "apd_reference_number":["Abt. Staatsarchiv Freiburg, L 10 Nr. 510"],
+      "begin_time":[674239],
+      "digitalisat":"true",
+      "end_time":[683004],
+      "provider_item_id":"labw-5-475861",
+      "title":["Niederrimsingen, Breisach am Rhein FR; Katholische Gemeinde: Standesbuch 1847-1870"]
+    },{
+      "id":"PHVZHT3NQY4CX6C4PCUXLVIQX5M5HHOQ",
+      "apd_context":"Standesbücher >> Breisach; Amtsgericht",
+      "apd_reference_number":["Abt. Staatsarchiv Freiburg, L 10 Nr. 517"],
+      "begin_time":[674604],
+      "digitalisat":"true",
+      "end_time":[683004],
+      "provider_item_id":"labw-5-475868",
+      "title":["Oberrimsingen, Breisach am Rhein FR; Katholische Gemeinde: Standesbuch 1848-1870"]
+    },{
+      "id":"VB4WJO4442WWCA3A2IUPYOWKGVV6VXRZ",
+      "apd_context":"Standesbücher >> Breisach; Amtsgericht",
+      "apd_reference_number":["Abt. Staatsarchiv Freiburg, L 10 Nr. 481"],
+      "begin_time":[671317],
+      "digitalisat":"true",
+      "end_time":[677525],
+      "provider_item_id":"labw-5-475832",
+      "title":["Gündlingen, Breisach am Rhein FR; Katholische Gemeinde: Standesbuch 1839-1855"]
+    }]
+  }
+}
