@@ -32,7 +32,10 @@ than a person would ask.
 | `src/german_archives_mcp/ddb.py` | The DDB's version 2 API: search addresses, filters, and shaping hits, records, hierarchies and children. |
 | `src/german_archives_mcp/labw.py` | The Landesarchiv Baden-Württemberg: the register fonds, signatures, permalinks, the book search, the image list, the image address and the citation. |
 | `src/german_archives_mcp/nrw.py` | The Archive in NRW portal and the Landesarchiv NRW: the search address, hits, METS addresses and files, and the citation. |
-| `src/german_archives_mcp/client.py` | The cached, paced HTTP client, the four-host allowlist, the per-host and per-search pacing, the redirect rule, the public-address check made at connect time, the size caps and bot-check detection. |
+| `src/german_archives_mcp/rlp.py` | APERTUS (Rheinland-Pfalz): the search and unit forms, units, unit descriptions and their PDF paths, signatures, permalinks and the citation. |
+| `src/german_archives_mcp/volumes.py` | The volume-PDF cache (lifetime, size cap, pruning) and taking a page's JPEG out of a PDF with pypdf. |
+| `src/german_archives_mcp/hla.py` | Hesse: LAGIS's search and hits, Arcinsys's signature look-up, METS files and image addresses, and the citation. |
+| `src/german_archives_mcp/client.py` | The cached, paced HTTP client, the eight-host allowlist, the per-host, per-search and per-volume pacing, form posts, downloads to a file, the redirect rule, the public-address check made at connect time, the size caps and bot-check detection. |
 | `src/german_archives_mcp/config.py` | Settings from the environment and `.env`. |
 | `docs/API-NOTES.md` | What each site was observed to do, and when. |
 | `docs/DESIGN.md` | Why the server is shaped the way it is, and what is out of scope by decision. |
@@ -98,11 +101,12 @@ the rights mark the archive's viewer shows for it. Record all of it in
 
 ## Adding a state archive
 
-A new archive is a module of its own beside `labw.py` and `nrw.py`, and a
-search tool and an image tool named after it, only if its registers cannot be
-reached through an existing pair. Its hosts go into `client.ALLOWED_HOSTS`
-with a reason; a search that runs on the archive's own database goes into
-`client.SEARCH_FLOORS`. Read its terms first and quote them in the README;
+A new archive is a module of its own beside `labw.py`, `nrw.py`, `rlp.py`
+and `hla.py`, and a search tool and an image tool named after it, only if its
+registers cannot be reached through an existing pair. Its hosts go into
+`client.ALLOWED_HOSTS` with a reason; a search that runs on the archive's own
+database goes into `client.SEARCH_FLOORS`, and a request that makes it build
+or send a whole volume into `client.VOLUME_FLOORS`. Read its terms first and quote them in the README;
 `robots.txt` is recorded as a fact. A site behind a bot check is not added.
 
 ## Releasing

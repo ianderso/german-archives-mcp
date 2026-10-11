@@ -1,27 +1,32 @@
-"""Polite, cached async HTTP for the DDB's API and three state archives' sites.
+"""Polite, cached async HTTP for the DDB's API and five state archives' sites.
 
-Four hosts, each a public service run by others, so the client is a careful
+Eight hosts, each a public service run by others, so the client is a careful
 guest:
 
 * **A fixed allowlist.** A request hook refuses any host but
   :data:`ALLOWED_HOSTS`: the DDB's API, the Landesarchiv Baden-Württemberg's
   online finding aids, the Archive in NRW portal and the Landesarchiv NRW's
-  image server. That holds for addresses taken from responses too (an image
-  link in a DDB record, a viewer link in an NRW hit, a redirect), so nothing a
-  site or a model writes can send a request anywhere else. Redirects are
-  followed by hand, and only within one host; anything else is reported, never
-  followed.
+  image server, the Landesarchivverwaltung Rheinland-Pfalz's APERTUS, LAGIS's
+  API, Arcinsys Hessen and its image server. That holds for addresses taken
+  from responses too (an image link in a DDB record, a viewer link in an NRW
+  hit, a PDF path in an APERTUS answer, an image in a METS file, a redirect),
+  so nothing a site or a model writes can send a request anywhere else.
+  Redirects are followed by hand, and only within one host; anything else is
+  reported, never followed.
 * **Only public addresses, checked where the connection is made.** The
   transport looks each host up itself, refuses it if any address is private,
   loopback, link-local, shared (CGNAT), multicast, reserved or unspecified,
   and connects to the address it checked.
-* **Bounded answers.** A JSON, HTML or XML answer over ``MAX_TEXT_BYTES`` or an
-  image over ``MAX_IMAGE_BYTES`` is refused as it streams in.
+* **Bounded answers.** A JSON, HTML or XML answer over ``MAX_TEXT_BYTES``, an
+  image over ``MAX_IMAGE_BYTES`` or a volume PDF over the caller's limit is
+  refused as it streams in.
 * **One request at a time per host, at least ``min_interval`` apart,** and
   never less than :data:`HOST_FLOORS` says for a host: two seconds for every
   host. A search that runs on an archive's own database waits longer still:
-  :data:`SEARCH_FLOORS` holds the Archive in NRW portal's searches ten seconds
-  apart.
+  :data:`SEARCH_FLOORS` holds the Archive in NRW portal's, APERTUS's and
+  LAGIS's searches ten seconds apart, and :data:`VOLUME_FLOORS` holds the
+  opening of two APERTUS volumes, each of which makes the archive build and
+  send a whole PDF, ten seconds apart.
 * **Identical concurrent calls share one request.**
 * **Answers are cached on disk,** keyed by the request address, for as many
   days as the caller says. A failure is never cached, and an unreadable entry
@@ -29,8 +34,9 @@ guest:
 * **A 429, a 5xx or a dropped connection gets one retry,** honouring
   ``Retry-After`` up to 30 seconds. A timeout is not retried.
 * **An honest User-Agent** naming the package, its version and its home.
-* **A bot check is reported, never worked around.** A Cloudflare challenge or
-  an Anubis proof-of-work page comes back as ``challenge``.
+  No other client is imitated, and no header is added to get past a check.
+* **A bot check is reported, never worked around.** A Cloudflare challenge, an
+  Imperva page or an Anubis proof-of-work page comes back as ``challenge``.
 """
 
 from __future__ import annotations
@@ -74,17 +80,56 @@ NRW_PORTAL_HOST = "www.archive.nrw.de"
 #: The Landesarchiv NRW's server for METS files and page images.
 NRW_IMAGE_HOST = "www.landesarchiv-nrw.de"
 
+#: APERTUS, the Landesarchivverwaltung Rheinland-Pfalz's virtual reading room:
+#: its unit search, unit descriptions and the volume PDFs it builds on demand.
+APERTUS_HOST = "apertus.rlp.de"
+
+#: LAGIS Hessen's keyless JSON API: the catalogue of Hesse's digitised civil
+#: registers.
+LAGIS_HOST = "www.lagis-hessen.de"
+
+#: Arcinsys Hessen: signature look-ups and the METS files of digitised units.
+ARCINSYS_HOST = "arcinsys.hessen.de"
+
+#: Arcinsys Hessen's static server for page images.
+HLA_IMAGE_HOST = "digitalisate-he.arcinsys.de"
+
 #: Every host a request may go to. Nothing else, whatever a response links to.
-ALLOWED_HOSTS = frozenset({DDB_HOST, LABW_HOST, NRW_PORTAL_HOST, NRW_IMAGE_HOST})
+ALLOWED_HOSTS = frozenset(
+    {
+        DDB_HOST,
+        LABW_HOST,
+        NRW_PORTAL_HOST,
+        NRW_IMAGE_HOST,
+        APERTUS_HOST,
+        LAGIS_HOST,
+        ARCINSYS_HOST,
+        HLA_IMAGE_HOST,
+    }
+)
 
 #: Least seconds between two requests to a host, whatever the configuration.
 HOST_FLOORS: dict[str, float] = {host: 2.0 for host in ALLOWED_HOSTS}
 
 #: Searches that run on an archive's own database, by host: the path prefixes
-#: that count as one, and the least seconds between two of them.
+#: that count as one, and the least seconds between two of them. APERTUS's unit
+#: search took up to 8 seconds, LAGIS's up to 35 (2026-10-11).
 SEARCH_FLOORS: dict[str, tuple[tuple[str, ...], float]] = {
     NRW_PORTAL_HOST: (("/sufservice/api/search",), 10.0),
+    APERTUS_HOST: (("/queryOneExt.php", "/queryfacet.php"), 10.0),
+    LAGIS_HOST: (("/de/api/",), 10.0),
 }
+
+#: Requests that make an archive build or send a whole volume, by host, in the
+#: same shape: opening an APERTUS unit makes it build the volume's PDF, which
+#: is then downloaded once. Two are never less than ten seconds apart.
+VOLUME_FLOORS: dict[str, tuple[tuple[str, ...], float]] = {
+    APERTUS_HOST: (("/vz_php.php",), 10.0),
+}
+
+#: Read timeouts, in seconds, for hosts slower than the configured timeout:
+#: LAGIS once took 35 seconds to answer a search.
+SLOW_HOSTS: dict[str, float] = {LAGIS_HOST: 90.0}
 
 #: Longest wait honoured from a ``Retry-After`` header, in seconds.
 RETRY_AFTER_CAP = 30.0
@@ -103,6 +148,10 @@ MAX_TEXT_BYTES = 10_000_000
 
 #: Read timeout for an image download, which the site renders on demand.
 DOWNLOAD_TIMEOUT = 120.0
+
+#: The largest volume PDF ever downloaded, whatever the cache allows. The
+#: APERTUS volumes seen were 6 to 27 MB.
+MAX_VOLUME_BYTES = 500_000_000
 
 _DAY = 86_400.0
 
@@ -139,6 +188,8 @@ _CHALLENGE_MARKS = (
     "/.within.website/",
     "cf-chl",
     "<title>just a moment...</title>",
+    "_incapsula_resource",
+    "incapsula incident id",
 )
 
 #: Shared address space for carrier-grade NAT, which ``ipaddress`` marks
@@ -352,7 +403,7 @@ class PublicOnlyTransport(httpx.AsyncHTTPTransport):
 
 
 class ArchiveHttp:
-    """Cached, paced async HTTP for the two allowed hosts.
+    """Cached, paced async HTTP for the allowed hosts.
 
     Parameters
     ----------
@@ -372,6 +423,8 @@ class ArchiveHttp:
         Least interval per host, whatever ``min_interval`` says. Tests pass {}.
     search_floors : dict, optional
         Least interval between two database searches on a host. Tests pass {}.
+    volume_floors : dict, optional
+        Least interval between two volume requests on a host. Tests pass {}.
     transport : httpx.AsyncBaseTransport, optional
         For tests. The default is a :class:`PublicOnlyTransport`. httpx does
         not apply proxy settings from the environment to a transport it is
@@ -390,6 +443,7 @@ class ArchiveHttp:
         backoff: float = 1.0,
         host_floors: dict[str, float] | None = None,
         search_floors: dict[str, tuple[tuple[str, ...], float]] | None = None,
+        volume_floors: dict[str, tuple[tuple[str, ...], float]] | None = None,
         max_text_bytes: int = MAX_TEXT_BYTES,
         transport: httpx.AsyncBaseTransport | None = None,
         clock: Callable[[], float] = time.monotonic,
@@ -402,6 +456,7 @@ class ArchiveHttp:
         self._backoff = backoff
         self._floors = HOST_FLOORS if host_floors is None else host_floors
         self._search_floors = SEARCH_FLOORS if search_floors is None else search_floors
+        self._volume_floors = VOLUME_FLOORS if volume_floors is None else volume_floors
         self._clock = clock
         self._sleep = sleep
         self._max_text_bytes = max_text_bytes
@@ -462,9 +517,18 @@ class ArchiveHttp:
         """The least seconds between two database searches on ``host``; 0 if none count."""
         return self._search_floors.get(host, ((), 0.0))[1]
 
-    def _is_search(self, host: str, path: str) -> bool:
-        prefixes = self._search_floors.get(host, ((), 0.0))[0]
-        return any(path.startswith(prefix) for prefix in prefixes)
+    def volume_interval(self, host: str) -> float:
+        """The least seconds between two volume requests to ``host``; 0 if none count."""
+        return self._volume_floors.get(host, ((), 0.0))[1]
+
+    def _heavy(self, host: str, path: str) -> list[tuple[str, float]]:
+        """The heavy classes this request belongs to: ``(clock key, interval)`` pairs."""
+        found = []
+        for name, floors in (("search", self._search_floors), ("volume", self._volume_floors)):
+            prefixes, seconds = floors.get(host, ((), 0.0))
+            if any(path.startswith(prefix) for prefix in prefixes):
+                found.append((f"{host}#{name}", seconds))
+        return found
 
     # ------------------------------------------------------------------ #
     # Lifecycle and the host allowlist
@@ -515,17 +579,21 @@ class ArchiveHttp:
             "text", url, ttl_days, refresh, lambda: self._fetch(url, decode_text, accept)
         )
 
-    async def get_location(self, url: str, *, ttl_days: float, refresh: bool = False) -> dict:
+    async def get_location(
+        self, url: str, *, ttl_days: float, refresh: bool = False, accept: str = "html"
+    ) -> dict:
         """GET without following a redirect: ``{"status", "location"}`` or ``{"status", "text"}``.
 
-        For a permalink service, whose answer *is* where it redirects. The
-        location is returned as written, never requested by this call.
+        For a permalink service, whose answer *is* where it redirects, and for
+        an address whose redirect means "no such record" (Arcinsys sends an
+        unknown unit's METS request to an error page). The location is
+        returned as written, never requested by this call.
         """
 
         async def fetch() -> dict:
             self._check_host(url)
             response = await self._send(
-                url, limit=self._max_text_bytes, follow=False, accept="html"
+                url, limit=self._max_text_bytes, follow=False, accept=accept
             )
             if response.status_code in (301, 302, 303, 307, 308):
                 return {
@@ -535,6 +603,92 @@ class ArchiveHttp:
             return {"status": response.status_code, "text": decode_text(response)}
 
         return await self._cached("hop", url, ttl_days, refresh, fetch)
+
+    async def post_text(
+        self, url: str, data: dict[str, str], *, ttl_days: float, refresh: bool = False
+    ) -> str:
+        """POST a form and return the HTML answer as text.
+
+        For a site whose reading pages are form posts (APERTUS). Cached by the
+        address and the form, like a GET, unless ``ttl_days`` is 0: then the
+        answer is neither read from nor written to the cache, for a post whose
+        side effect is the point (opening a unit builds its PDF). A redirect is
+        an error, never followed.
+        """
+        form = {str(k): str(v) for k, v in data.items()}
+
+        async def fetch() -> str:
+            self._check_host(url)
+            response = await self._send(
+                url,
+                limit=self._max_text_bytes,
+                follow=False,
+                accept="html",
+                method="POST",
+                data=form,
+            )
+            if response.status_code in (301, 302, 303, 307, 308):
+                error = SiteError(
+                    "redirected",
+                    f"the site redirects this form to {response.headers.get('location', '')}",
+                    status=response.status_code,
+                    url=url,
+                    location=response.headers.get("location", ""),
+                )
+                self._note(error)
+                raise error
+            try:
+                return decode_text(response)
+            except SiteError as exc:
+                self._note(exc)
+                raise
+
+        key_url = url + "?" + "&".join(f"{k}={v}" for k, v in sorted(form.items()))
+        if ttl_days <= 0:
+            self._check_host(url)
+            return await self._shared(_key("post", key_url), fetch)
+        return await self._cached("post", key_url, ttl_days, refresh, fetch)
+
+    async def fetch_to_file(
+        self, url: str, target: Path, *, max_bytes: int, accept: str = "pdf"
+    ) -> tuple[int, str]:
+        """GET a large file straight to ``target``, never into memory or the cache.
+
+        The bytes stream into a temporary file beside ``target``, which is
+        renamed into place only when the download is complete and within
+        ``max_bytes``; a failed or refused download leaves nothing behind.
+        Returns the bytes written and the Content-Type.
+
+        Raises
+        ------
+        SiteError
+            If the site refuses, or sends more than ``max_bytes`` (``too_large``).
+        """
+        self._check_host(url)
+        target.parent.mkdir(parents=True, exist_ok=True)
+        part = target.with_name(f".{target.name}.{uuid.uuid4().hex}.part")
+        try:
+            with part.open("wb") as sink:
+
+                def write(chunk: bytes) -> None:
+                    sink.write(chunk)
+
+                def rewind() -> None:
+                    sink.seek(0)
+                    sink.truncate()
+
+                response = await self._send(
+                    url,
+                    limit=max_bytes,
+                    accept=accept,
+                    timeout=httpx.Timeout(self._timeout, read=DOWNLOAD_TIMEOUT),
+                    sink=(write, rewind),
+                )
+            size = part.stat().st_size
+            os.replace(part, target)
+        finally:
+            part.unlink(missing_ok=True)
+        return size, response.headers.get("content-type", "")
 
     async def fetch_image(self, url: str, *, max_bytes: int = MAX_IMAGE_BYTES) -> tuple[bytes, str]:
         """GET an image's bytes and their format, never cached.
@@ -603,7 +757,14 @@ class ArchiveHttp:
             raise
 
     async def _send(
-        self, url: str, *, limit: int, follow: bool = True, accept: str = "json", **kwargs
+        self,
+        url: str,
+        *,
+        limit: int,
+        follow: bool = True,
+        accept: str = "json",
+        method: str = "GET",
+        **kwargs,
     ) -> httpx.Response:
         """One GET, paced, retried and redirected by hand; the final response.
 
@@ -620,7 +781,7 @@ class ArchiveHttp:
         while True:
             try:
                 response = await self._follow(
-                    url, limit=limit, follow=follow, accept=accept, **kwargs
+                    url, limit=limit, follow=follow, accept=accept, method=method, **kwargs
                 )
             except SiteError as exc:
                 error = exc
@@ -642,11 +803,11 @@ class ArchiveHttp:
             await self._sleep(wait)
 
     async def _follow(
-        self, url: str, *, limit: int, follow: bool, accept: str, **kwargs
+        self, url: str, *, limit: int, follow: bool, accept: str, method: str = "GET", **kwargs
     ) -> httpx.Response:
         """Send, following redirects only within the same host, and only when asked."""
         for _ in range(MAX_REDIRECTS + 1):
-            response = await self._paced(url, limit=limit, accept=accept, **kwargs)
+            response = await self._paced(url, limit=limit, accept=accept, method=method, **kwargs)
             if not follow or response.status_code not in (301, 302, 303, 307, 308):
                 return response
             location = urljoin(url, response.headers.get("location", ""))
@@ -663,36 +824,53 @@ class ArchiveHttp:
             url = location
         raise SiteError("redirected", "too many redirects", url=url)
 
-    async def _paced(self, url: str, *, limit: int, accept: str, **kwargs) -> httpx.Response:
+    async def _paced(
+        self,
+        url: str,
+        *,
+        limit: int,
+        accept: str,
+        method: str = "GET",
+        sink: tuple[Callable[[bytes], None], Callable[[], None]] | None = None,
+        **kwargs,
+    ) -> httpx.Response:
         """Send one request once this host's turn and interval have come.
 
         The body is streamed and refused as soon as it passes ``limit``
         bytes, decoded, so neither a declared nor an undeclared size can make
-        the client read more.
+        the client read more. With a ``sink`` (write, rewind), a successful
+        body goes to it rather than into memory.
         """
         parts = urlsplit(url)
         host = (parts.hostname or "").lower()
-        search = self._is_search(host, parts.path)
+        heavy = self._heavy(host, parts.path)
         lock = self._host_locks.setdefault(host, asyncio.Lock())
         headers = {"Accept": _ACCEPT[accept]}
+        if "timeout" not in kwargs and host in SLOW_HOSTS:
+            kwargs["timeout"] = httpx.Timeout(self._timeout, read=SLOW_HOSTS[host])
         async with lock:
             waits = []
             last = self._host_last.get(host)
             if last is not None:
                 waits.append(self.interval(host) - (self._clock() - last))
-            last_search = self._host_last.get(f"{host}#search")
-            if search and last_search is not None:
-                waits.append(self.search_interval(host) - (self._clock() - last_search))
+            for clock_key, seconds in heavy:
+                last_heavy = self._host_last.get(clock_key)
+                if last_heavy is not None:
+                    waits.append(seconds - (self._clock() - last_heavy))
             wait = max(waits, default=0.0)
             if wait > 0:
                 await self._sleep(wait)
             self._host_last[host] = self._clock()
-            if search:
-                self._host_last[f"{host}#search"] = self._clock()
+            for clock_key, _ in heavy:
+                self._host_last[clock_key] = self._clock()
             self._live_calls += 1
             self._hosts_called[host] = self._hosts_called.get(host, 0) + 1
             try:
-                async with self._http.stream("GET", url, headers=headers, **kwargs) as response:
+                async with self._http.stream(method, url, headers=headers, **kwargs) as response:
+                    if sink is not None and response.status_code < 300:
+                        sink[1]()
+                        await _stream_capped(response, limit, url, sink[0])
+                        return _with_body(response, b"")
                     body = await _read_capped(response, limit, url)
                 return _with_body(response, body)
             except httpx.TimeoutException as exc:
@@ -776,6 +954,7 @@ _ACCEPT = {
     "html": "text/html,application/xhtml+xml",
     "xml": "application/xml,text/xml",
     "image": "image/jpeg,image/*;q=0.8",
+    "pdf": "application/pdf",
 }
 
 
@@ -871,6 +1050,27 @@ async def _read_capped(response: httpx.Response, limit: int, url: str) -> bytes:
             raise too_large
         chunks.append(chunk)
     return b"".join(chunks)
+
+
+async def _stream_capped(
+    response: httpx.Response, limit: int, url: str, write: Callable[[bytes], None]
+) -> None:
+    """Hand a streamed body to ``write``, refusing it once it passes ``limit`` bytes."""
+    too_large = SiteError(
+        "too_large",
+        f"the file is over {limit / 1_000_000:g} MB, more than this server downloads",
+        status=response.status_code,
+        url=url,
+    )
+    declared = response.headers.get("content-length", "").strip()
+    if declared.isdigit() and int(declared) > limit:
+        raise too_large
+    size = 0
+    async for chunk in response.aiter_bytes():
+        size += len(chunk)
+        if size > limit:
+            raise too_large
+        write(chunk)
 
 
 def _with_body(response: httpx.Response, body: bytes) -> httpx.Response:

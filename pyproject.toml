@@ -1,13 +1,13 @@
 [project]
 name = "german-archives-mcp"
 dynamic = ["version"]
-description = "MCP server for German archives: search the finding aids and digitised objects of the Deutsche Digitale Bibliothek and Archivportal-D, find the online civil and church registers of Baden, Württemberg, Hohenzollern and North Rhine-Westphalia at their state archives, and download their page images. For genealogy and history."
+description = "MCP server for German archives: search the finding aids and digitised objects of the Deutsche Digitale Bibliothek and Archivportal-D, find the online civil and church registers of Baden, Württemberg, Hohenzollern, North Rhine-Westphalia, Rhineland-Palatinate and Hesse at their state archives, and download their page images. For genealogy and history."
 readme = "README.md"
 requires-python = ">=3.11"
 license = "MIT"
 license-files = ["LICENSE"]
 authors = [{ name = "Ian Anderson" }]
-keywords = ["mcp", "genealogy", "family-history", "archives", "germany", "deutsche-digitale-bibliothek", "archivportal-d", "baden", "wuerttemberg", "nordrhein-westfalen", "standesbuecher", "kirchenbuchduplikate", "personenstandsregister", "research"]
+keywords = ["mcp", "genealogy", "family-history", "archives", "germany", "deutsche-digitale-bibliothek", "archivportal-d", "baden", "wuerttemberg", "nordrhein-westfalen", "rheinland-pfalz", "hessen", "apertus", "arcinsys", "lagis", "standesbuecher", "kirchenbuchduplikate", "personenstandsregister", "research"]
 classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: End Users/Desktop",
@@ -34,6 +34,12 @@ dependencies = [
     "httpcore>=1.0",
     "pydantic>=2.6",
     "python-dotenv>=1.0",
+    # Reads the whole-volume PDFs APERTUS (Rheinland-Pfalz) delivers and takes
+    # one page's embedded JPEG out unchanged: pure Python, no dependencies of
+    # its own, and no imaging library, since nothing is rasterised. The floor
+    # is recent because the PDFs come from the network and pypdf keeps fixing
+    # the handling of malformed files.
+    "pypdf>=6.19",
 ]
 
 [project.optional-dependencies]

@@ -1,19 +1,19 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.ianderso/german-archives-mcp",
-  "title": "German Archives (DDB, Baden-Württemberg and NRW registers)",
-  "description": "Search German archive finding aids (DDB); read civil and church registers of BW and NRW.",
+  "title": "German Archives (DDB; BW, NRW, Rhineland-Palatinate and Hesse registers)",
+  "description": "German archive finding aids (DDB); civil and church registers of BW, NRW, RLP and Hesse.",
   "repository": {
     "url": "https://github.com/ianderso/german-archives-mcp",
     "source": "github"
   },
-  "version": "0.2.0",
+  "version": "0.3.0",
   "packages": [
     {
       "registryType": "pypi",
       "registryBaseUrl": "https://pypi.org",
       "identifier": "german-archives-mcp",
-      "version": "0.2.0",
+      "version": "0.3.0",
       "runtimeHint": "uvx",
       "transport": {
         "type": "stdio"
@@ -21,7 +21,7 @@
       "environmentVariables": [
         {
           "name": "GERMAN_ARCHIVES_CACHE_DIR",
-          "description": "Directory for the on-disk response cache.",
+          "description": "Directory for the on-disk response cache, and for the APERTUS volume PDFs kept for reading further pages.",
           "default": "~/.cache/german-archives-mcp"
         },
         {
@@ -31,7 +31,7 @@
         },
         {
           "name": "GERMAN_ARCHIVES_MIN_INTERVAL",
-          "description": "Least seconds between two requests to one host. Never below 2; the Archive in NRW portal's searches wait 10.",
+          "description": "Least seconds between two requests to one host. Never below 2; database searches and APERTUS volume downloads wait 10.",
           "default": "2"
         },
         {
@@ -40,7 +40,17 @@
         },
         {
           "name": "GERMAN_ARCHIVES_DOWNLOAD_DIR",
-          "description": "An existing folder. When set, labw_image and nrw_image save only inside it; needed to save under ~/Library, such as an iCloud Drive folder."
+          "description": "An existing folder. When set, the image tools save only inside it; needed to save under ~/Library, such as an iCloud Drive folder."
+        },
+        {
+          "name": "GERMAN_ARCHIVES_PDF_CACHE_DAYS",
+          "description": "Days a downloaded APERTUS volume PDF is kept for reading further pages (at most 30).",
+          "default": "3"
+        },
+        {
+          "name": "GERMAN_ARCHIVES_PDF_CACHE_MB",
+          "description": "Most megabytes of APERTUS volume PDFs kept on disk; the least recently read go first (at least 100).",
+          "default": "1000"
         }
       ]
     }

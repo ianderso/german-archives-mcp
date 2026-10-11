@@ -7,7 +7,12 @@ from urllib.parse import parse_qs, quote, urlsplit
 import httpx
 
 from german_archives_mcp import labw
-from german_archives_mcp.client import DDB_HOST, LABW_HOST, NRW_IMAGE_HOST, NRW_PORTAL_HOST
+from german_archives_mcp.client import (
+    ALLOWED_HOSTS,
+    DDB_HOST,
+    LABW_HOST,
+    NRW_PORTAL_HOST,
+)
 
 from .conftest import (
     BARMEN_METS,
@@ -655,6 +660,8 @@ async def test_cache_status_reports_calls_and_pacing(served, sites):
     out = await call_tool("cache_status")
     assert out["live_calls_this_session"] == 1 and out["cache_hits_this_session"] == 1
     assert out["calls_by_host"] == {DDB_HOST: 1}
-    assert set(out["hosts"]) == {DDB_HOST, LABW_HOST, NRW_PORTAL_HOST, NRW_IMAGE_HOST}
+    assert set(out["hosts"]) == set(ALLOWED_HOSTS) and len(out["hosts"]) == 8
     assert out["seconds_between_requests"][DDB_HOST] == 0.0
     assert out["seconds_between_searches"] == {}
+    assert out["seconds_between_volume_downloads"] == {}
+    assert out["volume_pdfs"]["volumes"] == 0 and out["volume_pdfs"]["kept_days"] == 3

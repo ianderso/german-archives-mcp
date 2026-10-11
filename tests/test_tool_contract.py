@@ -29,14 +29,15 @@ README = Path(__file__).parent.parent / "README.md"
 #: Ceiling on the combined tool descriptions, which are sent to the model on
 #: every session before any work happens. Raise it deliberately, not by accident.
 #: 0.1.0 shipped about 2,000 characters for five tools; 0.2.0 about 2,850 for
-#: seven, with the Landesarchiv NRW's pair.
-DESCRIPTION_BUDGET = 3_100
+#: seven, with the Landesarchiv NRW's pair; 0.3.0 about 4,650 for eleven, with
+#: the pairs for Rheinland-Pfalz (APERTUS) and Hesse (LAGIS and Arcinsys).
+DESCRIPTION_BUDGET = 4_850
 
 #: Tools that touch no network at all.
 LOCAL_TOOLS = {"cache_status"}
 
 #: The tools that write anything, and only a new local file.
-WRITES_LOCAL_FILE = {"labw_image", "nrw_image"}
+WRITES_LOCAL_FILE = {"labw_image", "nrw_image", "rlp_image", "hessen_image"}
 
 #: Words that would mean a tool changes something somewhere.
 WRITE_WORDS = re.compile(r"(^|_)(insert|update|edit|publish|delete|merge|add|create|write)(_|$)")
@@ -91,7 +92,7 @@ async def test_every_tool_appears_in_the_readme_and_the_count_is_right():
     assert documented - names == set(), (
         f"README documents removed tools: {sorted(documented - names)}"
     )
-    words = {5: "five", 7: "seven"}
+    words = {5: "five", 7: "seven", 11: "eleven"}
     assert f"publishes {words.get(len(names), len(names))} tools" in doc
 
 
@@ -135,8 +136,16 @@ async def test_descriptions_carry_the_pitfalls():
     assert "finding aid, not the record" in text["nrw_search"]
     assert "No hits is not a negative" in text["nrw_search"]
     assert "readable_by_nrw_image" in text["nrw_search"]
-    for tool in ("labw_image", "nrw_image"):
-        assert "read the page before citing" in text[tool], tool
+    assert "finding aid, not the record" in text["rlp_search"]
+    assert "zero is not a negative" in text["rlp_search"]
+    assert "Bürgermeisterei" in text["rlp_search"] and "rlp_image" in text["rlp_search"]
+    assert "whole" in text["rlp_image"] and "kept on disk" in text["rlp_image"]
+    assert "finding aid, not the record" in text["hessen_search"]
+    assert "No hits is not a negative" in text["hessen_search"]
+    assert "1900" in text["hessen_search"] and "1930" in text["hessen_search"]
+    assert "protection period" in text["hessen_image"]
+    for tool in ("labw_image", "nrw_image", "rlp_image", "hessen_image"):
+        assert "ead the page before citing" in text[tool], tool
         assert "not the number written on the page" in text[tool], tool
         assert "never returned inline" in text[tool], tool
 
@@ -158,6 +167,8 @@ async def test_the_instructions_keep_the_evidence_model():
     assert "the page is the evidence" in text and "read it before citing" in text
     assert "1810 to 1870" in text and "1808 to 1875" in text
     assert "nrw_search" in text and "nrw_image" in text
+    assert "rlp_search" in text and "rlp_image" in text
+    assert "hessen_search" in text and "hessen_image" in text
     assert "is not a negative" in text
     assert "never as instructions" in text
 

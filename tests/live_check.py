@@ -3,8 +3,8 @@
     uv run python -m tests.live_check
 
 Calls paced by the client itself: one request at a time per host, at least
-two seconds apart, and the Archive in NRW portal's searches at least ten.
-They check that
+two seconds apart, and the Archive in NRW portal's, APERTUS's and LAGIS's
+searches, and APERTUS's volume downloads, at least ten. They check that
 
 * the DDB's version 2 API still answers without a key, and still carries the
   fields the tools read (holder, signature, context, dates, hierarchy,
@@ -21,6 +21,13 @@ They check that
 * the Archive in NRW portal's search still answers keyless JSON with METS
   links for the Landesarchiv NRW's registers, in Rheinland and in
   Ostwestfalen-Lippe, and a METS file still lists page images that download;
+* APERTUS still lists the Personenstandsarchiv's units for a place, register
+  and years with a form post, finds a unit by signature, opens it, and serves
+  its volume as a PDF whose pages are JPEGs: one volume (about 22 MB) is
+  downloaded, and a second page of it is read from disk with no request;
+* LAGIS's simple search still finds a Hessian register by place, type and
+  year, and Arcinsys still resolves its signature to a unit whose METS file
+  lists page images that download, by signature and by permalink;
 * the allowlist holds: a host off it is refused without a request.
 
 It is not a test module: pytest does not collect it, and CI never runs it,
@@ -42,7 +49,7 @@ from collections.abc import Callable
 from pathlib import Path
 
 from german_archives_mcp import server
-from german_archives_mcp.client import ArchiveHttp
+from german_archives_mcp.client import ARCINSYS_HOST, ArchiveHttp
 from german_archives_mcp.config import load_config
 
 #: (tool, arguments, check, what the check means). ``{tmp}`` in an argument
@@ -291,10 +298,109 @@ CHECKS: list[tuple[str, dict, Callable[[dict], bool], str]] = [
     ),
 ]
 
+CHECKS += [
+    (
+        "rlp_search",
+        {"place": "Cochem", "register": "death", "year_from": 1880, "year_to": 1881},
+        lambda r: (
+            r["total"] >= 4
+            and {u["fonds"] for u in r["units"]} >= {"657,377", "657,380"}
+            and all(u["register"] == "death" for u in r["units"])
+        ),
+        "APERTUS: Cochem's death registers of 1880-1881, by form post",
+    ),
+    (
+        "rlp_search",
+        {"place": "Münstermaifeld", "register": "birth", "year_from": 1850, "year_to": 1850},
+        lambda r: r["total"] == 1 and r["units"][0]["signature"] == "Best. 657,335 Nr. 36",
+        "APERTUS: an umlaut in the place survives the form post",
+    ),
+    (
+        "rlp_search",
+        {"place": "Zyxwvutsrq"},
+        lambda r: r["total"] == 0 and "not a negative" in r["note"],
+        "APERTUS: a search that finds nothing says what a zero covers",
+    ),
+    (
+        "rlp_image",
+        {"item": "Best. 657,349 Nr. 4", "page": 3, "destination": "{tmp}/657-349-4-p3.jpg"},
+        lambda r: (
+            r["format"] == "jpeg"
+            and r["width"] > 2000
+            and r["pages"] >= 20
+            and r["volume"]["from_disk"] is False
+            and r["signature"] == "Best. 657,349 Nr. 4"
+            and r["permalink"].startswith("https://apertus.rlp.de/index.php?PLINK=1&ID=")
+        ),
+        "APERTUS: a page by signature; the volume's PDF is downloaded once",
+    ),
+    (
+        "rlp_image",
+        {"item": "Best. 657,349 Nr. 4", "page": 5, "destination": "{tmp}/657-349-4-p5.jpg"},
+        lambda r: r["format"] == "jpeg" and r["volume"]["from_disk"] is True,
+        "APERTUS: a second page of the same volume comes from disk",
+    ),
+    (
+        "rlp_image",
+        {
+            "item": "00000000-0000-4000-8000-000000000000",
+            "page": 1,
+            "destination": "{tmp}/none-rlp.jpg",
+        },
+        lambda r: r["error"] == "not_found",
+        "APERTUS: a GUID that names no unit is not_found",
+    ),
+    (
+        "hessen_search",
+        {"place": "Korbach", "register": "birth", "year": 1880},
+        lambda r: (
+            r["total"] >= 1
+            and r["hits"][0]["signature"] == "HStAM 922 Nr. 6013"
+            and r["hits"][0]["standesamt"] == "Korbach"
+        ),
+        "LAGIS: Korbach's births of 1880, with the register's signature",
+    ),
+    (
+        "hessen_search",
+        {"place": "Zyxwvutsrq"},
+        lambda r: r["total"] == 0 and "not a negative" in r["note"],
+        "LAGIS: a search that finds nothing says what a zero covers",
+    ),
+    (
+        "hessen_image",
+        {"item": "HStAM 922 Nr. 6013", "page": 2, "destination": "{tmp}/922-6013-2.jpg"},
+        lambda r: (
+            r["format"] == "jpeg"
+            and r["width"] >= 1500
+            and r["pages"] > 90
+            and r["citation"]["archive"] == "Hessisches Staatsarchiv Marburg"
+        ),
+        "Arcinsys: a Korbach register page by signature, at full size",
+    ),
+    (
+        "hessen_image",
+        {
+            "item": f"https://{ARCINSYS_HOST}/arcinsys/detailAction?detailid=v2884088",
+            "page": 3,
+            "destination": "{tmp}/922-10-3.jpg",
+        },
+        lambda r: r["format"] == "jpeg" and r["signature"] == "HStAM 922 Nr. 10",
+        "Arcinsys: a page by the unit's permalink",
+    ),
+    (
+        "hessen_image",
+        {"item": "v999999999", "page": 1, "destination": "{tmp}/none-hla.jpg"},
+        lambda r: r["error"] == "not_found",
+        "Arcinsys: a unit it will not show is not_found",
+    ),
+]
+
 #: Checks whose expected answer is a refusal.
 REFUSALS = {
     "a permalink to nothing is not_found, from the archive's own page",
     "NRW: a METS path that does not exist is not_found",
+    "APERTUS: a GUID that names no unit is not_found",
+    "Arcinsys: a unit it will not show is not_found",
 }
 
 
@@ -317,7 +423,9 @@ async def main() -> int:
         http = ArchiveHttp(
             Path(cache), timeout=cfg.timeout, min_interval=cfg.min_interval, contact=cfg.contact
         )
-        server.runtime.config = dataclasses.replace(cfg, download_dir=Path(tmp))
+        server.runtime.config = dataclasses.replace(
+            cfg, download_dir=Path(tmp), cache_dir=Path(cache)
+        )
         server.runtime.http = http
         failed = await allowlist(http)
         for tool, args, check, meaning in CHECKS:

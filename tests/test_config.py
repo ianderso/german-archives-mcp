@@ -14,6 +14,8 @@ VARIABLES = (
     "GERMAN_ARCHIVES_MIN_INTERVAL",
     "GERMAN_ARCHIVES_CONTACT",
     "GERMAN_ARCHIVES_DOWNLOAD_DIR",
+    "GERMAN_ARCHIVES_PDF_CACHE_DAYS",
+    "GERMAN_ARCHIVES_PDF_CACHE_MB",
 )
 
 
@@ -29,6 +31,7 @@ def test_nothing_is_required():
     assert cfg.timeout == 30.0 and cfg.min_interval == 2.0 and cfg.contact == ""
     assert cfg.cache_dir == Path.home() / ".cache" / "german-archives-mcp"
     assert cfg.download_dir is None
+    assert cfg.pdf_cache_days == 3.0 and cfg.pdf_cache_mb == 1000.0
 
 
 def test_every_setting_is_read(monkeypatch, tmp_path):
@@ -88,6 +91,29 @@ def test_an_unusable_download_folder_names_the_variable(monkeypatch, tmp_path, m
     (tmp_path / "downloads").mkdir()
     monkeypatch.setenv("GERMAN_ARCHIVES_DOWNLOAD_DIR", raw)
     with pytest.raises(ConfigError, match="GERMAN_ARCHIVES_DOWNLOAD_DIR"):
+        load_config()
+
+
+def test_the_volume_cache_settings_are_read(monkeypatch):
+    monkeypatch.setenv("GERMAN_ARCHIVES_PDF_CACHE_DAYS", "0.5")
+    monkeypatch.setenv("GERMAN_ARCHIVES_PDF_CACHE_MB", "250")
+    cfg = load_config()
+    assert cfg.pdf_cache_days == 0.5 and cfg.pdf_cache_mb == 250.0
+
+
+@pytest.mark.parametrize(
+    ("name", "raw", "match"),
+    [
+        ("GERMAN_ARCHIVES_PDF_CACHE_DAYS", "forever", "must be a number"),
+        ("GERMAN_ARCHIVES_PDF_CACHE_DAYS", "0", "greater than zero"),
+        ("GERMAN_ARCHIVES_PDF_CACHE_DAYS", "31", "at most 30"),
+        ("GERMAN_ARCHIVES_PDF_CACHE_MB", "-1", "greater than zero"),
+        ("GERMAN_ARCHIVES_PDF_CACHE_MB", "50", "at least 100"),
+    ],
+)
+def test_an_unusable_volume_cache_setting_names_the_variable(monkeypatch, name, raw, match):
+    monkeypatch.setenv(name, raw)
+    with pytest.raises(ConfigError, match=f"{name}.*{match}|{match}"):
         load_config()
 
 

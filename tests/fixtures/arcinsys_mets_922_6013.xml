@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:mets xmlns:dv="http://dfg-viewer.de" xmlns:ns2="http://www.loc.gov/METS/" xmlns:ns3="http://www.w3.org/1999/xlink" xmlns:ns4="http://www.loc.gov/mods/v3">
+    <ns2:dmdSec ID="dmd_v3797740">
+        <ns2:mdWrap MIMETYPE="text/xml" MDTYPE="MODS">
+            <ns2:xmlData>
+                <ns4:mods version="3.0">
+                    <ns4:titleInfo>
+                        <ns4:title>Standesamt Korbach Geburtsnebenregister 1880</ns4:title>
+                    </ns4:titleInfo>
+                    <ns4:recordInfo>
+                        <ns4:descriptionStandard>DFG-Viewer/Archiv v2.3</ns4:descriptionStandard>
+                    </ns4:recordInfo>
+                    <ns4:originInfo>
+                        <ns4:dateCreated encoding="iso8601" point="start" keyDate="yes">1880</ns4:dateCreated>
+                        <ns4:dateCreated encoding="iso8601" point="end" keyDate="yes">1880</ns4:dateCreated>
+                    </ns4:originInfo>
+                    <ns4:location>
+                        <ns4:shelfLocator>HStAM 922 6013</ns4:shelfLocator>
+                        <ns4:shelfLocator>Hessisches Staatsarchiv Marburg</ns4:shelfLocator>
+                    </ns4:location>
+                </ns4:mods>
+            </ns2:xmlData>
+        </ns2:mdWrap>
+    </ns2:dmdSec>
+    <ns2:amdSec ID="amd_v3797740">
+        <ns2:rightsMD ID="rights_v3797740">
+            <ns2:mdWrap MIMETYPE="text/xml" MDTYPE="OTHER" OTHERMDTYPE="DVRIGHTS">
+                <ns2:xmlData>
+                    <dv:rights>
+                        <dv:owner>Hessisches Staatsarchiv Marburg</dv:owner>
+                        <dv:license></dv:license>
+                    </dv:rights>
+                </ns2:xmlData>
+            </ns2:mdWrap>
+        </ns2:rightsMD>
+        <ns2:digiprovMD>
+            <ns2:mdWrap MIMETYPE="text/xml" MDTYPE="OTHER" OTHERMDTYPE="DVLINKS">
+                <ns2:xmlData>
+                    <dv:links>
+                    </dv:links>
+                </ns2:xmlData>
+            </ns2:mdWrap>
+        </ns2:digiprovMD>
+    </ns2:amdSec>
+    <ns2:fileSec>
+        <ns2:fileGrp USE="DEFAULT">
+            <ns2:file ID="v3797740_default_154654669" MIMETYPE="image/jpeg">
+                <ns2:FLocat LOCTYPE="URL" ns3:href="https://digitalisate-he.arcinsys.de/hstam/922/6013/00001.jpg"/>
+            </ns2:file>
+            <ns2:file ID="v3797740_default_154654670" MIMETYPE="image/jpeg">
+                <ns2:FLocat LOCTYPE="URL" ns3:href="https://digitalisate-he.arcinsys.de/hstam/922/6013/00002.jpg"/>
+            </ns2:file>
+            <ns2:file ID="v3797740_default_154654671" MIMETYPE="image/jpeg">
+                <ns2:FLocat LOCTYPE="URL" ns3:href="https://digitalisate-he.arcinsys.de/hstam/922/6013/00003.jpg"/>
+            </ns2:file>
+            <ns2:file ID="v3797740_default_154654672" MIMETYPE="image/jpeg">
+                <ns2:FLocat LOCTYPE="URL" ns3:href="https://digitalisate-he.arcinsys.de/hstam/922/6013/00004.jpg"/>
+            </ns2:file>
+            <ns2:file ID="v3797740_default_154654673" MIMETYPE="image/jpeg">
+                <ns2:FLocat LOCTYPE="URL" ns3:href="https://digitalisate-he.arcinsys.de/hstam/922/6013/00005.jpg"/>
+            </ns2:file>
+            <ns2:file ID="v3797740_default_154654674" MIMETYPE="image/jpeg">
+                <ns2:FLocat LOCTYPE="URL" ns3:href="https://digitalisate-he.arcinsys.de/hstam/922/6013/00006.jpg"/>
+            </ns2:file>
+            <ns2:file ID="v3797740_default_154654675" MIMETYPE="image/jpeg">
+                <ns2:FLocat LOCTYPE="URL" ns3:href="https://digitalisate-he.arcinsys.de/hstam/922/6013/00007.jpg"/>
+            </ns2:file>
+            <ns2:file ID="v3797740_default_154654676" MIMETYPE="image/jpeg">
+                <ns2:FLocat LOCTYPE="URL" ns3:href="https://digitalisate-he.arcinsys.de/hstam/922/6013/00008.jpg"/>
+            </ns2:file>
+            <ns2:file ID="v3797740_default_154654677" MIMETYPE="image/jpeg">
+                <ns2:FLocat LOCTYPE="URL" ns3:href="https://digitalisate-he.arcinsys.de/hstam/922/6013/00009.jpg"/>
+            </ns2:file>
+            <ns2:file ID="v3797740_default_154654678" MIMETYPE="image/jpeg">
+                <ns2:FLocat LOCTYPE="URL" ns3:href="https://digitalisate-he.arcinsys.de/hstam/922/6013/00010.jpg"/>
+            </ns2:file>
+            <ns2:file ID="v3797740_default_154654679" MIMETYPE="image/jpeg">
+                <ns2:FLocat LOCTYPE="URL" ns3:href="https://digitalisate-he.arcinsys.de/hstam/922/6013/00011.jpg"/>
+            </ns2:file>
+            <ns2:file ID="v3797740_default_154654680" MIMETYPE="image/jpeg">
+                <ns2:FLocat LOCTYPE="URL" ns3:href="https://digitalisate-he.arcinsys.de/hstam/922/6013/00012.jpg"/>
+            </ns2:file>
+        </ns2:fileGrp>
+        <ns2:fileGrp USE="THUMBS">
+            <ns2:file ID="v3797740_thumbs_154654669">
+                <ns2:FLocat LOCTYPE="URL" ns3:href="https://digitalisate-he.arcinsys.de/hstam/922/6013/thumb/00001.jpg"/>
+            </ns2:file>
+            <ns2:file ID="v3797740_thumbs_154654670">
+                <ns2:FLocat LOCTYPE="URL" ns3:href="https://digitalisate-he.arcinsys.de/hstam/922/6013/thumb/00002.jpg"/>
+            </ns2:file>
+            <ns2:file ID="v3797740_thumbs_154654671">
+                <ns2:FLocat LOCTYPE="URL" ns3:href="https://digitalisate-he.arcinsys.de/hstam/922/6013/thumb/00003.jpg"/>
+            </ns2:file>
+            <ns2:file ID="v3797740_thumbs_154654672">
+                <ns2:FLocat LOCTYPE="URL" ns3:href="https://digitalisate-he.arcinsys.de/hstam/922/6013/thumb/00004.jpg"/>
+            </ns2:file>
+            <ns2:file ID="v3797740_thumbs_154654673">
+                <ns2:FLocat LOCTYPE="URL" ns3:href="https://digitalisate-he.arcinsys.de/hstam/922/6013/thumb/00005.jpg"/>
+            </ns2:file>
+            <ns2:file ID="v3797740_thumbs_154654674">
+                <ns2:FLocat LOCTYPE="URL" ns3:href="https://digitalisate-he.arcinsys.de/hstam/922/6013/thumb/00006.jpg"/>
+            </ns2:file>
+            <ns2:file ID="v3797740_thumbs_154654675">
+                <ns2:FLocat LOCTYPE="URL" ns3:href="https://digitalisate-he.arcinsys.de/hstam/922/6013/thumb/00007.jpg"/>
+            </ns2:file>
+            <ns2:file ID="v3797740_thumbs_154654676">
+                <ns2:FLocat LOCTYPE="URL" ns3:href="https://digitalisate-he.arcinsys.de/hstam/922/6013/thumb/00008.jpg"/>
+            </ns2:file>
+            <ns2:file ID="v3797740_thumbs_154654677">
+                <ns2:FLocat LOCTYPE="URL" ns3:href="https://digitalisate-he.arcinsys.de/hstam/922/6013/thumb/00009.jpg"/>
+            </ns2:file>
+            <ns2:file ID="v3797740_thumbs_154654678">
+                <ns2:FLocat LOCTYPE="URL" ns3:href="https://digitalisate-he.arcinsys.de/hstam/922/6013/thumb/00010.jpg"/>
+            </ns2:file>
+            <ns2:file ID="v3797740_thumbs_154654679">
+                <ns2:FLocat LOCTYPE="URL" ns3:href="https://digitalisate-he.arcinsys.de/hstam/922/6013/thumb/00011.jpg"/>
+            </ns2:file>
+            <ns2:file ID="v3797740_thumbs_154654680">
+                <ns2:FLocat LOCTYPE="URL" ns3:href="https://digitalisate-he.arcinsys.de/hstam/922/6013/thumb/00012.jpg"/>
+            </ns2:file>
+        </ns2:fileGrp>
+        <ns2:fileGrp USE="DOWNLOAD">
+            <ns2:file ID="v3797740_download_154654669" MIMETYPE="image/jpeg">
+                <ns2:FLocat LOCTYPE="URL" ns3:href="https://digitalisate-he.arcinsys.de/hstam/922/6013/00001.jpg"/>
+            </ns2:file>
+            <ns2:file ID="v3797740_download_154654670" MIMETYPE="image/jpeg">
+                <ns2:FLocat LOCTYPE="URL" ns3:href="https://digitalisate-he.arcinsys.de/hstam/922/6013/00002.jpg"/>
+            </ns2:file>
+            <ns2:file ID="v3797740_download_154654671" MIMETYPE="image/jpeg">
+                <ns2:FLocat LOCTYPE="URL" ns3:href="https://digitalisate-he.arcinsys.de/hstam/922/6013/00003.jpg"/>
+            </ns2:file>
+            <ns2:file ID="v3797740_download_154654672" MIMETYPE="image/jpeg">
+                <ns2:FLocat LOCTYPE="URL" ns3:href="https://digitalisate-he.arcinsys.de/hstam/922/6013/00004.jpg"/>
+            </ns2:file>
+            <ns2:file ID="v3797740_download_154654673" MIMETYPE="image/jpeg">
+                <ns2:FLocat LOCTYPE="URL" ns3:href="https://digitalisate-he.arcinsys.de/hstam/922/6013/00005.jpg"/>
+            </ns2:file>
+            <ns2:file ID="v3797740_download_154654674" MIMETYPE="image/jpeg">
+                <ns2:FLocat LOCTYPE="URL" ns3:href="https://digitalisate-he.arcinsys.de/hstam/922/6013/00006.jpg"/>
+            </ns2:file>
+            <ns2:file ID="v3797740_download_154654675" MIMETYPE="image/jpeg">
+                <ns2:FLocat LOCTYPE="URL" ns3:href="https://digitalisate-he.arcinsys.de/hstam/922/6013/00007.jpg"/>
+            </ns2:file>
+            <ns2:file ID="v3797740_download_154654676" MIMETYPE="image/jpeg">
+                <ns2:FLocat LOCTYPE="URL" ns3:href="https://digitalisate-he.arcinsys.de/hstam/922/6013/00008.jpg"/>
+            </ns2:file>
+            <ns2:file ID="v3797740_download_154654677" MIMETYPE="image/jpeg">
+                <ns2:FLocat LOCTYPE="URL" ns3:href="https://digitalisate-he.arcinsys.de/hstam/922/6013/00009.jpg"/>
+            </ns2:file>
+            <ns2:file ID="v3797740_download_154654678" MIMETYPE="image/jpeg">
+                <ns2:FLocat LOCTYPE="URL" ns3:href="https://digitalisate-he.arcinsys.de/hstam/922/6013/00010.jpg"/>
+            </ns2:file>
+            <ns2:file ID="v3797740_download_154654679" MIMETYPE="image/jpeg">
+                <ns2:FLocat LOCTYPE="URL" ns3:href="https://digitalisate-he.arcinsys.de/hstam/922/6013/00011.jpg"/>
+            </ns2:file>
+            <ns2:file ID="v3797740_download_154654680" MIMETYPE="image/jpeg">
+                <ns2:FLocat LOCTYPE="URL" ns3:href="https://digitalisate-he.arcinsys.de/hstam/922/6013/00012.jpg"/>
+            </ns2:file>
+        </ns2:fileGrp>
+    </ns2:fileSec>
+    <ns2:structMap TYPE="PHYSICAL">
+        <ns2:div ID="phys_v3797740" TYPE="physSequence">
+            <ns2:div ID="div_v3797740_default_154654669" TYPE="page" ORDER="2">
+                <ns2:fptr FILEID="v3797740_default_154654669"/>
+                <ns2:fptr FILEID="v3797740_thumbs_154654669"/>
+                <ns2:fptr FILEID="v3797740_download_154654669"/>
+            </ns2:div>
+            <ns2:div ID="div_v3797740_default_154654670" TYPE="page" ORDER="3">
+                <ns2:fptr FILEID="v3797740_default_154654670"/>
+                <ns2:fptr FILEID="v3797740_thumbs_154654670"/>
+                <ns2:fptr FILEID="v3797740_download_154654670"/>
+            </ns2:div>
+            <ns2:div ID="div_v3797740_default_154654671" TYPE="page" ORDER="4">
+                <ns2:fptr FILEID="v3797740_default_154654671"/>
+                <ns2:fptr FILEID="v3797740_thumbs_154654671"/>
+                <ns2:fptr FILEID="v3797740_download_154654671"/>
+            </ns2:div>
+            <ns2:div ID="div_v3797740_default_154654672" TYPE="page" ORDER="5">
+                <ns2:fptr FILEID="v3797740_default_154654672"/>
+                <ns2:fptr FILEID="v3797740_thumbs_154654672"/>
+                <ns2:fptr FILEID="v3797740_download_154654672"/>
+            </ns2:div>
+            <ns2:div ID="div_v3797740_default_154654673" TYPE="page" ORDER="6">
+                <ns2:fptr FILEID="v3797740_default_154654673"/>
+                <ns2:fptr FILEID="v3797740_thumbs_154654673"/>
+                <ns2:fptr FILEID="v3797740_download_154654673"/>
+            </ns2:div>
+            <ns2:div ID="div_v3797740_default_154654674" TYPE="page" ORDER="7">
+                <ns2:fptr FILEID="v3797740_default_154654674"/>
+                <ns2:fptr FILEID="v3797740_thumbs_154654674"/>
+                <ns2:fptr FILEID="v3797740_download_154654674"/>
+            </ns2:div>
+            <ns2:div ID="div_v3797740_default_154654675" TYPE="page" ORDER="8">
+                <ns2:fptr FILEID="v3797740_default_154654675"/>
+                <ns2:fptr FILEID="v3797740_thumbs_154654675"/>
+                <ns2:fptr FILEID="v3797740_download_154654675"/>
+            </ns2:div>
+            <ns2:div ID="div_v3797740_default_154654676" TYPE="page" ORDER="9">
+                <ns2:fptr FILEID="v3797740_default_154654676"/>
+                <ns2:fptr FILEID="v3797740_thumbs_154654676"/>
+                <ns2:fptr FILEID="v3797740_download_154654676"/>
+            </ns2:div>
+            <ns2:div ID="div_v3797740_default_154654677" TYPE="page" ORDER="10">
+                <ns2:fptr FILEID="v3797740_default_154654677"/>
+                <ns2:fptr FILEID="v3797740_thumbs_154654677"/>
+                <ns2:fptr FILEID="v3797740_download_154654677"/>
+            </ns2:div>
+            <ns2:div ID="div_v3797740_default_154654678" TYPE="page" ORDER="11">
+                <ns2:fptr FILEID="v3797740_default_154654678"/>
+                <ns2:fptr FILEID="v3797740_thumbs_154654678"/>
+                <ns2:fptr FILEID="v3797740_download_154654678"/>
+            </ns2:div>
+            <ns2:div ID="div_v3797740_default_154654679" TYPE="page" ORDER="12">
+                <ns2:fptr FILEID="v3797740_default_154654679"/>
+                <ns2:fptr FILEID="v3797740_thumbs_154654679"/>
+                <ns2:fptr FILEID="v3797740_download_154654679"/>
+            </ns2:div>
+            <ns2:div ID="div_v3797740_default_154654680" TYPE="page" ORDER="13">
+                <ns2:fptr FILEID="v3797740_default_154654680"/>
+                <ns2:fptr FILEID="v3797740_thumbs_154654680"/>
+                <ns2:fptr FILEID="v3797740_download_154654680"/>
+            </ns2:div>
+        </ns2:div>
+    </ns2:structMap>
+    <ns2:structMap TYPE="LOGICAL">
+        <ns2:div ID="log_v3797740" DMDID="dmd_v3797740" ADMID="amd_v3797740" TYPE="register"/>
+    </ns2:structMap>
+    <ns2:structLink>
+        <ns2:smLink ns3:to="phys_v3797740" ns3:from="log_v3797740"/>
+    </ns2:structLink>
+</ns2:mets>

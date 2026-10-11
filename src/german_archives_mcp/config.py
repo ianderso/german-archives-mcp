@@ -10,14 +10,19 @@
 ``GERMAN_ARCHIVES_CONTACT``           An email address or URL appended to the
                                       User-Agent, so an archive can reach
                                       whoever runs this server.
-``GERMAN_ARCHIVES_DOWNLOAD_DIR``      When set, the folder every
-                                      ``labw_image`` or ``nrw_image``
-                                      destination must lie inside.
+``GERMAN_ARCHIVES_DOWNLOAD_DIR``      When set, the folder every image
+                                      tool's destination must lie inside.
+``GERMAN_ARCHIVES_PDF_CACHE_DAYS``    Days a downloaded APERTUS volume PDF is
+                                      kept for reading further pages. Default
+                                      3.
+``GERMAN_ARCHIVES_PDF_CACHE_MB``      Most megabytes of volume PDFs kept; the
+                                      least recently read go first. Default
+                                      1000.
 ====================================  ==========================================
 
 None is required: the DDB's version 2 API, the Landesarchiv
-Baden-Württemberg's online finding aids and the Archive in NRW portal need no
-key and no account. A ``.env`` file in the working
+Baden-Württemberg's online finding aids, the Archive in NRW portal, APERTUS,
+LAGIS and Arcinsys Hessen need no key and no account. A ``.env`` file in the working
 directory supplies any of these that the environment does not. The download
 folder is the operator's to set, never a model's: it narrows where a tool
 writes.
@@ -37,6 +42,15 @@ DEFAULT_MIN_INTERVAL = 2.0
 
 #: The floor on GERMAN_ARCHIVES_MIN_INTERVAL: no host is asked more often.
 MIN_INTERVAL_FLOOR = 2.0
+
+#: Days a volume PDF is kept, unless configured otherwise, and the longest allowed.
+DEFAULT_PDF_CACHE_DAYS = 3.0
+MAX_PDF_CACHE_DAYS = 30.0
+
+#: Megabytes of volume PDFs kept, unless configured otherwise, and the least
+#: allowed: a cap smaller than one volume would make every page a download.
+DEFAULT_PDF_CACHE_MB = 1000.0
+MIN_PDF_CACHE_MB = 100.0
 
 
 class ConfigError(RuntimeError):
@@ -58,7 +72,11 @@ class Config:
     contact : str
         Appended to the User-Agent when set. Empty by default.
     download_dir : Path or None
-        When set, ``labw_image`` and ``nrw_image`` write only inside this folder.
+        When set, the image tools write only inside this folder.
+    pdf_cache_days : float
+        Days a downloaded volume PDF is kept for further pages.
+    pdf_cache_mb : float
+        Most megabytes of volume PDFs kept on disk.
     """
 
     cache_dir: Path = field(default_factory=lambda: Path.home() / ".cache" / "german-archives-mcp")
@@ -66,6 +84,8 @@ class Config:
     min_interval: float = DEFAULT_MIN_INTERVAL
     contact: str = ""
     download_dir: Path | None = None
+    pdf_cache_days: float = DEFAULT_PDF_CACHE_DAYS
+    pdf_cache_mb: float = DEFAULT_PDF_CACHE_MB
 
 
 def load_config() -> Config:
@@ -102,6 +122,21 @@ def load_config() -> Config:
         cfg.contact = _contact(raw)
     if raw := os.environ.get("GERMAN_ARCHIVES_DOWNLOAD_DIR"):
         cfg.download_dir = _download_dir(raw)
+    if raw := os.environ.get("GERMAN_ARCHIVES_PDF_CACHE_DAYS"):
+        value = _positive("GERMAN_ARCHIVES_PDF_CACHE_DAYS", raw)
+        if value > MAX_PDF_CACHE_DAYS:
+            raise ConfigError(
+                "GERMAN_ARCHIVES_PDF_CACHE_DAYS may be at most "
+                f"{MAX_PDF_CACHE_DAYS:g}; got {raw!r}."
+            )
+        cfg.pdf_cache_days = value
+    if raw := os.environ.get("GERMAN_ARCHIVES_PDF_CACHE_MB"):
+        value = _positive("GERMAN_ARCHIVES_PDF_CACHE_MB", raw)
+        if value < MIN_PDF_CACHE_MB:
+            raise ConfigError(
+                f"GERMAN_ARCHIVES_PDF_CACHE_MB must be at least {MIN_PDF_CACHE_MB:g}; got {raw!r}."
+            )
+        cfg.pdf_cache_mb = value
     return cfg
 
 

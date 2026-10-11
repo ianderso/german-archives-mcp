@@ -28,8 +28,12 @@ import pytest
 from german_archives_mcp import server
 from german_archives_mcp.client import (
     ALLOWED_HOSTS,
+    APERTUS_HOST,
+    ARCINSYS_HOST,
     DDB_HOST,
+    HLA_IMAGE_HOST,
     LABW_HOST,
+    LAGIS_HOST,
     NRW_IMAGE_HOST,
     NRW_PORTAL_HOST,
     ArchiveHttp,
@@ -44,10 +48,14 @@ from german_archives_mcp.config import Config
 
 from .conftest import (
     BARMEN_METS,
+    KORBACH_1880,
     OBERKASSEL_1811,
+    ST_JOHANN_1817,
     call_tool,
     fixture,
+    route_apertus,
     route_ddb,
+    route_hessen,
     route_labw,
     route_nrw,
 )
@@ -163,8 +171,17 @@ async def test_any_other_host_is_refused_with_no_lookup_and_no_request(network):
     assert network.dns.asked == [] and network.net.connects == []
 
 
-def test_the_allowlist_is_the_four_hosts_and_nothing_else():
-    assert ALLOWED_HOSTS == {DDB_HOST, LABW_HOST, NRW_PORTAL_HOST, NRW_IMAGE_HOST}
+def test_the_allowlist_is_the_eight_hosts_and_nothing_else():
+    assert ALLOWED_HOSTS == {
+        DDB_HOST,
+        LABW_HOST,
+        NRW_PORTAL_HOST,
+        NRW_IMAGE_HOST,
+        APERTUS_HOST,
+        LAGIS_HOST,
+        ARCINSYS_HOST,
+        HLA_IMAGE_HOST,
+    }
 
 
 async def test_a_viewer_link_in_an_nrw_hit_is_never_fetched(served, sites):
@@ -188,6 +205,98 @@ async def test_an_nrw_item_on_another_host_is_refused_before_any_request(served,
         out = await call_tool("nrw_image", item=item, page=1, destination=str(tmp_path / "p.jpg"))
         assert out["error"] == "unknown_item"
     assert portal.call_count == 0 and images.call_count == 0
+
+
+async def test_a_pdf_path_in_an_apertus_answer_off_the_archives_paths_is_never_fetched(
+    served, sites, tmp_path
+):
+    """The unit description names the PDF; only a /Bild/ path on APERTUS itself is fetched."""
+    text = fixture("rlp_unit_657-349_4.html").replace(
+        b"/Bild/PStA_657,349_4.pdf", f"https://{LEAKY}/PStA.pdf".encode()
+    )
+    apertus = route_apertus(sites, **{ST_JOHANN_1817: text})
+    elsewhere = sites.route(host=LEAKY).mock(return_value=httpx.Response(200))
+    out = await call_tool(
+        "rlp_image", item=ST_JOHANN_1817, page=1, destination=str(tmp_path / "p.jpg")
+    )
+    assert out["error"] == "no_images" and elsewhere.call_count == 0
+    assert [c.request.url.path for c in apertus.calls] == ["/vz_php.php"]
+
+
+async def test_an_apertus_or_arcinsys_item_on_another_host_is_refused_unsent(
+    served, sites, tmp_path
+):
+    apertus = route_apertus(sites)
+    lagis, arcinsys, images = route_hessen(sites)
+    out = await call_tool(
+        "rlp_image",
+        item=f"https://{LEAKY}/index.php?PLINK=1&ID={ST_JOHANN_1817}",
+        page=1,
+        destination=str(tmp_path / "a.jpg"),
+    )
+    assert out["error"] == "unknown_item"
+    out = await call_tool(
+        "hessen_image",
+        item=f"https://{LEAKY}/arcinsys/detailAction?detailid=v{KORBACH_1880}",
+        page=1,
+        destination=str(tmp_path / "b.jpg"),
+    )
+    assert out["error"] == "unknown_item"
+    assert apertus.call_count == arcinsys.call_count == images.call_count == 0
+
+
+async def test_an_image_in_an_arcinsys_mets_file_off_its_image_server_is_never_fetched(
+    served, sites, tmp_path
+):
+    text = fixture("arcinsys_mets_922_6013.xml").replace(
+        "https://digitalisate-he.arcinsys.de/hstam/922/6013/00001.jpg", f"https://{LEAKY}/1.jpg"
+    )
+    _, _, images = route_hessen(sites, **{f"v{KORBACH_1880}": text})
+    elsewhere = sites.route(host=LEAKY).mock(return_value=httpx.Response(200))
+    out = await call_tool(
+        "hessen_image", item=f"v{KORBACH_1880}", page=1, destination=str(tmp_path / "p.jpg")
+    )
+    assert out["error"] == "api_changed"
+    assert elsewhere.call_count == 0 and images.call_count == 0
+    assert not (tmp_path / "p.jpg").exists()
+
+
+async def test_the_image_servers_redirect_is_followed_only_on_its_own_host(served, sites, tmp_path):
+    _, _, images = route_hessen(sites)
+    images.side_effect = None
+    images.return_value = httpx.Response(302, headers={"location": f"https://{LEAKY}/1.jpg"})
+    elsewhere = sites.route(host=LEAKY).mock(return_value=httpx.Response(200))
+    out = await call_tool(
+        "hessen_image", item=f"v{KORBACH_1880}", page=1, destination=str(tmp_path / "p.jpg")
+    )
+    assert out["error"] == "moved" and elsewhere.call_count == 0
+
+
+@pytest.mark.parametrize("tool", ["rlp_image", "hessen_image"])
+@pytest.mark.parametrize("name", ["agent.plist", "run.sh", ".hidden/p.jpg", "page"])
+async def test_the_new_image_tools_hold_their_destination_to_the_same_rules(
+    served, sites, tmp_path, tool, name
+):
+    (tmp_path / ".hidden").mkdir()
+    apertus = route_apertus(sites)
+    _, arcinsys, images = route_hessen(sites)
+    item = ST_JOHANN_1817 if tool == "rlp_image" else f"v{KORBACH_1880}"
+    out = await call_tool(tool, item=item, page=1, destination=str(tmp_path / name))
+    assert out["error"] in ("bad_extension", "hidden_path")
+    assert apertus.call_count == arcinsys.call_count == images.call_count == 0
+    assert not (tmp_path / name).exists()
+
+
+@pytest.mark.parametrize("tool", ["rlp_image", "hessen_image"])
+async def test_the_new_image_tools_write_nothing_under_library(served, sites, home, tool):
+    apertus = route_apertus(sites)
+    _, _, images = route_hessen(sites)
+    item = ST_JOHANN_1817 if tool == "rlp_image" else f"v{KORBACH_1880}"
+    out = await call_tool(
+        tool, item=item, page=1, destination=str(home / "Library/LaunchAgents/a.jpg")
+    )
+    assert out["error"] == "protected_location"
+    assert apertus.call_count == 0 and images.call_count == 0
 
 
 async def test_an_image_link_in_a_ddb_entry_is_never_fetched(served, sites):
