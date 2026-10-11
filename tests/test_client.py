@@ -13,6 +13,7 @@ from german_archives_mcp import __version__
 from german_archives_mcp.client import (
     DDB_HOST,
     LABW_HOST,
+    NRW_PORTAL_HOST,
     PROJECT_URL,
     HostNotAllowed,
     SiteError,
@@ -293,11 +294,34 @@ async def test_the_landesarchiv_is_never_asked_faster_than_its_floor(tmp_path, s
     assert http.interval(LABW_HOST) == 2.0 and http.interval(DDB_HOST) == 0.5
 
 
-def test_the_default_floor_for_the_landesarchiv_is_two_seconds(tmp_path):
-    from german_archives_mcp.client import ArchiveHttp
+def test_by_default_no_host_is_asked_more_than_once_in_two_seconds(tmp_path):
+    from german_archives_mcp.client import ALLOWED_HOSTS, ArchiveHttp
 
     http = ArchiveHttp(tmp_path, min_interval=0.5)
-    assert http.interval(LABW_HOST) == 2.0 and http.interval(DDB_HOST) == 0.5
+    assert {h: http.interval(h) for h in ALLOWED_HOSTS} == {h: 2.0 for h in ALLOWED_HOSTS}
+
+
+def test_by_default_the_nrw_portals_searches_are_ten_seconds_apart(tmp_path):
+    from german_archives_mcp.client import ArchiveHttp
+
+    http = ArchiveHttp(tmp_path)
+    assert http.search_interval(NRW_PORTAL_HOST) == 10.0
+    assert http.search_interval(DDB_HOST) == 0.0
+
+
+async def test_a_database_search_waits_for_the_last_search_not_just_the_last_request(
+    tmp_path, sites
+):
+    floors = {NRW_PORTAL_HOST: (("/sufservice/api/search",), 10.0)}
+    http, now, waits = _clocked(tmp_path, min_interval=2.0, search_floors=floors)
+    sites.route(host=NRW_PORTAL_HOST).mock(return_value=httpx.Response(200, json={"hits": 0}))
+    search = f"https://{NRW_PORTAL_HOST}/sufservice/api/search?keyword="
+    await http.get_json(search + "a", ttl_days=1)
+    await http.get_json(f"https://{NRW_PORTAL_HOST}/sufservice/api/other", ttl_days=1)
+    await http.get_json(search + "b", ttl_days=1)
+    # The other request waits the host's two seconds; the second search waits
+    # until ten seconds have passed since the first.
+    assert waits == [pytest.approx(2.0), pytest.approx(8.0)]
 
 
 async def test_different_hosts_do_not_wait_for_each_other(tmp_path, sites):

@@ -1,19 +1,19 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.ianderso/german-archives-mcp",
-  "title": "German Archives (DDB, Baden Standesbücher)",
-  "description": "Search German archive finding aids (DDB, Archivportal-D); read Baden civil registers.",
+  "title": "German Archives (DDB, Baden-Württemberg and NRW registers)",
+  "description": "Search German archive finding aids (DDB); read civil and church registers of BW and NRW.",
   "repository": {
     "url": "https://github.com/ianderso/german-archives-mcp",
     "source": "github"
   },
-  "version": "0.1.0",
+  "version": "0.2.0",
   "packages": [
     {
       "registryType": "pypi",
       "registryBaseUrl": "https://pypi.org",
       "identifier": "german-archives-mcp",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "runtimeHint": "uvx",
       "transport": {
         "type": "stdio"
@@ -31,8 +31,8 @@
         },
         {
           "name": "GERMAN_ARCHIVES_MIN_INTERVAL",
-          "description": "Least seconds between two requests to one host. Never below 0.5; the Landesarchiv's site always gets at least 2.",
-          "default": "1"
+          "description": "Least seconds between two requests to one host. Never below 2; the Archive in NRW portal's searches wait 10.",
+          "default": "2"
         },
         {
           "name": "GERMAN_ARCHIVES_CONTACT",
@@ -40,7 +40,7 @@
         },
         {
           "name": "GERMAN_ARCHIVES_DOWNLOAD_DIR",
-          "description": "An existing folder. When set, labw_image saves only inside it; needed to save under ~/Library, such as an iCloud Drive folder."
+          "description": "An existing folder. When set, labw_image and nrw_image save only inside it; needed to save under ~/Library, such as an iCloud Drive folder."
         }
       ]
     }

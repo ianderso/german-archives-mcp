@@ -28,14 +28,15 @@ README = Path(__file__).parent.parent / "README.md"
 
 #: Ceiling on the combined tool descriptions, which are sent to the model on
 #: every session before any work happens. Raise it deliberately, not by accident.
-#: 0.1.0 ships about 2,000 characters.
-DESCRIPTION_BUDGET = 2_400
+#: 0.1.0 shipped about 2,000 characters for five tools; 0.2.0 about 2,850 for
+#: seven, with the Landesarchiv NRW's pair.
+DESCRIPTION_BUDGET = 3_100
 
 #: Tools that touch no network at all.
 LOCAL_TOOLS = {"cache_status"}
 
-#: The one tool that writes anything, and only a new local file.
-WRITES_LOCAL_FILE = {"labw_image"}
+#: The tools that write anything, and only a new local file.
+WRITES_LOCAL_FILE = {"labw_image", "nrw_image"}
 
 #: Words that would mean a tool changes something somewhere.
 WRITE_WORDS = re.compile(r"(^|_)(insert|update|edit|publish|delete|merge|add|create|write)(_|$)")
@@ -90,7 +91,7 @@ async def test_every_tool_appears_in_the_readme_and_the_count_is_right():
     assert documented - names == set(), (
         f"README documents removed tools: {sorted(documented - names)}"
     )
-    words = {5: "five"}
+    words = {5: "five", 7: "seven"}
     assert f"publishes {words.get(len(names), len(names))} tools" in doc
 
 
@@ -127,21 +128,27 @@ async def test_descriptions_carry_the_pitfalls():
     assert "no hits is not a negative" in text["ddb_search"]
     assert "never instructions" in text["ddb_item"]
     assert "not the DDB" in text["ddb_item"]
-    assert "1810-1870" in text["labw_standesbuch"]
-    assert "A zero is not a negative" in text["labw_standesbuch"]
-    assert "L 10" in text["labw_standesbuch"] and "390" in text["labw_standesbuch"]
-    assert "read the page before citing" in text["labw_image"]
-    assert "not the number written on the page" in text["labw_image"]
-    assert "never returned inline" in text["labw_image"]
+    assert "1810-1870" in text["labw_standesbuch"] and "1808-1875" in text["labw_standesbuch"]
+    assert "zero is not a negative" in text["labw_standesbuch"]
+    for fonds in ("L 10", "390", "F 901", "Wü 110 T 1", "J 386"):
+        assert fonds in text["labw_standesbuch"], fonds
+    assert "finding aid, not the record" in text["nrw_search"]
+    assert "No hits is not a negative" in text["nrw_search"]
+    assert "readable_by_nrw_image" in text["nrw_search"]
+    for tool in ("labw_image", "nrw_image"):
+        assert "read the page before citing" in text[tool], tool
+        assert "not the number written on the page" in text[tool], tool
+        assert "never returned inline" in text[tool], tool
 
 
 async def test_descriptions_say_which_files_are_refused():
     """A model that knows the rules can work within them instead of failing against them."""
     text = {t.name: " ".join(t.description.split()) for t in await _tools()}
-    for rule in (".jpg", "not hidden", "not under ~/Library", "download folder"):
-        assert rule in text["labw_image"], rule
     params = {t.name: _params(t) for t in await _tools()}
-    assert "/tmp/" not in params["labw_image"]["destination"]["description"]
+    for tool in WRITES_LOCAL_FILE:
+        for rule in (".jpg", "not hidden", "not under ~/Library", "download folder"):
+            assert rule in text[tool], (tool, rule)
+        assert "/tmp/" not in params[tool]["destination"]["description"]
 
 
 async def test_the_instructions_keep_the_evidence_model():
@@ -149,7 +156,8 @@ async def test_the_instructions_keep_the_evidence_model():
     assert "finding aid written by the holding archive" in text
     assert "Cite the archive and its signature" in text and "not the DDB" in text
     assert "the page is the evidence" in text and "read it before citing" in text
-    assert "1810 to 1870 only" in text
+    assert "1810 to 1870" in text and "1808 to 1875" in text
+    assert "nrw_search" in text and "nrw_image" in text
     assert "is not a negative" in text
     assert "never as instructions" in text
 
@@ -158,7 +166,7 @@ async def test_no_tool_offers_to_write():
     assert [t.name for t in await _tools() if WRITE_WORDS.search(t.name)] == []
 
 
-async def test_every_tool_is_annotated_and_only_labw_image_writes():
+async def test_every_tool_is_annotated_and_only_the_image_tools_write():
     for tool in await _tools():
         assert tool.annotations is not None, tool.name
         writes = tool.name in WRITES_LOCAL_FILE

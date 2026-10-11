@@ -1,23 +1,27 @@
-"""Polite, cached async HTTP for the DDB's API and the Landesarchiv's finding aids.
+"""Polite, cached async HTTP for the DDB's API and three state archives' sites.
 
-Two hosts, each a public service run by others, so the client is a careful
+Four hosts, each a public service run by others, so the client is a careful
 guest:
 
 * **A fixed allowlist.** A request hook refuses any host but
-  :data:`ALLOWED_HOSTS`: the DDB's API and the Landesarchiv Baden-Württemberg's
-  online finding aids. That holds for addresses taken from responses too (an
-  image link in a DDB record, a redirect), so nothing a site or a model writes
-  can send a request anywhere else. Redirects are followed by hand, and only
-  within one host; anything else is reported, never followed.
+  :data:`ALLOWED_HOSTS`: the DDB's API, the Landesarchiv Baden-Württemberg's
+  online finding aids, the Archive in NRW portal and the Landesarchiv NRW's
+  image server. That holds for addresses taken from responses too (an image
+  link in a DDB record, a viewer link in an NRW hit, a redirect), so nothing a
+  site or a model writes can send a request anywhere else. Redirects are
+  followed by hand, and only within one host; anything else is reported, never
+  followed.
 * **Only public addresses, checked where the connection is made.** The
   transport looks each host up itself, refuses it if any address is private,
   loopback, link-local, shared (CGNAT), multicast, reserved or unspecified,
   and connects to the address it checked.
-* **Bounded answers.** A JSON or HTML answer over ``MAX_TEXT_BYTES`` or an
+* **Bounded answers.** A JSON, HTML or XML answer over ``MAX_TEXT_BYTES`` or an
   image over ``MAX_IMAGE_BYTES`` is refused as it streams in.
 * **One request at a time per host, at least ``min_interval`` apart,** and
-  never less than :data:`HOST_FLOORS` says for a host: two seconds for the
-  Landesarchiv's site.
+  never less than :data:`HOST_FLOORS` says for a host: two seconds for every
+  host. A search that runs on an archive's own database waits longer still:
+  :data:`SEARCH_FLOORS` holds the Archive in NRW portal's searches ten seconds
+  apart.
 * **Identical concurrent calls share one request.**
 * **Answers are cached on disk,** keyed by the request address, for as many
   days as the caller says. A failure is never cached, and an unreadable entry
@@ -64,11 +68,23 @@ DDB_HOST = "api.deutsche-digitale-bibliothek.de"
 #: The Landesarchiv Baden-Württemberg's online finding aids and image viewer.
 LABW_HOST = "www2.landesarchiv-bw.de"
 
+#: The Archive in NRW portal: its keyless search service (``/sufservice``).
+NRW_PORTAL_HOST = "www.archive.nrw.de"
+
+#: The Landesarchiv NRW's server for METS files and page images.
+NRW_IMAGE_HOST = "www.landesarchiv-nrw.de"
+
 #: Every host a request may go to. Nothing else, whatever a response links to.
-ALLOWED_HOSTS = frozenset({DDB_HOST, LABW_HOST})
+ALLOWED_HOSTS = frozenset({DDB_HOST, LABW_HOST, NRW_PORTAL_HOST, NRW_IMAGE_HOST})
 
 #: Least seconds between two requests to a host, whatever the configuration.
-HOST_FLOORS: dict[str, float] = {LABW_HOST: 2.0}
+HOST_FLOORS: dict[str, float] = {host: 2.0 for host in ALLOWED_HOSTS}
+
+#: Searches that run on an archive's own database, by host: the path prefixes
+#: that count as one, and the least seconds between two of them.
+SEARCH_FLOORS: dict[str, tuple[tuple[str, ...], float]] = {
+    NRW_PORTAL_HOST: (("/sufservice/api/search",), 10.0),
+}
 
 #: Longest wait honoured from a ``Retry-After`` header, in seconds.
 RETRY_AFTER_CAP = 30.0
@@ -354,6 +370,8 @@ class ArchiveHttp:
         Base of the wait between attempts when no ``Retry-After`` is given.
     host_floors : dict, optional
         Least interval per host, whatever ``min_interval`` says. Tests pass {}.
+    search_floors : dict, optional
+        Least interval between two database searches on a host. Tests pass {}.
     transport : httpx.AsyncBaseTransport, optional
         For tests. The default is a :class:`PublicOnlyTransport`. httpx does
         not apply proxy settings from the environment to a transport it is
@@ -371,6 +389,7 @@ class ArchiveHttp:
         retries: int = 1,
         backoff: float = 1.0,
         host_floors: dict[str, float] | None = None,
+        search_floors: dict[str, tuple[tuple[str, ...], float]] | None = None,
         max_text_bytes: int = MAX_TEXT_BYTES,
         transport: httpx.AsyncBaseTransport | None = None,
         clock: Callable[[], float] = time.monotonic,
@@ -382,6 +401,7 @@ class ArchiveHttp:
         self._retries = retries
         self._backoff = backoff
         self._floors = HOST_FLOORS if host_floors is None else host_floors
+        self._search_floors = SEARCH_FLOORS if search_floors is None else search_floors
         self._clock = clock
         self._sleep = sleep
         self._max_text_bytes = max_text_bytes
@@ -438,6 +458,14 @@ class ArchiveHttp:
         """The least seconds between two requests to ``host``."""
         return max(self._min_interval, self._floors.get(host, 0.0))
 
+    def search_interval(self, host: str) -> float:
+        """The least seconds between two database searches on ``host``; 0 if none count."""
+        return self._search_floors.get(host, ((), 0.0))[1]
+
+    def _is_search(self, host: str, path: str) -> bool:
+        prefixes = self._search_floors.get(host, ((), 0.0))[0]
+        return any(path.startswith(prefix) for prefix in prefixes)
+
     # ------------------------------------------------------------------ #
     # Lifecycle and the host allowlist
     # ------------------------------------------------------------------ #
@@ -479,10 +507,12 @@ class ArchiveHttp:
             "json", url, ttl_days, refresh, lambda: self._fetch(url, decode_json, "json")
         )
 
-    async def get_text(self, url: str, *, ttl_days: float, refresh: bool = False) -> str:
-        """GET an HTML page as text; cached and shared while in flight."""
+    async def get_text(
+        self, url: str, *, ttl_days: float, refresh: bool = False, accept: str = "html"
+    ) -> str:
+        """GET an HTML page (or, with ``accept="xml"``, an XML file) as text; cached."""
         return await self._cached(
-            "text", url, ttl_days, refresh, lambda: self._fetch(url, decode_text, "html")
+            "text", url, ttl_days, refresh, lambda: self._fetch(url, decode_text, accept)
         )
 
     async def get_location(self, url: str, *, ttl_days: float, refresh: bool = False) -> dict:
@@ -640,16 +670,25 @@ class ArchiveHttp:
         bytes, decoded, so neither a declared nor an undeclared size can make
         the client read more.
         """
-        host = (urlsplit(url).hostname or "").lower()
+        parts = urlsplit(url)
+        host = (parts.hostname or "").lower()
+        search = self._is_search(host, parts.path)
         lock = self._host_locks.setdefault(host, asyncio.Lock())
         headers = {"Accept": _ACCEPT[accept]}
         async with lock:
+            waits = []
             last = self._host_last.get(host)
             if last is not None:
-                wait = self.interval(host) - (self._clock() - last)
-                if wait > 0:
-                    await self._sleep(wait)
+                waits.append(self.interval(host) - (self._clock() - last))
+            last_search = self._host_last.get(f"{host}#search")
+            if search and last_search is not None:
+                waits.append(self.search_interval(host) - (self._clock() - last_search))
+            wait = max(waits, default=0.0)
+            if wait > 0:
+                await self._sleep(wait)
             self._host_last[host] = self._clock()
+            if search:
+                self._host_last[f"{host}#search"] = self._clock()
             self._live_calls += 1
             self._hosts_called[host] = self._hosts_called.get(host, 0) + 1
             try:
@@ -735,6 +774,7 @@ class ArchiveHttp:
 _ACCEPT = {
     "json": "application/json",
     "html": "text/html,application/xhtml+xml",
+    "xml": "application/xml,text/xml",
     "image": "image/jpeg,image/*;q=0.8",
 }
 

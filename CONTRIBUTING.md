@@ -21,7 +21,7 @@ uv run pytest
 
 The suite is mocked with [respx](https://lundberg.github.io/respx/) against
 recorded responses. It must never touch a live site: CI should not depend on
-the DDB or the Landesarchiv being up, and neither should be asked for more
+the DDB or the state archives being up, and none should be asked for more
 than a person would ask.
 
 ## Where things live
@@ -30,8 +30,9 @@ than a person would ask.
 | --- | --- |
 | `src/german_archives_mcp/server.py` | The tools. Their docstrings and `Field` descriptions *are* the published tool descriptions and schema. |
 | `src/german_archives_mcp/ddb.py` | The DDB's version 2 API: search addresses, filters, and shaping hits, records, hierarchies and children. |
-| `src/german_archives_mcp/labw.py` | The Landesarchiv: the two Standesbücher fonds, signatures, permalinks, the image list, the image address and the citation. |
-| `src/german_archives_mcp/client.py` | The cached, paced HTTP client, the two-host allowlist, the redirect rule, the public-address check made at connect time, the size caps and bot-check detection. |
+| `src/german_archives_mcp/labw.py` | The Landesarchiv Baden-Württemberg: the register fonds, signatures, permalinks, the book search, the image list, the image address and the citation. |
+| `src/german_archives_mcp/nrw.py` | The Archive in NRW portal and the Landesarchiv NRW: the search address, hits, METS addresses and files, and the citation. |
+| `src/german_archives_mcp/client.py` | The cached, paced HTTP client, the four-host allowlist, the per-host and per-search pacing, the redirect rule, the public-address check made at connect time, the size caps and bot-check detection. |
 | `src/german_archives_mcp/config.py` | Settings from the environment and `.env`. |
 | `docs/API-NOTES.md` | What each site was observed to do, and when. |
 | `docs/DESIGN.md` | Why the server is shaped the way it is, and what is out of scope by decision. |
@@ -84,13 +85,25 @@ a `CHANGELOG.md` entry.
 
 ## Adding a Landesarchiv fonds
 
-`labw.FONDS` names the two Standesbücher fonds. Another digitised fonds
-already works in `labw_image` through its permalink. To let `labw_standesbuch`
-search one, or `labw_image` take its signatures, add an entry: its signature
-prefix as the DDB writes it (`apd_reference_number`), and the online finding
-aid's ids for it, which a permalink redirect (`bestand`) and an image address
-(`scopeid_besta`) show. Record both in `docs/API-NOTES.md`, and add a live
-check.
+`labw.FONDS` names the register fonds. Another digitised fonds already works
+in `labw_image` through its permalink. To let `labw_standesbuch` search one,
+or `labw_image` take its signatures, add an entry: its signature prefix as the
+DDB writes it (`apd_reference_number`), its unit word (`Nr.`, `Bd`, `Bü`),
+where its books' place is written (`title` or the heading above, `context`),
+its confession if every book shares one, and the online finding aid's ids for
+it, which a permalink redirect (`bestand`) and an image address
+(`scopeid_besta`) show; add the signature's spellings to `labw._KEYS`. Check
+the rights mark the archive's viewer shows for it. Record all of it in
+`docs/API-NOTES.md`, and add a live check.
+
+## Adding a state archive
+
+A new archive is a module of its own beside `labw.py` and `nrw.py`, and a
+search tool and an image tool named after it, only if its registers cannot be
+reached through an existing pair. Its hosts go into `client.ALLOWED_HOSTS`
+with a reason; a search that runs on the archive's own database goes into
+`client.SEARCH_FLOORS`. Read its terms first and quote them in the README;
+`robots.txt` is recorded as a fact. A site behind a bot check is not added.
 
 ## Releasing
 

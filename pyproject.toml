@@ -1,13 +1,13 @@
 [project]
 name = "german-archives-mcp"
 dynamic = ["version"]
-description = "MCP server for German archives: search the finding aids and digitised objects of the Deutsche Digitale Bibliothek and Archivportal-D, find a Baden civil register (Standesbuch) at the Landesarchiv Baden-Württemberg, and download its page images. For genealogy and history."
+description = "MCP server for German archives: search the finding aids and digitised objects of the Deutsche Digitale Bibliothek and Archivportal-D, find the online civil and church registers of Baden, Württemberg, Hohenzollern and North Rhine-Westphalia at their state archives, and download their page images. For genealogy and history."
 readme = "README.md"
 requires-python = ">=3.11"
 license = "MIT"
 license-files = ["LICENSE"]
 authors = [{ name = "Ian Anderson" }]
-keywords = ["mcp", "genealogy", "family-history", "archives", "germany", "deutsche-digitale-bibliothek", "archivportal-d", "baden", "standesbuecher", "research"]
+keywords = ["mcp", "genealogy", "family-history", "archives", "germany", "deutsche-digitale-bibliothek", "archivportal-d", "baden", "wuerttemberg", "nordrhein-westfalen", "standesbuecher", "kirchenbuchduplikate", "personenstandsregister", "research"]
 classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: End Users/Desktop",

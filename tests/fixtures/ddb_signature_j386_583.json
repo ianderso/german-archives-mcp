@@ -1,0 +1,27 @@
+{
+  "responseHeader":{
+    "zkConnected":true,
+    "status":0,
+    "QTime":127,
+    "params":{
+      "q":"apd_reference_number:\"Abt. Hauptstaatsarchiv Stuttgart, J 386 Bü 583\"",
+      "fl":"id,title,apd_reference_number,begin_time,end_time,provider_item_id",
+      "start":"0",
+      "fq":"provider_fct:Landesarchiv\\ Baden\\-Württemberg",
+      "rows":"5"
+    }
+  },
+  "response":{
+    "numFound":1,
+    "start":0,
+    "numFoundExact":true,
+    "docs":[{
+      "id":"ANUXS6OYZY4P4NXOH3WGNXRA5RLXIODQ",
+      "apd_reference_number":["Abt. Hauptstaatsarchiv Stuttgart, J 386 Bü 583","RSA-Nr.: 3072","Mikrofilm-Nr.: HF 272, 279"],
+      "begin_time":[657073],
+      "end_time":[689579],
+      "provider_item_id":"labw-1-446805",
+      "title":["Ulm"]
+    }]
+  }
+}

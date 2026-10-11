@@ -24,7 +24,22 @@
   "labw_standesbuch": [
     "confession",
     "count_images",
+    "fonds",
     "place",
     "year"
+  ],
+  "nrw_image": [
+    "destination",
+    "item",
+    "page"
+  ],
+  "nrw_search": [
+    "archive",
+    "has_images",
+    "page",
+    "query",
+    "rows",
+    "year_from",
+    "year_to"
   ]
 }

@@ -2,8 +2,9 @@
 
     uv run python -m tests.live_check
 
-Calls paced by the client itself: one request at a time per host, the DDB's
-at least a second apart and the Landesarchiv's at least two. They check that
+Calls paced by the client itself: one request at a time per host, at least
+two seconds apart, and the Archive in NRW portal's searches at least ten.
+They check that
 
 * the DDB's version 2 API still answers without a key, and still carries the
   fields the tools read (holder, signature, context, dates, hierarchy,
@@ -11,9 +12,15 @@ at least a second apart and the Landesarchiv's at least two. They check that
 * the Landesarchiv's finding aid still reaches the DDB with the Standesbücher
   in it, so a place and a year still find a book, by place and by signature;
 * the Landesarchiv's permalinks still redirect as they did, its image lists
-  still name every file, and an image still renders, in both fonds (L 10 at
-  Freiburg and 390 at Karlsruhe), including an image whose file name is out
-  of step with its place in the book;
+  still name every file, and an image still renders, in every register fonds
+  (L 10 at Freiburg, 390 at Karlsruhe, F 901 at Ludwigsburg, Wü 110 T 1 and
+  the Dep. 1 deposits at Sigmaringen, J 386 at Stuttgart), including an image
+  whose file name is out of step with its place in the book;
+* Württemberg's volumes are still found by their parish heading, and every
+  fonds' signatures still resolve through the DDB;
+* the Archive in NRW portal's search still answers keyless JSON with METS
+  links for the Landesarchiv NRW's registers, in Rheinland and in
+  Ostwestfalen-Lippe, and a METS file still lists page images that download;
 * the allowlist holds: a host off it is refused without a request.
 
 It is not a test module: pytest does not collect it, and CI never runs it,
@@ -144,10 +151,151 @@ CHECKS: list[tuple[str, dict, Callable[[dict], bool], str]] = [
         lambda r: r["error"] == "not_found",
         "a permalink to nothing is not_found, from the archive's own page",
     ),
+    (
+        "labw_standesbuch",
+        {"place": "Ulm", "year": 1850, "count_images": False},
+        lambda r: (
+            {"Wü 110 T 1", "F 901", "J 386", "390"} <= {b["fonds"] for b in r["books"]}
+            and any(
+                b["signature"] == "Wü 110 T 1 Nr. 4566" and b["place"].startswith("Ulm")
+                for b in r["books"]
+            )
+            and any(b["signature"] == "F 901 Bd 1511" for b in r["books"])
+        ),
+        "Ulm 1850: Württemberg's duplicates by parish heading, Jewish films, Baden's Ulm",
+    ),
+    (
+        "labw_standesbuch",
+        {"place": "Sigmaringen", "fonds": "Dep. 1 T 37", "year": 1880},
+        lambda r: (
+            any(b["signature"].startswith("Dep. 1 T 37 Nr.") for b in r["books"])
+            and any(b.get("image_count") for b in r["books"])
+        ),
+        "Sigmaringen's civil registers, one fonds named, with an image count",
+    ),
+    (
+        "labw_image",
+        {
+            "item": "StAL F 901 Bd 1511",
+            "page": 3,
+            "destination": "{tmp}/f901-1511-3.jpg",
+            "max_pixels": 600,
+        },
+        lambda r: (
+            r["format"] == "jpeg"
+            and r["citation"]["archive"].endswith("Staatsarchiv Ludwigsburg")
+            and r["permalink"].endswith("f=2-181572-3")
+            and "Public Domain" in r["rights"]
+        ),
+        "F 901 (Ludwigsburg) by signature, through its older viewer's files",
+    ),
+    (
+        "labw_image",
+        {
+            "item": "Wü 110 T 1 Nr. 4566",
+            "page": 1,
+            "destination": "{tmp}/wue110-4566-1.jpg",
+            "max_pixels": 600,
+        },
+        lambda r: r["format"] == "jpeg" and r["pages"] > 200,
+        "Wü 110 T 1 (Sigmaringen) by signature",
+    ),
+    (
+        "labw_image",
+        {"item": "J 386 Bü 583", "page": 2, "destination": "{tmp}/j386-583-2.jpg"},
+        lambda r: (
+            r["format"] == "jpeg"
+            and r["citation"]["archive"].endswith("Hauptstaatsarchiv Stuttgart")
+        ),
+        "J 386 (Stuttgart) by signature: a film frame, at full size",
+    ),
+    (
+        "labw_image",
+        {
+            "item": "Dep. 1 T 44 Nr. 3",
+            "page": 1,
+            "destination": "{tmp}/dep1t44-3-1.jpg",
+            "max_pixels": 600,
+        },
+        lambda r: r["format"] == "jpeg" and r["signature"] == "Dep. 1 T 44 Nr. 3",
+        "Dep. 1 T 44 (Sigmaringen-Laiz) by signature",
+    ),
+    (
+        "nrw_search",
+        {
+            "query": "Geburtsregister Barmen",
+            "archive": "rheinland",
+            "year_from": 1850,
+            "year_to": 1850,
+        },
+        lambda r: (
+            r["total"] >= 1
+            and all(h["readable_by_nrw_image"] for h in r["hits"])
+            and all(h["signature"].startswith("PA 2104 Nr.") for h in r["hits"])
+        ),
+        "NRW, Rheinland: Barmen's births of 1850, with METS links this server reads",
+    ),
+    (
+        "nrw_search",
+        {
+            "query": "Sterberegister Lemgo",
+            "archive": "ostwestfalen-lippe",
+            "year_from": 1880,
+            "year_to": 1880,
+            "rows": 5,
+        },
+        lambda r: r["total"] >= 5 and r["hits"][0]["signature"].startswith("P 3 / 9 Nr."),
+        "NRW, Ostwestfalen-Lippe: Lemgo district's deaths of 1880",
+    ),
+    (
+        "nrw_search",
+        {"query": "Zyxwvutsrq Qwertzuiopp"},
+        lambda r: r["total"] == 0 and "not a negative" in r["note"],
+        "an NRW search that finds nothing says what a zero covers",
+    ),
+    (
+        "nrw_image",
+        {
+            "item": "https://www.landesarchiv-nrw.de/digitalisate/Abt_Rheinland/PA_2104/"
+            "~000/00069_Bd1/mets.xml",
+            "page": 3,
+            "destination": "{tmp}/pa2104-69-3.jpg",
+        },
+        lambda r: (
+            r["format"] == "jpeg"
+            and r["pages"] > 800
+            and r["permalink"].startswith("https://www.archive.nrw.de/ms/search?link=")
+            and "CC BY-SA" in r["rights"]
+        ),
+        "NRW: a Barmen register page by its METS address, with permalink and licence",
+    ),
+    (
+        "nrw_image",
+        {
+            "item": "Abt_Ostwestfalen-Lippe/P3/P3-09/~002/P3-09_00260",
+            "page": 2,
+            "destination": "{tmp}/p3-09-260-2.jpg",
+        },
+        lambda r: r["width"] > 1000 and r["signature"] == "P 3 / 9 Nr. 260",
+        "NRW: a Lemgo-district page by its bare METS path, at full size",
+    ),
+    (
+        "nrw_image",
+        {
+            "item": "Abt_Rheinland/PA_2104/~000/99999",
+            "page": 1,
+            "destination": "{tmp}/none-nrw.jpg",
+        },
+        lambda r: r["error"] == "not_found",
+        "NRW: a METS path that does not exist is not_found",
+    ),
 ]
 
 #: Checks whose expected answer is a refusal.
-REFUSALS = {"a permalink to nothing is not_found, from the archive's own page"}
+REFUSALS = {
+    "a permalink to nothing is not_found, from the archive's own page",
+    "NRW: a METS path that does not exist is not_found",
+}
 
 
 async def allowlist(http: ArchiveHttp) -> int:

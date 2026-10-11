@@ -27,8 +27,11 @@ import pytest
 
 from german_archives_mcp import server
 from german_archives_mcp.client import (
+    ALLOWED_HOSTS,
     DDB_HOST,
     LABW_HOST,
+    NRW_IMAGE_HOST,
+    NRW_PORTAL_HOST,
     ArchiveHttp,
     HostNotAllowed,
     PrivateAddress,
@@ -39,7 +42,15 @@ from german_archives_mcp.client import (
 )
 from german_archives_mcp.config import Config
 
-from .conftest import OBERKASSEL_1811, call_tool, route_ddb, route_labw
+from .conftest import (
+    BARMEN_METS,
+    OBERKASSEL_1811,
+    call_tool,
+    fixture,
+    route_ddb,
+    route_labw,
+    route_nrw,
+)
 
 #: A host whose name would carry a secret to whoever runs its DNS.
 LEAKY = "c2VjcmV0.attacker.example"
@@ -150,6 +161,33 @@ async def test_any_other_host_is_refused_with_no_lookup_and_no_request(network):
         with pytest.raises(HostNotAllowed):
             await network.http.get_json(url, ttl_days=1)
     assert network.dns.asked == [] and network.net.connects == []
+
+
+def test_the_allowlist_is_the_four_hosts_and_nothing_else():
+    assert ALLOWED_HOSTS == {DDB_HOST, LABW_HOST, NRW_PORTAL_HOST, NRW_IMAGE_HOST}
+
+
+async def test_a_viewer_link_in_an_nrw_hit_is_never_fetched(served, sites):
+    """nrw_search returns DFG-Viewer and other archives' METS links as data only."""
+    answer = fixture("nrw_search_barmen_1850.json")
+    answer["searchResult"][0]["disitalisat"] = [
+        f"https://dfg-viewer.de/show/?tx_dlf[id]=https%3A%2F%2F{LEAKY}%2Fmets.xml"
+    ]
+    route_nrw(sites, **{"Geburtsregister Barmen": answer})
+    viewer = sites.route(host="dfg-viewer.de").mock(return_value=httpx.Response(200))
+    elsewhere = sites.route(host=LEAKY).mock(return_value=httpx.Response(200))
+    out = await call_tool("nrw_search", query="Geburtsregister Barmen")
+    assert out["hits"][0]["mets"] == f"https://{LEAKY}/mets.xml"
+    assert out["hits"][0]["readable_by_nrw_image"] is False
+    assert viewer.call_count == 0 and elsewhere.call_count == 0
+
+
+async def test_an_nrw_item_on_another_host_is_refused_before_any_request(served, sites, tmp_path):
+    portal, images = route_nrw(sites)
+    for item in (f"https://{LEAKY}/digitalisate/Abt_Rheinland/x/mets.xml", f"//{LEAKY}/mets.xml"):
+        out = await call_tool("nrw_image", item=item, page=1, destination=str(tmp_path / "p.jpg"))
+        assert out["error"] == "unknown_item"
+    assert portal.call_count == 0 and images.call_count == 0
 
 
 async def test_an_image_link_in_a_ddb_entry_is_never_fetched(served, sites):
@@ -302,7 +340,7 @@ async def test_an_answer_over_the_cap_is_refused_as_it_streams(network, tmp_path
 
 
 # --------------------------------------------------------------------------- #
-# What labw_image writes
+# What the image tools write
 # --------------------------------------------------------------------------- #
 @pytest.mark.parametrize(
     ("body", "error"),
@@ -321,6 +359,38 @@ async def test_bytes_that_are_not_the_promised_image_leave_no_file(
     target = tmp_path / "page.jpg"
     out = await call_tool("labw_image", destination=str(target), **PAGE)
     assert out["error"] == error and not target.exists()
+
+
+@pytest.mark.parametrize(
+    ("body", "error"),
+    [(PLIST, "not_an_image"), (PDF, "not_an_image"), (PNG, "extension_mismatch")],
+    ids=["property list", "pdf", "png as .jpg"],
+)
+async def test_an_nrw_page_that_is_not_a_jpeg_leaves_no_file(served, sites, tmp_path, body, error):
+    route_nrw(sites, image=httpx.Response(200, content=body))
+    target = tmp_path / "page.jpg"
+    out = await call_tool("nrw_image", item=BARMEN_METS, page=1, destination=str(target))
+    assert out["error"] == error and not target.exists()
+
+
+@pytest.mark.parametrize("name", ["agent.plist", "run.sh", ".hidden/p.jpg", "page"])
+async def test_nrw_image_holds_its_destination_to_the_same_rules(served, sites, tmp_path, name):
+    (tmp_path / ".hidden").mkdir()
+    portal, images = route_nrw(sites)
+    out = await call_tool("nrw_image", item=BARMEN_METS, page=1, destination=str(tmp_path / name))
+    assert out["error"] in ("bad_extension", "hidden_path")
+    assert images.call_count == 0 and not (tmp_path / name).exists()
+
+
+async def test_nrw_image_writes_nothing_under_library(served, sites, home):
+    _, images = route_nrw(sites)
+    out = await call_tool(
+        "nrw_image",
+        item=BARMEN_METS,
+        page=1,
+        destination=str(home / "Library/LaunchAgents/a.jpg"),
+    )
+    assert out["error"] == "protected_location" and images.call_count == 0
 
 
 @pytest.mark.parametrize(

@@ -4,18 +4,20 @@
 ``GERMAN_ARCHIVES_CACHE_DIR``         Directory for the on-disk response cache.
 ``GERMAN_ARCHIVES_TIMEOUT``           HTTP timeout in seconds for one request.
 ``GERMAN_ARCHIVES_MIN_INTERVAL``      Least seconds between two requests to one
-                                      host. The Landesarchiv's site gets at
-                                      least 2 whatever this says.
+                                      host. Never below 2; the Archive in NRW
+                                      portal's searches wait 10 whatever this
+                                      says.
 ``GERMAN_ARCHIVES_CONTACT``           An email address or URL appended to the
                                       User-Agent, so an archive can reach
                                       whoever runs this server.
 ``GERMAN_ARCHIVES_DOWNLOAD_DIR``      When set, the folder every
-                                      ``labw_image`` destination must lie
-                                      inside.
+                                      ``labw_image`` or ``nrw_image``
+                                      destination must lie inside.
 ====================================  ==========================================
 
-None is required: the DDB's version 2 API and the Landesarchiv's online
-finding aids need no key and no account. A ``.env`` file in the working
+None is required: the DDB's version 2 API, the Landesarchiv
+Baden-Württemberg's online finding aids and the Archive in NRW portal need no
+key and no account. A ``.env`` file in the working
 directory supplies any of these that the environment does not. The download
 folder is the operator's to set, never a model's: it narrows where a tool
 writes.
@@ -31,10 +33,10 @@ from pathlib import Path
 from dotenv import load_dotenv
 
 #: Least seconds between requests to one host, unless configured otherwise.
-DEFAULT_MIN_INTERVAL = 1.0
+DEFAULT_MIN_INTERVAL = 2.0
 
-#: The floor on GERMAN_ARCHIVES_MIN_INTERVAL.
-MIN_INTERVAL_FLOOR = 0.5
+#: The floor on GERMAN_ARCHIVES_MIN_INTERVAL: no host is asked more often.
+MIN_INTERVAL_FLOOR = 2.0
 
 
 class ConfigError(RuntimeError):
@@ -56,7 +58,7 @@ class Config:
     contact : str
         Appended to the User-Agent when set. Empty by default.
     download_dir : Path or None
-        When set, ``labw_image`` writes only inside this folder.
+        When set, ``labw_image`` and ``nrw_image`` write only inside this folder.
     """
 
     cache_dir: Path = field(default_factory=lambda: Path.home() / ".cache" / "german-archives-mcp")
@@ -130,7 +132,7 @@ def _contact(raw: str) -> str:
 
 
 def _download_dir(raw: str) -> Path:
-    """The folder ``labw_image`` is confined to: absolute, and already there.
+    """The folder the image tools are confined to: absolute, and already there.
 
     A folder that does not exist yet is refused rather than created, so a
     typing slip cannot confine downloads to somewhere unintended.
