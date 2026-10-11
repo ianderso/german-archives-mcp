@@ -13,14 +13,17 @@ and private archives, few of which put registers online. Many deliver
 their finding aids to the Deutsche Digitale Bibliothek, which shows them in
 Archivportal-D and serves them through one keyless API: that is the nearest
 thing Germany has to a union catalogue of archives, and the core of this
-server. Two state archives have put whole series of registers online behind
+server. Four state archives have put whole series of registers online behind
 machinery a client can read: the Landesarchiv Baden-Württemberg (Baden's
 Standesbücher, Württemberg's and Hohenzollern's church-book duplicates, the
-films of the Jewish registers) and the Landesarchiv Nordrhein-Westfalen (the
-civil registers of the Rhineland, Westphalia and Lippe). Those are the other
-two thirds.
+films of the Jewish registers), the Landesarchiv Nordrhein-Westfalen (the
+civil registers of the Rhineland, Westphalia and Lippe), the
+Landesarchivverwaltung Rheinland-Pfalz (the civil registers of the state's
+north, in APERTUS) and the Hessisches Landesarchiv (the secondary civil
+registers of every Hessian Standesamt, catalogued in LAGIS and shown in
+Arcinsys). Those are the rest.
 
-## Three sources, seven tools
+## Five sources, eleven tools
 
 - `ddb_search` and `ddb_item` are the DDB half, shaped like
   [dpla-catalog-mcp](https://github.com/ianderso/dpla-catalog-mcp)'s
@@ -41,13 +44,25 @@ two thirds.
   portal) and identify a page differently (a signature and a viewer's image
   list; a METS file), and a model reads one description per archive more
   easily than one description that tells two apart.
+- `rlp_search` and `rlp_image` (0.3.0) are the Landesarchivverwaltung
+  Rheinland-Pfalz's pair, over APERTUS: its unit search, and one page of a
+  unit, which APERTUS serves only inside a PDF of the whole volume.
+- `hessen_search` and `hessen_image` (0.3.0) are Hesse's pair: the search
+  reads LAGIS's catalogue of the digitised registers, the image tool reads
+  Arcinsys's METS file and image server. Two sites behind one pair, because
+  together they are how the Hessisches Landesarchiv itself sends a user from
+  a register to its pages.
 - `cache_status` is the house tool for what a session has asked of each
-  host.
+  host, and what volume PDFs are on disk.
 
 The tool count stays small on purpose: the descriptions are sent on every
-session, and a model chooses better among seven tools than among fifteen. A
-further archive gets a pair of its own only if its registers cannot be
-reached through an existing one.
+session (about 4,650 characters for eleven tools), and a model chooses better
+among a few tools than among many. A further archive gets a pair of its own
+only if its registers cannot be reached through an existing one. Each pair
+here finds and identifies a register differently (a DDB copy of a finding
+aid; a portal's keyword search and METS; a PHP application's form posts and
+a volume PDF; a catalogue's API and an archive system's METS), which is the
+reason for separate pairs rather than more arguments to one.
 
 ## Finding a register through the DDB
 
@@ -157,16 +172,114 @@ returns the archive's whole tree (300 KB, four seconds). So `nrw_image` asks
 for the METS address that `nrw_search` returns, and refuses a permalink with
 a message that says so.
 
+## Reading a register in Rheinland-Pfalz: APERTUS's whole-volume PDF
+
+APERTUS (`apertus.rlp.de`) is a PHP application whose pages are HTML
+fragments fetched by form posts from the site's own scripts. Two of them are
+enough, and both answered without a cookie, a token or a preceding page:
+
+- `queryOneExt.php` lists units. Its form takes the query as the site's own
+  search form rewrites it (words joined with `+AND+`), an optional fonds and
+  number (which makes it a signature look-up), a year range (`range`,
+  `range2`), a digitised-only flag, an offset and a page size. With no fonds,
+  it lists matching units across every fonds in one answer, so `rlp_search`
+  is one request; the facet step the site's own interface makes first
+  (`queryfacet.php`, counts per fonds) is skipped. An answer of a bare line
+  break means nothing matched.
+- `vz_php.php` describes a unit by its GUID and, as a side effect, makes the
+  archive build the unit's images as one PDF of the whole volume under
+  `/Bild/`, which it deletes again about five minutes later. There is no page
+  route: the site's viewer script mentions a single-page call
+  (`imgviewer.php`), but no register unit uses it.
+
+So reading one page means having the archive build and send the whole volume
+(6 to 27 MB in the registers seen; a year's births of a small town took 40
+seconds to download). That cost was accepted on the condition that
+each volume is fetched once: `rlp_image` opens the unit, downloads the PDF to
+`<cache dir>/volumes/<GUID>.pdf` and keeps it there for
+`GERMAN_ARCHIVES_PDF_CACHE_DAYS` (default 3) within
+`GERMAN_ARCHIVES_PDF_CACHE_MB` (default 1000, least recently read first), so
+every later page of the volume is read from disk with no request at all. Two
+pages asked for at once share one download (a lock per GUID); a signature
+is looked up once and remembered for 30 days; a volume larger than the cap
+is not downloaded. Opening a unit counts as a volume request, held ten
+seconds from the last (`client.VOLUME_FLOORS`); searches are held ten seconds
+apart too.
+
+The PDFs are Ghostscript's, PDF 1.4, one scanned page per PDF page, each a
+single JPEG image (`DCTDecode`). `volumes.page_jpeg` takes that JPEG out as
+it is, through pypdf, so the saved page is the archive's scan byte for byte:
+no rasterising, no re-encoding and no imaging library. That is also why
+`rlp_image` has no `max_pixels`: shrinking a page would need an imaging
+library (Pillow) and would re-encode the archive's scan. A page whose image
+is not a JPEG is refused as `unsupported_image` rather than converted.
+
+`page` is the PDF's page. The PDF holds the scans in the viewer's order, one
+per page, often a two-page spread, so the archive's own viewer shows the same
+numbering; the citation says "PDF page" so no one mistakes it for a folio.
+Some units' images are only the register's name index ("Digitalisat: Nur
+Namensverzeichnis"); `rlp_image` passes on the archive's notes and says so.
+
+## Reading a register in Hesse: LAGIS and Arcinsys
+
+The 0.2.0 survey found Arcinsys's signature search sending a scripted request
+back to its empty form and concluded that a client would have to replay the
+application's form state. It does not: that form is only one way in. Read
+with plain HTTP, Arcinsys has three routes that need no session, no
+`executionId` and no script, all of which its own pages and the DFG-Viewer
+use:
+
+- `queryItemSignatureSuggestions` is the signature form's autocompleter: given
+  the archive's id (HStAM is 84, HHStAW 47, HStAD 1), a fonds and a number
+  prefix it answers JSON with each unit's id. The 0.2.0 attempt failed
+  because the form's hidden archive id, which the autocompleter fills in,
+  was empty.
+- `mets?detailid=v<id>` is the METS file Arcinsys hands the DFG-Viewer: the
+  unit's title and shelf mark, the owner, an empty licence field, and the
+  page images in viewer order. An unknown or non-public unit redirects to
+  `accessDeniedError.action`, which `hessen_image` reads as not found.
+- The images are static JPEGs on `digitalisate-he.arcinsys.de`; each address
+  redirects, on the same host, to its full-size copy under `max/` (about
+  2,000 by 2,800 pixels, 0.2 to 0.4 MB). The redirect is followed.
+
+So Playwright, which the brief allowed as an optional extra if the flow could
+only be driven by running the site's script, was not needed, and nothing in
+this server runs a site's script.
+
+Finding a register is LAGIS's job, as the Hessisches Landesarchiv's own guide
+says. Its Angular application calls a keyless JSON API on
+`www.lagis-hessen.de`; the simple search
+(`/de/api/gsearch/sn/hessische-geburten-ehe-sterberegister?suchbegriff=`)
+matches every word against the register's title and the places of its
+Standesamt district, so `Korbach Geburtsnebenregister 1880` finds one
+register and a village finds its Standesamt's. It caps a page at 25 and
+orders by relevance (a sort parameter is ignored), and offers no year range:
+a year is one more word, which matches only a register whose title names
+it. The extended search (`xsearch`) ignored its year fields and took up to 20
+seconds, so it is not used. Each hit's signature (`HStAM Bestand 922 Nr.
+6013`) is what `hessen_image` takes, through the autocompleter; LAGIS's
+record route (`idrecng`) also names the Arcinsys id but took 11 seconds, so
+it is not used either. LAGIS is slow and uneven (0.4 to 35 seconds; one
+connection attempt timed out), so its requests get a 90-second read timeout
+and its searches are held ten seconds apart.
+
+`page` is the image's place in the METS file's physical order, as the viewer
+shows it. Arcinsys leaves out pages still under a protection period, so an
+image's file number can run ahead of its place; the citation gives the
+image number and the file name.
+
 ## Which hosts a tool reaches
 
-Four, fixed in `client.ALLOWED_HOSTS`: the DDB's API, the Landesarchiv
-Baden-Württemberg's `www2` host, the Archive in NRW portal and the
-Landesarchiv NRW's image server. Nothing a model writes and nothing a site
-answers can add a fifth. That matters here more than for some sibling
+Eight, fixed in `client.ALLOWED_HOSTS`: the DDB's API, the Landesarchiv
+Baden-Württemberg's `www2` host, the Archive in NRW portal, the Landesarchiv
+NRW's image server, APERTUS, LAGIS's API host, Arcinsys Hessen and its image
+server. Nothing a model writes and nothing a site answers can add a ninth. That matters here more than for some sibling
 servers, because DDB records and NRW hits carry image and viewer links to
 hundreds of other institutions' servers: those are returned as data and
-never requested. An NRW METS file's image addresses are fetched only if they
-are JPEGs on the Landesarchiv NRW's server. The public permalink host
+never requested. An NRW or Arcinsys METS file's image addresses are fetched
+only if they are JPEGs on that archive's image server, and an APERTUS volume
+only by the `/Bild/` path of the archive's file-name shape that the unit's
+description named. The public permalink host
 (`www.landesarchiv-bw.de`) is not needed, since it only redirects to `www2`;
 it appears in citations, not in requests.
 
@@ -178,9 +291,11 @@ followed.
 
 ## What the image tools write
 
-`labw_image` and `nrw_image` are the tools that touch the local disk, so
-their destination is held to what a page image needs and nothing that runs
-later can use. They share one set of rules (`server._destination`). The
+The four image tools are the tools that touch the local disk, so their
+destination is held to what a page image needs and nothing that runs later
+can use. They share one set of rules (`server._destination`). `rlp_image`
+also writes volume PDFs, but only inside the cache folder, under file names
+made from the unit's GUID after it has matched the GUID pattern. The
 file must end in `.jpg` or `.jpeg` before anything is fetched, and the bytes
 must be a JPEG by their first bytes, never by the Content-Type. Where it
 lands is checked after links are resolved, and folders are compared by
@@ -212,12 +327,21 @@ the same as the sibling servers'.
   every user to cite. `nrw_image`'s names the department, the signature and
   the image ("Landesarchiv NRW Abteilung Rheinland, PA 2104 Nr. 267, Bild
   12") with the permalink and the URN, which the Landesarchiv NRW's terms ask
-  for.
+  for. `rlp_image`'s names the holder, the signature, the title and years and
+  the PDF page ("Landesarchivverwaltung Rheinland-Pfalz, Landeshauptarchiv
+  Koblenz, Best. 657,349 Nr. 4 (...), PDF page 3"), the short form "LHA Ko
+  Best. 657,349 Nr. 4", and the permalink; the archive asks that published
+  sources be cited. `hessen_image`'s names the department, the signature, the
+  title and the image ("Hessisches Staatsarchiv Marburg, HStAM 922 Nr. 6013
+  (...), Bild 2"), the file name and the Arcinsys permalink.
 - **A zero is bounded.** A DDB search that finds nothing says it covers only
   what archives delivered, and only their descriptions. A Standesbuch search
   that finds nothing names the reasons: spelling, a place outside
   Baden-Württemberg, a year outside the registers. An NRW search that finds
-  nothing says the portal searches descriptions, filed by Standesamt.
+  nothing says the portal searches descriptions, filed by Standesamt; an
+  APERTUS search, that units are filed by Bürgermeisterei and that the
+  Palatinate and Rheinhessen are mostly not there; a LAGIS search, that a
+  year must be in the title and which years are online.
 - **Outages are not zeros.** A site that does not answer is
   `upstream_error`, `timed_out` or `rate_limited`, each saying it is not an
   empty result; a book list survives the Landesarchiv failing, with its image
@@ -226,9 +350,13 @@ the same as the sibling servers'.
 ## Courtesy
 
 The client sends one request at a time per host, never less than two seconds
-apart whatever the setting, and the Archive in NRW portal's searches never
-less than ten seconds apart, because they run on the archive's own database
-(`client.SEARCH_FLOORS`). The DDB's search is a public Solr index built for
+apart whatever the setting, and the Archive in NRW portal's, APERTUS's and
+LAGIS's searches never less than ten seconds apart, because they run on the
+archive's own database (`client.SEARCH_FLOORS`; APERTUS's took up to 8
+seconds, LAGIS's up to 35). Opening an APERTUS unit, which makes the archive
+build a volume's PDF that is then downloaded, is held ten seconds from the
+last (`client.VOLUME_FLOORS`), and each volume is downloaded once per
+`GERMAN_ARCHIVES_PDF_CACHE_DAYS`. The DDB's search is a public Solr index built for
 programmatic use, answering in under two seconds, and keeps the two-second
 floor. Identical calls in flight are joined. DDB and NRW searches are cached
 for a day, DDB records and register searches for a week, and a book's
@@ -242,10 +370,18 @@ sets no ceiling, and will send tens of megabytes if asked.
 
 ## Out of scope, by decision
 
-- **Writing to a site.** The client sends GET requests to search and read;
-  the DDB's account, favourites and saved-search routes are never called.
-- **Working around bot checks.** An Anubis or Cloudflare page is reported as
-  `blocked`. The DDB's portal is behind Anubis; the server never calls it.
+- **Writing to a site.** The client sends GET requests to search and read,
+  and posts APERTUS's search and unit-description forms, which are how that
+  site reads; the DDB's account, favourites and saved-search routes and every
+  account, basket and order route of APERTUS and Arcinsys are never called.
+- **Working around bot checks.** An Anubis, Cloudflare or Imperva page is
+  reported as `blocked`. The DDB's portal is behind Anubis; the server never
+  calls it. The User-Agent is always the server's own; no browser is
+  imitated and no header is forged.
+- **Running a site's script.** No browser and no Playwright: every route
+  used answers plain HTTP.
+- **Resizing pages.** `rlp_image` and `hessen_image` save the archive's JPEG
+  unchanged.
 - **The DDB's version 1 API.** It needs a key, and the DDB no longer issues
   new ones.
 - **Images on other institutions' servers.** `ddb_item` and `nrw_search`
@@ -257,32 +393,17 @@ sets no ceiling, and will send tens of megabytes if asked.
 
 ## Other state archives
 
-Surveyed on 2026-10-11 for 0.2.0. The rule: an archive is added if its
-registers are reachable over plain HTTP, its terms allow it, and no bot check
-stands in front. `robots.txt` is recorded as a fact, not a verdict.
+Surveyed on 2026-10-11 for 0.2.0, revisited for 0.3.0. The rule: an archive is
+added if its registers are reachable over plain HTTP, its terms allow it, and
+no bot check stands in front. `robots.txt` is recorded as a fact, not a
+verdict.
 
-- **Rheinland-Pfalz (APERTUS, `apertus.rlp.de`).** Reachable with a plain
-  cookie session, no browser and no form token: `queryfacet.php` and
-  `queryOneExt.php` (POST) list the Personenstandsarchiv's digitised units
-  (about 18,500 birth registers in 485 Standesamt fonds, Best. 657, mostly the
-  north of the state; one unit for Alzey), and `vz_php.php` (POST) describes
-  a unit. A unit's images are delivered only as one PDF of the whole volume,
-  which the server builds when the unit is opened and deletes within
-  minutes (`/Bild/PStA_<fonds>_<nr>.pdf`; 6 to 8 MB for a ten-page index).
-  Reading one page would mean asking the archive to build and send the whole
-  volume, and a PDF image extractor here. The terms (`Disclaimer.php`) forbid
-  misuse and say nothing on automated access; there is no `robots.txt` (404).
-  Not added in 0.2.0; it is the next candidate, as a pair of its own, once
-  the cost of a whole-volume PDF per page read has been weighed, or a page
-  route found.
-- **Hesse (Arcinsys, LAGIS).** LAGIS has a keyless JSON catalogue of
-  the civil registers (`www.lagis-hessen.de/de/api/xsearch/sn/
-  hessische-geburten-ehe-sterberegister`, 118,206 registers), but the images
-  are shown only in Arcinsys, a session application whose forms carry an
-  `executionId`; a first signature search with a cookie session and the
-  form's `executionId` was sent back to the empty form, so a client would
-  have to replay the application's form state. No published licence for the
-  images was found. Not added.
+- **Rheinland-Pfalz (APERTUS).** Added in 0.3.0; see above. The 0.2.0 survey
+  thought a cookie session was needed; the unit search and description
+  answered without one.
+- **Hesse (LAGIS and Arcinsys).** Added in 0.3.0; see above. The 0.2.0
+  survey's session problem was the signature form's empty hidden archive id;
+  the autocompleter, the METS route and the image server need no session.
 - **Berlin.** The Landesarchiv Berlin's civil registers (P Rep., 1874-) are
   described on findbuch.net and in the DDB; the images are on Ancestry,
   which charges. Not added.
@@ -310,7 +431,9 @@ operator's agreement, rather than a pair here (see docs/API-NOTES.md).
 - Everything is mocked with respx against **recorded** responses
   (`tests/fixtures/`): registers and finding-aid headings from the Stadtarchiv
   Düsseldorf, the Breisach books of L 10 and J 386, the Ulm books of every
-  fonds, and the Landesarchiv NRW's Barmen and Lemgo registers. The suite
+  fonds, the Landesarchiv NRW's Barmen and Lemgo registers, APERTUS's Cochem,
+  Münstermaifeld and St. Johann (near Mayen) registers with a three-page cut
+  of a volume PDF, and LAGIS's and Arcinsys's Korbach registers. The suite
   never touches a live site.
 - Contract tests pin the tool surface as a client sees it: names and
   parameters (snapshot), descriptions present, dedented and within a size

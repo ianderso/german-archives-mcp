@@ -16,6 +16,7 @@
 *.tif
 *.tiff
 *.pdf
+!tests/fixtures/*.pdf
 
 # Python
 __pycache__/

@@ -2,8 +2,12 @@
 
 What the sites actually do, observed on 2026-10-11 from a US address with
 this package's User-Agent: about 90 requests for 0.1.0, paced at least 2.5
-seconds apart, and about 120 more for 0.2.0, at least 2 seconds apart per
-host and 10 seconds apart for database searches. Labels: **[live]** fetched
+seconds apart, about 120 more for 0.2.0, at least 2 seconds apart per host
+and 10 seconds apart for database searches, and about 110 more for 0.3.0
+(APERTUS, LAGIS, Arcinsys Hessen and the two archives' terms pages), at least
+3 seconds apart per host and 10 seconds apart for searches and volume
+downloads; a few volume PDFs were opened and one (22 MB) downloaded, once in
+probing and once by the live check. Labels: **[live]** fetched
 that day; **[docs]** the provider's own documentation.
 
 ## Deutsche Digitale Bibliothek, version 2 API
@@ -291,52 +295,184 @@ titles name registers, then counting each fonds' entries with images
   **[live]**. Other archives' METS files are on their own servers
   (`www.duesseldorf.de/stadtarchiv/archivenrw/…`).
 
-## Surveyed and not added
+## Landesarchivverwaltung Rheinland-Pfalz: APERTUS (`apertus.rlp.de`)
 
-### Landesarchiv Rheinland-Pfalz: APERTUS (`apertus.rlp.de`)
+### Access and terms
 
-- A PHP application in iframes; a session cookie (`_ap_sid`) is set on the
-  first page. No token is needed: with the cookie, `lha.php` (POST, the
-  form) and `queryfacet.php` (POST: `query`, `archiv=PStA`, `doc=TRUE`,
-  `rows`, …) answer the facet counts per fonds, and `queryOneExt.php` (POST,
-  `bestand` sent URL-encoded inside the form value, `%22657%2C008%22`) lists
-  units with their GUIDs **[live]**. Answers are HTML fragments.
-- The Personenstandsarchiv's digitised units: `Geburtsregister` finds 18,491
-  in 485 fonds (Best. 657,001 onward, one per Standesamt or
-  Bürgermeisterei); `Koblenz` 485; `Alzey` 1 **[live]**. The Stadtbürgermeisterei
-  Koblenz's registers (657,008) have only their name indexes digitised
-  ("Digitalisat: Nur Namensverzeichnis").
-- `vz_php.php` (POST, `GUID`) describes a unit and, as a side effect, builds
-  `/Bild/PStA_<fonds>_<nr>.pdf`, which is gone a few minutes later (404
-  before the unit is opened, 200 after, 404 again later) **[live]**. The PDF
-  is Ghostscript's, PDF 1.4, pages as DCTDecode images: 6.1 MB and 8.0 MB for
-  two ten-page indexes. A thumbnail of the first page is static
-  (`/Bild/PV/PStA_<fonds>_<nr>_P1.jpg`, 514 x 702). The site's viewer script
-  also asks `imgviewer.php` (POST) for single pages; neither unit opened used
-  it.
+- A PHP application in iframes; its scripts fetch HTML fragments by form
+  posts (jQuery's `$.post`, so the forms go UTF-8 encoded although the pages
+  are ISO-8859-1). The home page sets a session cookie (`_ap_sid`); the unit
+  search (`queryOneExt.php`) and the unit description (`vz_php.php`) answered
+  the same without it, and without any preceding page **[live]**. No token,
+  no `executionId`.
+- No bot check met. `robots.txt`: 404 **[live]**.
+- Terms: `Disclaimer.php` forbids unconstitutional, racist, sexist,
+  violence-glorifying, pornographic, defamatory or otherwise unlawful use
+  **[live]**. Help, section Download (`hilfe_php.php`, `NR=26`): every
+  digital version of archival material in APERTUS is free to download; the
+  section "Rechtsfragen" (`NR=25`) holds only a placeholder **[live]**. The
+  Landesarchivverwaltung's fee page: use in the reading rooms and downloads
+  from APERTUS are free of charge **[docs]**. Its *Allgemeinverfügung zu
+  Veröffentlichungsgenehmigungen und -gebühren* (PDF, `lav.rlp.de/fileadmin/…`):
+  records free for unrestricted use need no publication permission (§ 9 S. 2
+  LArchBVO); sources must be cited (§ 10 Abs. 1 LArchBVO); a copy is politely
+  requested; publication fees are waived **[docs]**. Nothing on automated
+  access anywhere.
+- The archive's digitisation page (`lav.rlp.de/geschichte-entdecken/
+  familienforschung/personenstandsarchiv/digitalisierung`, March 2026): about
+  32,000 registers online, and the name indexes of 28,000 more; whole volumes
+  digitised district by district since 2021, to 1880, since 2025 to 1895;
+  registers may be put online after 130 years **[docs]**.
+
+### Search: `queryOneExt.php` (POST)
+
+- The form, as `lha.js`'s `queryoneext()` posts it: `archiv=PStA`,
+  `panel=VE`, `panelID`, `query`, `bestand`, `nummer`, `unum`, `zusatz`,
+  `range`, `range2`, `doc=TRUE` (units with images only), `start`, `rows`,
+  `thema` **[live]**.
+- `query` is what the search form (`lha.php`) makes of the words: joined with
+  `+AND+` (`Geburtsregister Mayen` becomes `Geburtsregister+AND+Mayen`, sent
+  as `%2B`). It matches the title words: `Sterberegister+AND+Cochem` finds the
+  Bürgermeistereien Cochem-Land (657,377) and Cochem-Stadt (657,380). An
+  umlaut posted as UTF-8 works (`Münstermaifeld`, 657,335) **[live]**.
+- `bestand` empty searches every fonds in one answer; the site's own
+  interface first asks `queryfacet.php` for counts per fonds and then lists
+  one fonds at a time, which this server skips. `bestand=657,349` with
+  `nummer=4` finds exactly that unit (a signature look-up) **[live]**.
+- `range`/`range2` are years; either may be empty (`range=1817` alone lists
+  1817 onward) **[live]**.
+- Answer: a header `<b>Bestand 657,349</b> (1-25 von 64)` (or `<b>Bestand
+  </b> (1-12 von 12)` across fonds), then per unit a checkbox whose `value`
+  is the unit's GUID, `Personenstandsarchiv Rheinland-Pfalz` with the kind
+  (`Sachakte`) and `Best. 657,377  Nr. 141`, a thumbnail
+  (`/Bild/PV/PStA_657,377_141_P1.jpg`), the title (`Sterberegister der
+  Bürgermeisterei Cochem-Land`), the years and the dates (`01.01.1880 -
+  31.12.1880`). **No match is a bare `\r\n`** (two bytes) **[live]**.
+- Took 0.5 to 7.8 s. Counts with images: `Geburtsregister` 18,491,
+  `Heiratsregister` 19,676, `Sterberegister` 20,997 (485 fonds) **[live]**.
+  `Trier` finds the Bürgermeisterei Irsch near Trier, not the city.
+
+### A unit and its PDF: `vz_php.php` (POST) and `/Bild/`
+
+- Form: `GUID`, `FLAG=2`, `NR`, `NRMAX` (the last two only drive the
+  previous/next buttons) **[live]**.
+- Answer: `<p class='tnorm'>Bestand 657,349  Nummer 4</p>`, the title and
+  years (`<div class='titel tlarge'>Geburtsregister der Bürgermeisterei St.
+  Johann (bei Mayen)</br>1817</div>`), the dates, `<embed class='pdfimage'
+  src='/Bild/PStA_657,349_4.pdf'>`, a details table (Lagerort,
+  Enthält-Vermerk, Bemerkungen such as `Digitalisat: Nur Namensverzeichnis`)
+  and the fonds' place in the classification (`Bestand 657,349`
+  `Bürgermeisterei St. Johann (bei Mayen)`) **[live]**.
+- Opening a unit makes the PDF appear: `/Bild/PStA_657,349_4.pdf` answered 200
+  right after, and 404 five minutes later (built 11:17:15, gone by 11:22:39);
+  it is built again on the next opening **[live]**. `Accept-Ranges: bytes` is
+  sent, but nothing here uses ranges.
+- Sizes: 22.2 MB (26 pages, St. Johann births 1817), 26.7 MB (Mayen births
+  1860), 6.1 and 8.0 MB (ten-page indexes, 0.2.0). The 22 MB volume took 40 s
+  to download (about 0.55 MB/s) **[live]**.
+- The PDFs are Ghostscript 9.56.1's (`/Producer`), PDF 1.4, created in 2022
+  (`/CreationDate`), title `PStA_0657_0349_00_000004_000000NOTA`. Each page
+  draws one image XObject (`/R9`, `/R14`, ...) full-page through a `cm`
+  matrix: `DCTDecode`, DeviceRGB, 8 bits, the page's pixel size (1,365 by
+  1,814 for a cover, about 2,500 by 1,800 for a spread); the stream is a
+  complete JFIF file (0.9 to 1 MB) **[live]**.
+- The viewer script (`viewer.js`) has a single-page route (`imgviewer.php`,
+  `OPTION=1`, `DrDocGUID`, `AKTPAGE`), unused by register units **[live]**.
 - Permalinks: `https://apertus.rlp.de/index.php?PLINK=1&ID=<GUID>`.
-- Terms: `Disclaimer.php` forbids unconstitutional, racist, defamatory or
-  otherwise unlawful use; nothing on automated access **[live]**.
-  `robots.txt`: 404. No bot check met.
+- An unknown GUID's description has no `Bestand … Nummer` line; the server
+  reads it as not found, and the live check confirms it **[live]**.
 
-### Hessisches Landesarchiv: Arcinsys and LAGIS
+## Hessisches Landesarchiv: LAGIS (`www.lagis-hessen.de`) and Arcinsys Hessen
 
-- LAGIS moved to `lagis.hessen.de` (an Angular application; `robots.txt`
-  allows all user agents but a list of named crawlers). Its API on
-  `www.lagis-hessen.de/de/api/…` answers keyless JSON:
-  `/de/api/xsearch/sn/hessische-geburten-ehe-sterberegister` reports 118,206
-  registers (`{"id": "365-2", "subTitle": "HHStAW Best. 365 Nr. 2", "title":
-  "Personenstandsregister der Juden von Arolsen (1834-1842 ...)"}`)
-  **[live]**. The free-text parameter was not found; `suchbegriff` was
-  ignored.
-- The images are in Arcinsys (`arcinsys.hessen.de/arcinsys/`), a
-  Struts application with a session cookie and an `executionId` in each
-  form; the signature search (`identifierSearch_search.action`, GET) with a
-  cookie and the form's `executionId` redirected back to the empty form
-  **[live]**. Its `robots.txt` names only a sitemap. The archive's guides say
-  the registers are online to 1900 (births), 1930 (marriages) and 1965
-  (deaths), in fonds 900-926 of the Hessisches Staatsarchiv Marburg
-  **[docs]**. No licence statement for the images was found.
+### Access and terms
+
+- Arcinsys Hessen (`arcinsys.hessen.de/arcinsys/`) is a Struts application:
+  its pages set `JSESSIONID`, and its search forms carry an `executionId`.
+  None of the three routes below needs either **[live]**. No bot check met.
+- `robots.txt`: `arcinsys.hessen.de` names only a sitemap;
+  `digitalisate-he.arcinsys.de` has `User-agent: *` / `Disallow: /`;
+  `www.lagis-hessen.de` disallows many named crawlers entirely and, for
+  everyone, map-maker and some search pages, not `/de/api/` **[live]**.
+  Recorded as facts.
+- Terms: Arcinsys's information page (`information.action`) has privacy
+  notes, an imprint (Hessisches Landesarchiv, Wiesbaden) and a note that part
+  of the site's content is protected by copyright; nothing on images or
+  automated access **[live]**. The Hessisches Landesarchiv: its digitised
+  civil registers can be seen in Arcinsys free of charge and without
+  registration (*Personenstandsarchiv Hessen*), single pages can be
+  downloaded as JPG (*Recherche in digitalisierten
+  Personenstandsnebenregistern*), and use of reproductions published online
+  is free of charge (*Kosten und Gebühren*) **[docs]**. No licence for the
+  images: the METS files' `dv:license` is empty **[live]**. LAGIS: catalogue
+  data CC0, with a recommended citation per entry **[live]**.
+- Coverage (the archive's pages): births to 1900, marriages to 1930, deaths to
+  1965 in most cases, fonds HStAM 900 to 926 by district; death registers go
+  online only after 60 years (§ 9 Abs. 2 Satz 3 HArchivG); pages with
+  protected information (adoptions, acknowledged paternity) are left out of
+  the online register until their period ends **[docs]**.
+
+### Finding a register: LAGIS's API
+
+- `/de/api/gsearch/sn/hessische-geburten-ehe-sterberegister?suchbegriff=…&
+  seite=…&datensaetze=…`: the simple search. `suchbegriff` becomes `q`;
+  every word must match, against the title and the places of the Standesamt
+  district (`Wirmighausen Geburtsnebenregister` finds Adorf's registers).
+  `datensaetze` 10 and 25 are honoured, 100 becomes 25; `sortierung` is
+  ignored (always `score desc`); Solr syntax (`OR`, parentheses) finds
+  nothing **[live]**.
+- Answer: `{"context": {"numDocs": 118206, "numHits", "start", "params"},
+  "paginator", "filters", "results": [{"id": "922-6013", "title": "Korbach,
+  Geburtsnebenregister, 1880", "subTitle": "HStAM Bestand 922 Nr. 6013",
+  "location": "Korbach", "okz": 635015060}]}`. Older entries are titled
+  `Affolterbach, Geburtsnebenregister (1876)` and `HStAM Best. 900 Nr. 2`
+  **[live]**.
+- `/de/api/xsearch/sn/…` (the extended search) honoured `registertyp` but
+  ignored `suchbegriff`, `laufzeit_anfang` (`1880`, `1880-1882`) and a
+  `standesamt` name (it wants an id from a remote option list), and took up
+  to 20 s **[live]**. Not used.
+- `/de/api/idrecng/sn/…/id/922-10`: one entry in full, with the DFG-Viewer
+  link (`https://digitalisate-he.arcinsys.de/hstam/922/10.xml`, a static METS
+  file of 2019), the Arcinsys viewer link (`digitalMediaViewer.action?
+  archivalDescriptionId=2884088`), the image count, the places of the
+  Standesamt district, the CC0 note and the citation form with a short
+  address (`https://lagis.hessen.de/resolve/de/pstr/922-10`). Took 11 s
+  **[live]**. Not used.
+- Times: 0.4 to 35 s; one connection attempt timed out after 75 s and the next,
+  a few minutes later, answered **[live]**.
+
+### Reading a page: Arcinsys's autocompleter, METS route and image server
+
+- `/arcinsys/queryArchiveSignatureSuggestions?archiv=HStAM` → `selectKey` 84
+  (HHStAW 47, HStAD 1). `/arcinsys/queryFondsSignatureSuggestions?archivId=84&
+  bestandSignature=92` lists fonds (920 Schwalm-Eder-Kreis … 925 Wiesbaden,
+  Stadt; 926 Sonderstandesamt Bad Arolsen). `/arcinsys/
+  queryItemSignatureSuggestions?archivId=84&bestandSignature=922&
+  stueckSignature=6013` → `{"stueckSignatureSuggestions": [{"selectKey":
+  "3797740", "selectValue": "6013", …}]}`; it matches by prefix (`10` also
+  gives `100`, `101`, …) **[live]**. 0.3 to 0.6 s. The signature search form
+  (`identifierSearch_search.action`) fails without the hidden
+  `pageData.archiveId` these fill in, which is what 0.2.0 met.
+- `/arcinsys/showArchivalDescriptionDetails.action?archivalDescriptionId=…`
+  is a plain page (no session needed) with the thumbnails and viewer links;
+  `/arcinsys/digitalMediaViewer.action?…` names the DFG-Viewer link
+  `dfg-viewer.de/show/?set[mets]=https://arcinsys.hessen.de/arcinsys/mets?
+  detailid=v2884088` **[live]**.
+- `/arcinsys/mets?detailid=v<id>`: METS with prefixes `ns2` (METS), `ns3`
+  (xlink), `ns4` (MODS) and `dv`; `mods:title` (`Standesamt Korbach
+  Geburtsnebenregister 1880`), `mods:shelfLocator` (`HStAM 922 6013`, then
+  the archive's name), `mods:recordIdentifier` (the detail page), `dv:owner`,
+  an empty `dv:license`; file groups `DEFAULT`, `THUMBS` and `DOWNLOAD` (the
+  same JPEGs as `DEFAULT`); the physical structure map's page `ORDER` runs
+  from 2 for the first file **[live]**. 95 to 98 KB for 99 to 101 pages. An
+  unknown id (`v999999999`) answers 302 to `accessDeniedError.action`
+  **[live]**. A non-register unit with images (HStAM 92 Nr. 1) has a METS file
+  too.
+- Images: `https://digitalisate-he.arcinsys.de/hstam/922/10/00003.jpg`
+  answers 302 to `…/max/00003.jpg` on the same host: a static JPEG, 2,000 by
+  2,805 grayscale, 260 KB, `Access-Control-Allow-Origin: *`. Thumbnails under
+  `thumb/` (109 by 150) **[live]**.
+
+## Surveyed and not added
 
 ### Matricula (`data.matricula-online.eu`)
 

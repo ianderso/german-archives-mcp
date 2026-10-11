@@ -8,6 +8,46 @@ adding one is a minor release. Before 1.0, a minor release may do either.
 
 ## [Unreleased]
 
+## [0.3.0] — 2026-10-11
+
+The civil registers of Rheinland-Pfalz (APERTUS) and Hesse (LAGIS and
+Arcinsys Hessen).
+
+### Added
+
+- `rlp_search`: the Personenstandsarchiv Rheinland-Pfalz's digitised units in
+  APERTUS (Landesarchivverwaltung Rheinland-Pfalz, Landeshauptarchiv Koblenz),
+  by place, Bürgermeisterei or Standesamt, register type and years, with
+  signature (`Best. 657,377 Nr. 141`), title, years, dates and permalink.
+- `rlp_image`: one page of an APERTUS unit, by its GUID, permalink or
+  signature and its PDF page. APERTUS serves a volume only as one PDF, so the
+  first page of a volume downloads the whole volume once; it is kept in
+  `<cache dir>/volumes/` for later pages. The page saved is the archive's own
+  JPEG, taken out of the PDF unchanged.
+- `hessen_search`: LAGIS's catalogue of the Hessisches Landesarchiv's
+  digitised civil registers (HStAM 900-926), by place (a village finds its
+  Standesamt's registers), register type and year, with signature
+  (`HStAM 922 Nr. 6013`) and LAGIS link.
+- `hessen_image`: one page image of a register in Arcinsys Hessen, by
+  signature or Arcinsys address, through Arcinsys's METS file; cited with the
+  department, signature, image number, file name and permalink.
+- `GERMAN_ARCHIVES_PDF_CACHE_DAYS` (default 3, at most 30) and
+  `GERMAN_ARCHIVES_PDF_CACHE_MB` (default 1000, at least 100): how long
+  volume PDFs are kept and how much of them; the least recently read go first.
+- `cache_status` reports the volume PDFs on disk and the seconds between
+  volume downloads.
+- A dependency on `pypdf`, to take a page's JPEG out of a volume PDF.
+
+### Changed
+
+- The allowlist has eight hosts: `apertus.rlp.de`, `www.lagis-hessen.de`,
+  `arcinsys.hessen.de` and `digitalisate-he.arcinsys.de` join the four.
+- APERTUS's and LAGIS's searches are held ten seconds apart, like the Archive
+  in NRW portal's, and opening two APERTUS volumes ten seconds apart. LAGIS
+  gets a 90-second read timeout.
+- The client can post a form (APERTUS's reading pages are form posts) and
+  stream a large file to disk; an Imperva page is recognised as a bot check.
+
 ## [0.2.0] — 2026-10-11
 
 Every register fonds the Landesarchiv Baden-Württemberg has online, and the

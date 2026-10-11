@@ -11,8 +11,10 @@ import pytest
 
 from german_archives_mcp import __version__
 from german_archives_mcp.client import (
+    APERTUS_HOST,
     DDB_HOST,
     LABW_HOST,
+    LAGIS_HOST,
     NRW_PORTAL_HOST,
     PROJECT_URL,
     HostNotAllowed,
@@ -398,3 +400,122 @@ def test_a_jpegs_size_is_read_from_its_header():
     assert jpeg_size(fixture("labw_bild_243px.jpg")) == (243, 182)
     assert jpeg_size(b"not a jpeg") is None
     assert jpeg_size(b"\xff\xd8\xff") is None
+
+
+# --------------------------------------------------------------------------- #
+# Form posts, file downloads and volume pacing (APERTUS, 0.3.0)
+# --------------------------------------------------------------------------- #
+APERTUS_SEARCH = f"https://{APERTUS_HOST}/queryOneExt.php"
+APERTUS_UNIT = f"https://{APERTUS_HOST}/vz_php.php"
+APERTUS_PDF = f"https://{APERTUS_HOST}/Bild/PStA_657,349_4.pdf"
+
+
+async def test_a_form_post_is_sent_as_the_sites_own_form_and_cached(http, sites):
+    route = sites.post(APERTUS_SEARCH).mock(
+        return_value=httpx.Response(200, content="<b>Bestand </b> (1 von 1)".encode("latin-1"))
+    )
+    form = {"query": "Sterberegister+AND+Cochem", "rows": "25"}
+    first = await http.post_text(APERTUS_SEARCH, form, ttl_days=1)
+    second = await http.post_text(APERTUS_SEARCH, dict(reversed(list(form.items()))), ttl_days=1)
+    assert first == second and route.call_count == 1
+    sent = route.calls.last.request
+    assert sent.headers["content-type"] == "application/x-www-form-urlencoded"
+    assert b"query=Sterberegister%2BAND%2BCochem" in sent.content
+
+
+async def test_a_post_whose_side_effect_matters_is_never_cached(http, sites):
+    route = sites.post(APERTUS_UNIT).mock(return_value=httpx.Response(200, text="ok"))
+    await http.post_text(APERTUS_UNIT, {"GUID": "x"}, ttl_days=0)
+    await http.post_text(APERTUS_UNIT, {"GUID": "x"}, ttl_days=0)
+    assert route.call_count == 2
+
+
+async def test_a_post_that_redirects_is_an_error_never_followed(http, sites):
+    sites.post(APERTUS_UNIT).mock(
+        return_value=httpx.Response(302, headers={"location": "https://elsewhere.example/"})
+    )
+    with pytest.raises(SiteError) as caught:
+        await http.post_text(APERTUS_UNIT, {"GUID": "x"}, ttl_days=0)
+    assert caught.value.code == "redirected"
+
+
+async def test_a_post_to_a_host_off_the_list_is_refused_unsent(http):
+    with pytest.raises(HostNotAllowed):
+        await http.post_text("https://elsewhere.example/form", {"a": "b"}, ttl_days=0)
+    assert http.live_calls == 0
+
+
+async def test_a_file_download_streams_to_its_target_and_leaves_no_part(http, sites, tmp_path):
+    body = b"%PDF-1.4\n" + b"x" * 5_000
+    sites.get(APERTUS_PDF).mock(
+        return_value=httpx.Response(200, content=body, headers={"content-type": "application/pdf"})
+    )
+    target = tmp_path / "v" / "a.pdf"
+    size, kind = await http.fetch_to_file(APERTUS_PDF, target, max_bytes=10_000)
+    assert (size, kind) == (len(body), "application/pdf") and target.read_bytes() == body
+    assert sorted(p.name for p in target.parent.iterdir()) == ["a.pdf"]
+    assert sites.calls.last.request.headers["accept"] == "application/pdf"
+
+
+@pytest.mark.parametrize("declared", [True, False])
+async def test_a_download_over_the_limit_leaves_nothing(http, sites, tmp_path, declared):
+    async def stream():
+        for _ in range(10):
+            yield b"0" * 1_000
+
+    headers = {"content-length": "10000"} if declared else {}
+    sites.get(APERTUS_PDF).mock(
+        return_value=httpx.Response(
+            200, content=stream() if not declared else b"0" * 10_000, headers=headers
+        )
+    )
+    target = tmp_path / "a.pdf"
+    with pytest.raises(SiteError) as caught:
+        await http.fetch_to_file(APERTUS_PDF, target, max_bytes=4_000)
+    assert caught.value.code == "too_large"
+    assert list(tmp_path.iterdir()) == []
+
+
+async def test_a_refused_download_leaves_nothing(http, sites, tmp_path):
+    sites.get(APERTUS_PDF).mock(return_value=httpx.Response(404, text="gone"))
+    with pytest.raises(SiteError) as caught:
+        await http.fetch_to_file(APERTUS_PDF, tmp_path / "a.pdf", max_bytes=4_000)
+    assert caught.value.status == 404 and list(tmp_path.iterdir()) == []
+
+
+def test_by_default_apertus_searches_and_volumes_and_lagis_searches_wait_ten_seconds(tmp_path):
+    from german_archives_mcp.client import ArchiveHttp
+
+    http = ArchiveHttp(tmp_path)
+    assert http.search_interval(APERTUS_HOST) == 10.0 and http.volume_interval(APERTUS_HOST) == 10.0
+    assert http.search_interval(LAGIS_HOST) == 10.0 and http.volume_interval(LAGIS_HOST) == 0.0
+
+
+async def test_opening_two_volumes_waits_for_the_last_volume(tmp_path, sites):
+    floors = {APERTUS_HOST: (("/vz_php.php",), 10.0)}
+    http, now, waits = _clocked(tmp_path, min_interval=2.0, volume_floors=floors)
+    sites.post(APERTUS_UNIT).mock(return_value=httpx.Response(200, text="ok"))
+    sites.post(APERTUS_SEARCH).mock(return_value=httpx.Response(200, text="ok"))
+    await http.post_text(APERTUS_UNIT, {"GUID": "a"}, ttl_days=0)
+    await http.post_text(APERTUS_SEARCH, {"q": "a"}, ttl_days=0)
+    await http.post_text(APERTUS_UNIT, {"GUID": "b"}, ttl_days=0)
+    # The search waits the host's two seconds; the second volume, until ten
+    # seconds have passed since the first.
+    assert waits == [pytest.approx(2.0), pytest.approx(8.0)]
+
+
+async def test_a_slow_host_gets_a_longer_read_timeout(http, sites):
+    seen = {}
+
+    def answer(request):
+        seen.update(request.extensions["timeout"])
+        return httpx.Response(200, json={"results": []})
+
+    sites.get(url__startswith=f"https://{LAGIS_HOST}/").mock(side_effect=answer)
+    await http.get_json(f"https://{LAGIS_HOST}/de/api/gsearch/sn/x?suchbegriff=a", ttl_days=1)
+    assert seen["read"] == 90.0
+
+
+def test_an_imperva_page_is_a_challenge():
+    page = "<html><head><script src='/_Incapsula_Resource?SWJIYLWA=1'></script></head></html>"
+    assert looks_like_challenge(page)

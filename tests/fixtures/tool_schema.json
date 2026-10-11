@@ -15,6 +15,18 @@
     "year_from",
     "year_to"
   ],
+  "hessen_image": [
+    "destination",
+    "item",
+    "page"
+  ],
+  "hessen_search": [
+    "page",
+    "place",
+    "register",
+    "rows",
+    "year"
+  ],
   "labw_image": [
     "destination",
     "item",
@@ -38,6 +50,19 @@
     "has_images",
     "page",
     "query",
+    "rows",
+    "year_from",
+    "year_to"
+  ],
+  "rlp_image": [
+    "destination",
+    "item",
+    "page"
+  ],
+  "rlp_search": [
+    "page",
+    "place",
+    "register",
     "rows",
     "year_from",
     "year_to"

@@ -23,6 +23,20 @@ The fixtures under ``fixtures/`` are real responses recorded on 2026-10-11
   1850 and Lemgo's death registers of 1880, and one that finds nothing; and
   from the Landesarchiv NRW's image server, two METS files (the Barmen
   register trimmed to its first 12 of 827 pages) and one page thumbnail.
+* from APERTUS (Rheinland-Pfalz): a search for the death registers of the
+  Bürgermeistereien Cochem-Land and Cochem-Stadt in 1880-1881, one for the
+  birth register of Münstermaifeld in 1850, one that finds nothing (APERTUS
+  answers a bare line break), a look-up by signature and the description of
+  Best. 657,349 Nr. 4 (the birth register of St. Johann near Mayen, 1817; its
+  inline styles trimmed), and that volume's PDF cut to its first three pages
+  with each page's scan replaced by a small JPEG, which keeps Ghostscript's
+  structure (one DCTDecode image per page) in 22 KB.
+* from LAGIS (Hesse): searches for Korbach's birth registers, with and
+  without the year 1880, and one that finds nothing (the context's site
+  addresses removed); from Hesse's Arcinsys, the signature autocompleter's
+  answer for HStAM 922 Nr. 6013 and that register's METS file (trimmed to its
+  first 12 of 101 pages, with the owner's contact, logo, site and link
+  elements removed); and one 150-pixel page thumbnail.
 
 The records are registers and finding-aid headings, not people.
 """
@@ -32,6 +46,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 from typing import Any
+from urllib.parse import parse_qs
 
 import httpx
 import pytest
@@ -39,8 +54,12 @@ import respx
 
 from german_archives_mcp import labw, server
 from german_archives_mcp.client import (
+    APERTUS_HOST,
+    ARCINSYS_HOST,
     DDB_HOST,
+    HLA_IMAGE_HOST,
     LABW_HOST,
+    LAGIS_HOST,
     NRW_IMAGE_HOST,
     NRW_PORTAL_HOST,
     ArchiveHttp,
@@ -56,11 +75,12 @@ L10_510 = "2EF3J2O7CMX2HKZ7YX3GRUT3WIWLCAA5"
 
 
 def fixture(name: str) -> Any:
-    """Load one recorded response: JSON for .json files, bytes for .jpg, text otherwise."""
+    """Load one recorded response: JSON for .json files, bytes for .jpg, .pdf and APERTUS's
+    ISO-8859-1 pages, text otherwise."""
     path = FIXTURES / name
     if path.suffix == ".json":
         return json.loads(path.read_text(encoding="utf-8"))
-    if path.suffix == ".jpg":
+    if path.suffix in (".jpg", ".pdf") or name.startswith("rlp_"):
         return path.read_bytes()
     return path.read_text(encoding="utf-8")
 
@@ -72,6 +92,7 @@ def make_http(tmp_path: Path, **kwargs) -> ArchiveHttp:
         "backoff": 0.0,
         "host_floors": {},
         "search_floors": {},
+        "volume_floors": {},
     }
     options.update(kwargs)
     return ArchiveHttp(tmp_path / "cache", **options)
@@ -261,6 +282,148 @@ def route_nrw(router: respx.MockRouter, **extra: Any) -> tuple[respx.Route, resp
     )
 
 
+#: APERTUS searches by their ``query`` form value; signature look-ups by
+#: ``bestand`` and ``nummer``; unit descriptions by ``GUID``.
+RLP_SEARCHES: dict[str, str] = {
+    "Sterberegister+AND+Cochem": "rlp_search_cochem_deaths_1880.html",
+    "Geburtsregister+AND+Münstermaifeld": "rlp_search_muenstermaifeld_1850.html",
+}
+RLP_SIGNATURES: dict[tuple[str, str], str] = {
+    ("657,349", "4"): "rlp_signature_657-349_4.html",
+}
+ST_JOHANN_1817 = "df7d45bb-da6d-46cb-a467-3267f6681448"
+RLP_UNITS: dict[str, str] = {ST_JOHANN_1817: "rlp_unit_657-349_4.html"}
+RLP_PDFS: dict[str, str] = {"/Bild/PStA_657,349_4.pdf": "rlp_volume_657-349_4.pdf"}
+
+
+def _apertus_page(content: bytes) -> httpx.Response:
+    return httpx.Response(
+        200, content=content, headers={"content-type": "text/html; charset=iso-8859-1"}
+    )
+
+
+def route_apertus(router: respx.MockRouter, **extra: Any) -> respx.Route:
+    """APERTUS, answering form posts and PDF requests from the recorded fixtures.
+
+    ``extra`` maps a search's ``query`` value, a GUID, a PDF path or
+    ``"signature"`` to a fixture name, bytes or an ``httpx.Response``. An
+    unknown search or signature is the recorded empty answer; an unknown
+    GUID an empty page; an unknown PDF a 404.
+    """
+
+    def respond(request: httpx.Request) -> httpx.Response:
+        path = request.url.path
+        if request.method == "POST":
+            form = {k: v[0] for k, v in parse_qs(request.content.decode()).items()}
+            if path == "/queryOneExt.php":
+                if form.get("bestand"):
+                    key = (form.get("bestand", ""), form.get("nummer", ""))
+                    answer = extra.get(
+                        "signature", RLP_SIGNATURES.get(key, "rlp_search_empty.html")
+                    )
+                else:
+                    query = form.get("query", "")
+                    answer = extra.get(query, RLP_SEARCHES.get(query, "rlp_search_empty.html"))
+            elif path == "/vz_php.php":
+                guid = form.get("GUID", "")
+                answer = extra.get(guid, RLP_UNITS.get(guid, b"\r\n"))
+            else:
+                return httpx.Response(599, text=f"unmocked POST {request.url}")
+            if isinstance(answer, httpx.Response):
+                return answer
+            return _apertus_page(fixture(answer) if isinstance(answer, str) else answer)
+        if path.startswith("/Bild/") and path.endswith(".pdf"):
+            answer = extra.get(path, RLP_PDFS.get(path))
+            if answer is None:
+                return httpx.Response(404, text="<html><title>404</title></html>")
+            if isinstance(answer, httpx.Response):
+                return answer
+            body = fixture(answer) if isinstance(answer, str) else answer
+            return httpx.Response(200, content=body, headers={"content-type": "application/pdf"})
+        return httpx.Response(599, text=f"unmocked {request.url}")
+
+    return router.route(host=APERTUS_HOST).mock(side_effect=respond)
+
+
+#: LAGIS searches by their ``suchbegriff``.
+LAGIS_SEARCHES: dict[str, str] = {
+    "Korbach Geburtsnebenregister": "lagis_korbach_births.json",
+    "Korbach Geburtsnebenregister 1880": "lagis_korbach_births_1880.json",
+}
+
+#: Arcinsys's id for HStAM 922 Nr. 6013, and its METS file.
+KORBACH_1880 = 3797740
+ARCINSYS_METS: dict[str, str] = {f"v{KORBACH_1880}": "arcinsys_mets_922_6013.xml"}
+ARCINSYS_ITEMS: dict[tuple[str, str, str], str] = {
+    ("84", "922", "6013"): "arcinsys_items_922_6013.json",
+}
+
+
+def route_hessen(
+    router: respx.MockRouter, **extra: Any
+) -> tuple[respx.Route, respx.Route, respx.Route]:
+    """LAGIS, Hesse's Arcinsys and its image server, answering from the recorded fixtures.
+
+    ``extra`` maps a LAGIS ``suchbegriff``, an Arcinsys ``detailid``
+    (``v3797740``), ``"items"`` or ``"image"`` to a fixture name, a value or
+    an ``httpx.Response``. An unknown search is the recorded empty answer; an
+    unknown unit's METS a redirect to Arcinsys's error page, as the site does.
+    """
+
+    def lagis(request: httpx.Request) -> httpx.Response:
+        if not request.url.path.startswith("/de/api/gsearch/"):
+            return httpx.Response(599, text=f"unmocked {request.url}")
+        terms = request.url.params.get("suchbegriff", "")
+        answer = extra.get(terms, LAGIS_SEARCHES.get(terms, "lagis_empty.json"))
+        return _answer(fixture(answer) if isinstance(answer, str) else answer)
+
+    def arcinsys(request: httpx.Request) -> httpx.Response:
+        path, params = request.url.path, request.url.params
+        if path == "/arcinsys/queryItemSignatureSuggestions":
+            key = (
+                params.get("archivId", ""),
+                params.get("bestandSignature", ""),
+                params.get("stueckSignature", ""),
+            )
+            answer = extra.get("items", ARCINSYS_ITEMS.get(key, {"stueckSignatureSuggestions": []}))
+            return _answer(fixture(answer) if isinstance(answer, str) else answer)
+        if path == "/arcinsys/mets":
+            detail = params.get("detailid", "")
+            answer = extra.get(detail, ARCINSYS_METS.get(detail))
+            if answer is None:
+                return httpx.Response(
+                    302,
+                    headers={
+                        "location": f"https://{ARCINSYS_HOST}/arcinsys/accessDeniedError.action"
+                    },
+                )
+            if isinstance(answer, httpx.Response):
+                return answer
+            text = fixture(answer) if answer.endswith(".xml") else answer
+            return httpx.Response(
+                200, text=text, headers={"content-type": "text/xml;charset=UTF-8"}
+            )
+        return httpx.Response(599, text=f"unmocked {request.url}")
+
+    def images(request: httpx.Request) -> httpx.Response:
+        path = request.url.path
+        if not path.endswith(".jpg"):
+            return httpx.Response(599, text=f"unmocked {request.url}")
+        if "/max/" not in path:
+            # The image server sends every page on to its full-size copy.
+            head, name = path.rsplit("/", 1)
+            return httpx.Response(
+                302, headers={"location": f"https://{HLA_IMAGE_HOST}{head}/max/{name}"}
+            )
+        return _answer(extra.get("image", fixture("hla_bild_150px.jpg")))
+
+    return (
+        router.route(host=LAGIS_HOST).mock(side_effect=lagis),
+        router.route(host=ARCINSYS_HOST).mock(side_effect=arcinsys),
+        router.route(host=HLA_IMAGE_HOST).mock(side_effect=images),
+    )
+
+
 async def call_tool(tool_name: str, /, **arguments) -> dict:
     """Invoke a tool the way a client does, so Field defaults are resolved."""
     result = await server.mcp.call_tool(tool_name, arguments)
@@ -300,11 +463,15 @@ VALID_ARGS: dict[str, dict] = {
     "labw_image": {"item": "L 10 Nr. 510", "page": 378},
     "nrw_search": {"query": "Geburtsregister Barmen"},
     "nrw_image": {"item": BARMEN_METS, "page": 2},
+    "rlp_search": {"place": "Cochem", "register": "death"},
+    "rlp_image": {"item": "Best. 657,349 Nr. 4", "page": 2},
+    "hessen_search": {"place": "Korbach", "register": "birth"},
+    "hessen_image": {"item": "HStAM 922 Nr. 6013", "page": 2},
     "cache_status": {},
 }
 
 #: Tools that write a file and so need a destination.
-IMAGE_TOOLS = frozenset({"labw_image", "nrw_image"})
+IMAGE_TOOLS = frozenset({"labw_image", "nrw_image", "rlp_image", "hessen_image"})
 
 
 def valid_args(tool_name: str, tmp_path: Path) -> dict:
