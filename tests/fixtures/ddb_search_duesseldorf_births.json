@@ -1,0 +1,115 @@
+{
+ "responseHeader": {
+  "zkConnected": true,
+  "status": 0,
+  "QTime": 713,
+  "params": {
+   "q": "Geburtsregister",
+   "fl": "id,title,dataprovider_fct,provider,apd_reference_number,apd_context,apd_level_of_description,begin_time,end_time,digitalisat,objecttype,sector_fct,provider_item_id",
+   "start": "0",
+   "fq": [
+    "provider_fct:Stadtarchiv\\ Düsseldorf*",
+    "digitalisat:true",
+    "begin_time:[* TO 661820]"
+   ],
+   "rows": "3"
+  }
+ },
+ "response": {
+  "numFound": 19,
+  "start": 0,
+  "numFoundExact": true,
+  "docs": [
+   {
+    "id": "6MOPYW4SNPH5WPLCP74BOLX6PX6NMSQG",
+    "objecttype": [
+     "Personenstandsregister"
+    ],
+    "provider": [
+     "Archive in NRW",
+     "Stadtarchiv Düsseldorf"
+    ],
+    "dataprovider_fct": [
+     "Stadtarchiv Düsseldorf"
+    ],
+    "sector_fct": "sec_01",
+    "apd_context": "Standesamtsregister: Geburtsurkunden >> 7-0-7-9.0000 Standesamt Oberkassel",
+    "apd_level_of_description": "htype_034",
+    "apd_reference_number": [
+     "7-0-7 Standesamtsregister: Geburtsurkunden, 7-0-7- 9.0003"
+    ],
+    "begin_time": [
+     661090
+    ],
+    "digitalisat": "true",
+    "end_time": [
+     663281
+    ],
+    "provider_item_id": "Vz_208b7a0d-fa73-477c-b9f1-cf52b4072f4d",
+    "title": [
+     "Geburtsregister Standesamt Oberkassel"
+    ]
+   },
+   {
+    "id": "H5M2KNBXTVHIAEZ3WNJG4GNVMTPJHJYQ",
+    "objecttype": [
+     "Personenstandsregister"
+    ],
+    "provider": [
+     "Archive in NRW",
+     "Stadtarchiv Düsseldorf"
+    ],
+    "dataprovider_fct": [
+     "Stadtarchiv Düsseldorf"
+    ],
+    "sector_fct": "sec_01",
+    "apd_context": "Standesamtsregister: Geburtsurkunden >> 7-0-7-9.0000 Standesamt Oberkassel",
+    "apd_level_of_description": "htype_034",
+    "apd_reference_number": [
+     "7-0-7 Standesamtsregister: Geburtsurkunden, 7-0-7- 9.0001"
+    ],
+    "begin_time": [
+     656343
+    ],
+    "digitalisat": "true",
+    "end_time": [
+     659263
+    ],
+    "provider_item_id": "Vz_4508632e-a1b4-4d7b-9279-1173d1f9346d",
+    "title": [
+     "Geburtsregister Standesamt Oberkassel"
+    ]
+   },
+   {
+    "id": "QVNWQV667LRR5MAKJCWV6RZQIIWLRJGC",
+    "objecttype": [
+     "Personenstandsregister"
+    ],
+    "provider": [
+     "Archive in NRW",
+     "Stadtarchiv Düsseldorf"
+    ],
+    "dataprovider_fct": [
+     "Stadtarchiv Düsseldorf"
+    ],
+    "sector_fct": "sec_01",
+    "apd_context": "Standesamtsregister: Geburtsurkunden >> 7-0-7-9.0000 Standesamt Oberkassel",
+    "apd_level_of_description": "htype_034",
+    "apd_reference_number": [
+     "7-0-7 Standesamtsregister: Geburtsurkunden, 7-0-7- 9.0002"
+    ],
+    "begin_time": [
+     659264
+    ],
+    "digitalisat": "true",
+    "end_time": [
+     661089
+    ],
+    "provider_item_id": "Vz_6e1451ad-c540-4cb1-8239-8d6cb11e561e",
+    "title": [
+     "Geburtsregister Standesamt Oberkassel"
+    ]
+   }
+  ]
+ }
+}

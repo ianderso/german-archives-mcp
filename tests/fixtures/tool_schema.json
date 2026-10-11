@@ -1,0 +1,30 @@
+{
+  "cache_status": [],
+  "ddb_item": [
+    "children",
+    "children_offset",
+    "id"
+  ],
+  "ddb_search": [
+    "archive",
+    "has_images",
+    "page",
+    "query",
+    "rows",
+    "sector",
+    "year_from",
+    "year_to"
+  ],
+  "labw_image": [
+    "destination",
+    "item",
+    "max_pixels",
+    "page"
+  ],
+  "labw_standesbuch": [
+    "confession",
+    "count_images",
+    "place",
+    "year"
+  ]
+}

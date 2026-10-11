@@ -1,0 +1,23 @@
+{
+ "responseHeader": {
+  "zkConnected": true,
+  "status": 0,
+  "QTime": 14,
+  "params": {
+   "q": "title:\"Düsseldorf\"",
+   "fl": "id,title,apd_reference_number,apd_context,begin_time,end_time,provider_item_id",
+   "start": "0",
+   "fq": [
+    "provider_fct:Landesarchiv\\ Baden\\-Württemberg",
+    "apd_reference_number:(\"Staatsarchiv Freiburg, L 10\" OR \"Generallandesarchiv Karlsruhe, 390\")"
+   ],
+   "rows": "60"
+  }
+ },
+ "response": {
+  "numFound": 0,
+  "start": 0,
+  "numFoundExact": true,
+  "docs": []
+ }
+}

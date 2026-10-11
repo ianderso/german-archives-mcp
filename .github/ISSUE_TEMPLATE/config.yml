@@ -1,0 +1,11 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Report a security vulnerability
+    url: https://github.com/ianderso/german-archives-mcp/security/advisories/new
+    about: Privately, not in a public issue. See SECURITY.md.
+  - name: A problem with the DDB or a finding aid it shows
+    url: https://www.deutsche-digitale-bibliothek.de
+    about: This project does not run the Deutsche Digitale Bibliothek. Outages and wrong descriptions go to the DDB or to the archive that wrote the entry.
+  - name: A problem with the Landesarchiv's online finding aids or images
+    url: https://www.landesarchiv-bw.de
+    about: This project does not run the Landesarchiv Baden-Württemberg's site. Report problems with it to the archive.

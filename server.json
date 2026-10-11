@@ -1,0 +1,48 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.ianderso/german-archives-mcp",
+  "title": "German Archives (DDB, Baden Standesbücher)",
+  "description": "Search German archive finding aids (DDB, Archivportal-D); read Baden civil registers.",
+  "repository": {
+    "url": "https://github.com/ianderso/german-archives-mcp",
+    "source": "github"
+  },
+  "version": "0.1.0",
+  "packages": [
+    {
+      "registryType": "pypi",
+      "registryBaseUrl": "https://pypi.org",
+      "identifier": "german-archives-mcp",
+      "version": "0.1.0",
+      "runtimeHint": "uvx",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "name": "GERMAN_ARCHIVES_CACHE_DIR",
+          "description": "Directory for the on-disk response cache.",
+          "default": "~/.cache/german-archives-mcp"
+        },
+        {
+          "name": "GERMAN_ARCHIVES_TIMEOUT",
+          "description": "HTTP timeout in seconds for one request. Image downloads get 120 s to read.",
+          "default": "30"
+        },
+        {
+          "name": "GERMAN_ARCHIVES_MIN_INTERVAL",
+          "description": "Least seconds between two requests to one host. Never below 0.5; the Landesarchiv's site always gets at least 2.",
+          "default": "1"
+        },
+        {
+          "name": "GERMAN_ARCHIVES_CONTACT",
+          "description": "An email address or URL appended to the User-Agent, so an archive can reach whoever runs the server."
+        },
+        {
+          "name": "GERMAN_ARCHIVES_DOWNLOAD_DIR",
+          "description": "An existing folder. When set, labw_image saves only inside it; needed to save under ~/Library, such as an iCloud Drive folder."
+        }
+      ]
+    }
+  ]
+}

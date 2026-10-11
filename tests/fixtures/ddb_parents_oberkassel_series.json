@@ -1,0 +1,89 @@
+{
+ "numberOfResults": 6,
+ "hierarchy": [
+  {
+   "aggregationEntity": true,
+   "id": "Y6GUU5SWQXL73GUDRXDGTRKNXGNLCBCY",
+   "parent": "NIWVYF6CDBYWQ3DXLCCF2CXNW3UEFV53",
+   "ingestId": "31190652982918399eqAM",
+   "providerId": [
+    "oid1471506614573",
+    "K7ASHIR6IB5DKETZDZFBM3CQXCWK2K5H"
+   ],
+   "label": "7-0-7-9.0000 Standesamt Oberkassel",
+   "type": "htype_031",
+   "position": "01116",
+   "leaf": false
+  },
+  {
+   "aggregationEntity": false,
+   "id": "NIWVYF6CDBYWQ3DXLCCF2CXNW3UEFV53",
+   "parent": "GBRS4YLQNLSF2KO5DGWRNYZPZN7GATHL",
+   "ingestId": "31190622591322720Qizu",
+   "providerId": [
+    "oid1471506614573",
+    "K7ASHIR6IB5DKETZDZFBM3CQXCWK2K5H"
+   ],
+   "label": "Standesamtsregister: Geburtsurkunden",
+   "type": "htype_030",
+   "position": "04951",
+   "leaf": false
+  },
+  {
+   "aggregationEntity": true,
+   "id": "GBRS4YLQNLSF2KO5DGWRNYZPZN7GATHL",
+   "parent": "XBMSB4ECDMP2I7AUV2WFJZ4US5WXPKR2",
+   "ingestId": "31190622591322720Qizu",
+   "providerId": [
+    "oid1471506614573",
+    "K7ASHIR6IB5DKETZDZFBM3CQXCWK2K5H"
+   ],
+   "label": "Genealogische Quellen (versch. Provenienzen)",
+   "type": "htype_037",
+   "position": "04944",
+   "leaf": false
+  },
+  {
+   "aggregationEntity": true,
+   "id": "XBMSB4ECDMP2I7AUV2WFJZ4US5WXPKR2",
+   "parent": "W6HTNEHLR7QWMRX62AQFPJPRHAHUPBGL",
+   "ingestId": "31190622591322720Qizu",
+   "providerId": [
+    "oid1471506614573",
+    "K7ASHIR6IB5DKETZDZFBM3CQXCWK2K5H"
+   ],
+   "label": "*7 Genealogische Quellen, Findmittel, Mikrofilme (Struktur), Digitale Medien",
+   "type": "htype_037",
+   "position": "04943",
+   "leaf": false
+  },
+  {
+   "aggregationEntity": true,
+   "id": "W6HTNEHLR7QWMRX62AQFPJPRHAHUPBGL",
+   "parent": "K7ASHIR6IB5DKETZDZFBM3CQXCWK2K5H",
+   "ingestId": "31190622591322720Qizu",
+   "providerId": [
+    "oid1471506614573",
+    "K7ASHIR6IB5DKETZDZFBM3CQXCWK2K5H"
+   ],
+   "label": "Stadtarchiv Düsseldorf (Archivtektonik)",
+   "type": "Tektonik_collection",
+   "position": "00001",
+   "leaf": false
+  },
+  {
+   "aggregationEntity": false,
+   "id": "K7ASHIR6IB5DKETZDZFBM3CQXCWK2K5H",
+   "parent": null,
+   "ingestId": "5095594020963603yfKs",
+   "providerId": [
+    "00008615",
+    "IPSQKSWH46RX2B475NRZARHV4SFHLQGZ"
+   ],
+   "label": "Stadtarchiv Düsseldorf",
+   "type": "institution",
+   "position": "-1",
+   "leaf": false
+  }
+ ]
+}

@@ -1,0 +1,19 @@
+{
+ "responseHeader": {
+  "zkConnected": true,
+  "status": 0,
+  "QTime": 14,
+  "params": {
+   "q": "Zyxwvutsrq Qwertzuiopp",
+   "fl": "id,title,dataprovider_fct,provider,apd_reference_number,apd_context,apd_level_of_description,begin_time,end_time,digitalisat,objecttype,sector_fct,provider_item_id",
+   "start": "0",
+   "rows": "20"
+  }
+ },
+ "response": {
+  "numFound": 0,
+  "start": 0,
+  "numFoundExact": true,
+  "docs": []
+ }
+}

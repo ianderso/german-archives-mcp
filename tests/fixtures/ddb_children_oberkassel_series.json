@@ -1,0 +1,47 @@
+{
+ "numberOfResults": 55,
+ "hierarchy": [
+  {
+   "aggregationEntity": false,
+   "id": "2YL2Q72BJHG667JZRG6XFG5U6IRRPGYH",
+   "parent": "Y6GUU5SWQXL73GUDRXDGTRKNXGNLCBCY",
+   "ingestId": "31190652982918399eqAM",
+   "providerId": [
+    "oid1471506614573",
+    "K7ASHIR6IB5DKETZDZFBM3CQXCWK2K5H"
+   ],
+   "label": "Geburtsregister Standesamt Oberkassel 1-164",
+   "type": "htype_034",
+   "position": "01145",
+   "leaf": true
+  },
+  {
+   "aggregationEntity": false,
+   "id": "KREN6Y4CWVFEK7EHM6V4QG427BWYDAGH",
+   "parent": "Y6GUU5SWQXL73GUDRXDGTRKNXGNLCBCY",
+   "ingestId": "31190652982918399eqAM",
+   "providerId": [
+    "oid1471506614573",
+    "K7ASHIR6IB5DKETZDZFBM3CQXCWK2K5H"
+   ],
+   "label": "Geburtsregister Standesamt Oberkassel",
+   "type": "htype_034",
+   "position": "01126",
+   "leaf": true
+  },
+  {
+   "aggregationEntity": false,
+   "id": "QVNWQV667LRR5MAKJCWV6RZQIIWLRJGC",
+   "parent": "Y6GUU5SWQXL73GUDRXDGTRKNXGNLCBCY",
+   "ingestId": "31190652982918399eqAM",
+   "providerId": [
+    "oid1471506614573",
+    "K7ASHIR6IB5DKETZDZFBM3CQXCWK2K5H"
+   ],
+   "label": "Geburtsregister Standesamt Oberkassel",
+   "type": "htype_034",
+   "position": "01118",
+   "leaf": true
+  }
+ ]
+}

@@ -1,0 +1,103 @@
+{
+ "numberOfResults": 7,
+ "hierarchy": [
+  {
+   "aggregationEntity": false,
+   "id": "2EF3J2O7CMX2HKZ7YX3GRUT3WIWLCAA5",
+   "parent": "YSN4TX44INPJJFYIGMZNMGTDBTQJPWME",
+   "ingestId": "3312443806427448EqjL",
+   "providerId": [
+    "00000896",
+    "XYMQPA4OHAYDDFYWHV6Q4RFUIISTLQJV"
+   ],
+   "label": "Niederrimsingen, Breisach am Rhein FR; Katholische Gemeinde: Standesbuch 1847-1870",
+   "type": "htype_034",
+   "position": "00258",
+   "leaf": true
+  },
+  {
+   "aggregationEntity": true,
+   "id": "YSN4TX44INPJJFYIGMZNMGTDBTQJPWME",
+   "parent": "LC4GZBI42EZUKKH4YF3BERBDEQSBPZK6",
+   "ingestId": "3312443806427448EqjL",
+   "providerId": [
+    "00000896",
+    "XYMQPA4OHAYDDFYWHV6Q4RFUIISTLQJV"
+   ],
+   "label": "Breisach; Amtsgericht",
+   "type": "htype_031",
+   "position": "00202",
+   "leaf": false
+  },
+  {
+   "aggregationEntity": false,
+   "id": "LC4GZBI42EZUKKH4YF3BERBDEQSBPZK6",
+   "parent": "56VDQBOVRW4CDN774UPGP2LCYQETMALV",
+   "ingestId": "1391579514427012aZBY",
+   "providerId": [
+    "00000896",
+    "XYMQPA4OHAYDDFYWHV6Q4RFUIISTLQJV"
+   ],
+   "label": "Standesbücher",
+   "type": "htype_030",
+   "position": "01888",
+   "leaf": false
+  },
+  {
+   "aggregationEntity": true,
+   "id": "56VDQBOVRW4CDN774UPGP2LCYQETMALV",
+   "parent": "FLQMYDCHRAC3WQLL2MWDBH5ZJEGSYA4U",
+   "ingestId": "1391579514427012aZBY",
+   "providerId": [
+    "00000896",
+    "XYMQPA4OHAYDDFYWHV6Q4RFUIISTLQJV"
+   ],
+   "label": "Bände",
+   "type": "htype_037",
+   "position": "01887",
+   "leaf": false
+  },
+  {
+   "aggregationEntity": false,
+   "id": "FLQMYDCHRAC3WQLL2MWDBH5ZJEGSYA4U",
+   "parent": "QZ3PEJPLUNWKQEKM2CFJJEA6PTKXAC3U",
+   "ingestId": "1391579514427012aZBY",
+   "providerId": [
+    "00000896",
+    "XYMQPA4OHAYDDFYWHV6Q4RFUIISTLQJV"
+   ],
+   "label": "Selekte",
+   "type": "htype_037",
+   "position": "01886",
+   "leaf": false
+  },
+  {
+   "aggregationEntity": true,
+   "id": "QZ3PEJPLUNWKQEKM2CFJJEA6PTKXAC3U",
+   "parent": "XYMQPA4OHAYDDFYWHV6Q4RFUIISTLQJV",
+   "ingestId": "1391579514427012aZBY",
+   "providerId": [
+    "00000896",
+    "XYMQPA4OHAYDDFYWHV6Q4RFUIISTLQJV"
+   ],
+   "label": "Landesarchiv Baden-Württemberg, Abt. Staatsarchiv Freiburg (Archivtektonik)",
+   "type": "Tektonik_collection",
+   "position": "00001",
+   "leaf": false
+  },
+  {
+   "aggregationEntity": false,
+   "id": "XYMQPA4OHAYDDFYWHV6Q4RFUIISTLQJV",
+   "parent": null,
+   "ingestId": "5095594020963603yfKs",
+   "providerId": [
+    "00008615",
+    "IPSQKSWH46RX2B475NRZARHV4SFHLQGZ"
+   ],
+   "label": "Landesarchiv Baden-Württemberg",
+   "type": "institution",
+   "position": "-1",
+   "leaf": false
+  }
+ ]
+}

@@ -1,0 +1,37 @@
+{
+ "responseHeader": {
+  "zkConnected": true,
+  "status": 0,
+  "QTime": 458,
+  "params": {
+   "q": "apd_reference_number:\"Abt. Staatsarchiv Freiburg, L 10 Nr. 510\"",
+   "fl": "id,title,apd_reference_number,begin_time,end_time,provider_item_id",
+   "start": "0",
+   "fq": "provider_fct:Landesarchiv\\ Baden\\-Württemberg",
+   "rows": "5"
+  }
+ },
+ "response": {
+  "numFound": 1,
+  "start": 0,
+  "numFoundExact": true,
+  "docs": [
+   {
+    "id": "2EF3J2O7CMX2HKZ7YX3GRUT3WIWLCAA5",
+    "apd_reference_number": [
+     "Abt. Staatsarchiv Freiburg, L 10 Nr. 510"
+    ],
+    "begin_time": [
+     674239
+    ],
+    "end_time": [
+     683004
+    ],
+    "provider_item_id": "labw-5-475861",
+    "title": [
+     "Niederrimsingen, Breisach am Rhein FR; Katholische Gemeinde: Standesbuch 1847-1870"
+    ]
+   }
+  ]
+ }
+}

@@ -1,0 +1,1531 @@
+{
+ "properties": {
+  "item-id": "2EF3J2O7CMX2HKZ7YX3GRUT3WIWLCAA5",
+  "dataset-id": "3312443806427448EqjL",
+  "dataset-label": "Findbuch (Gesamtlieferung) - Landesarchiv Baden-Württemberg (Abt. Staatsarchiv Freiburg (labw_5)) - EAD",
+  "revision-id": "20",
+  "ingest-date": "2025-11-27T15:26:48+0100",
+  "cortex-type": "Kultur",
+  "mapping-version": "6.15",
+  "automatically-translated": false
+ },
+ "provider-info": {
+  "domains": [
+   "http://ddb.vocnet.org/sparte/sparte001",
+   "",
+   ""
+  ],
+  "provider-name": "Landesarchiv Baden-Württemberg",
+  "provider-europeana-name": "",
+  "provider-parent-id": "",
+  "provider-facebook": "",
+  "provider-twitter": "",
+  "provider-uri": "http://www.landesarchiv-bw.de",
+  "provider-email": "landesarchiv@la-bw.de",
+  "provider-collection": "",
+  "provider-item-id": "labw-5-475861",
+  "provider-item-id-type": "",
+  "provider-id": "00000896",
+  "provider-ddb-id": "XYMQPA4OHAYDDFYWHV6Q4RFUIISTLQJV",
+  "provider-isil": "http://ld.zdb-services.de/resource/organisations/DE-1951",
+  "provider-logo": "https://registrierung.deutsche-digitale-bibliothek.de/logos/00000896.png",
+  "provider-longitude": "9.1868362",
+  "provider-latitude": "48.7790245",
+  "provider-state": "Baden-Württemberg",
+  "provider-parents": {
+   "parents": null
+  }
+ },
+ "edm": {
+  "RDF": {
+   "Aggregation": {
+    "about": "V5RE4XAAEHIMDBQDR43LTB4ODQXOHGBC",
+    "aggregatedCHO": {
+     "resource": "http://www.deutsche-digitale-bibliothek.de/item/2EF3J2O7CMX2HKZ7YX3GRUT3WIWLCAA5",
+     "lang": null,
+     "$": ""
+    },
+    "isShownAt": {
+     "resource": "https://www.landesarchiv-bw.de/plink/?f=5-475861",
+     "lang": null,
+     "$": ""
+    },
+    "isShownBy": {
+     "resource": "https://www2.landesarchiv-bw.de/exporte/digitalisate/archiv_5/olf/bestand_0000005698/titlaufn_0000475861/05_0000475861_0001_5-475861-1.png",
+     "lang": null,
+     "$": ""
+    },
+    "edmRights": {
+     "resource": "http://creativecommons.org/licenses/by/3.0/",
+     "lang": null,
+     "$": ""
+    },
+    "dcTermsRights": {
+     "resource": "http://creativecommons.org/publicdomain/zero/1.0/",
+     "lang": null,
+     "$": ""
+    },
+    "provider": "Deutsche Digitale Bibliothek",
+    "dataProvider": [
+     {
+      "resource": null,
+      "lang": null,
+      "$": "Landesarchiv Baden-Württemberg"
+     },
+     {
+      "resource": "http://www.deutsche-digitale-bibliothek.de/organization/XYMQPA4OHAYDDFYWHV6Q4RFUIISTLQJV",
+      "lang": null,
+      "$": ""
+     }
+    ],
+    "object": {
+     "resource": "https://www2.landesarchiv-bw.de/exporte/digitalisate/archiv_5/olf/bestand_0000005698/titlaufn_0000475861/05_0000475861_0001_5-475861-1.png",
+     "lang": null,
+     "$": ""
+    },
+    "aggregator": null,
+    "hasView": [
+     {
+      "resource": "https://www2.landesarchiv-bw.de/exporte/digitalisate/archiv_5/olf/bestand_0000005698/titlaufn_0000475861/05_0000475861_0002_5-475861-2.png",
+      "$": ""
+     },
+     {
+      "resource": "https://www2.landesarchiv-bw.de/exporte/digitalisate/archiv_5/olf/bestand_0000005698/titlaufn_0000475861/05_0000475861_0003_5-475861-3.png",
+      "$": ""
+     },
+     {
+      "resource": "https://www2.landesarchiv-bw.de/exporte/digitalisate/archiv_5/olf/bestand_0000005698/titlaufn_0000475861/05_0000475861_0004_5-475861-4.png",
+      "$": ""
+     },
+     {
+      "resource": "https://www2.landesarchiv-bw.de/exporte/digitalisate/archiv_5/olf/bestand_0000005698/titlaufn_0000475861/05_0000475861_0005_5-475861-5.png",
+      "$": ""
+     },
+     {
+      "resource": "https://www2.landesarchiv-bw.de/exporte/digitalisate/archiv_5/olf/bestand_0000005698/titlaufn_0000475861/05_0000475861_0006_5-475861-6.png",
+      "$": ""
+     },
+     {
+      "resource": "https://www2.landesarchiv-bw.de/exporte/digitalisate/archiv_5/olf/bestand_0000005698/titlaufn_0000475861/05_0000475861_0007_5-475861-7.png",
+      "$": ""
+     },
+     {
+      "resource": "https://www2.landesarchiv-bw.de/exporte/digitalisate/archiv_5/olf/bestand_0000005698/titlaufn_0000475861/05_0000475861_0008_5-475861-8.png",
+      "$": ""
+     },
+     {
+      "resource": "https://www2.landesarchiv-bw.de/exporte/digitalisate/archiv_5/olf/bestand_0000005698/titlaufn_0000475861/05_0000475861_0009_5-475861-9.png",
+      "$": ""
+     },
+     {
+      "resource": "https://www2.landesarchiv-bw.de/exporte/digitalisate/archiv_5/olf/bestand_0000005698/titlaufn_0000475861/05_0000475861_0010_5-475861-10.png",
+      "$": ""
+     }
+    ]
+   },
+   "WebResource": [
+    {
+     "about": "https://www.landesarchiv-bw.de/plink/?f=5-475861",
+     "type": {
+      "resource": "http://ddb.vocnet.org/medientyp/mt003",
+      "lang": null,
+      "$": ""
+     },
+     "edmRights": {
+      "resource": "http://creativecommons.org/licenses/by/3.0/",
+      "lang": null,
+      "$": ""
+     },
+     "dcTermsRights": {
+      "resource": "http://creativecommons.org/licenses/by/3.0/de/",
+      "lang": null,
+      "$": ""
+     },
+     "creator": null
+    },
+    {
+     "about": "https://www2.landesarchiv-bw.de/exporte/digitalisate/archiv_5/olf/bestand_0000005698/titlaufn_0000475861/05_0000475861_0001_5-475861-1.png",
+     "type": {
+      "resource": "http://ddb.vocnet.org/medientyp/mt003",
+      "lang": null,
+      "$": ""
+     },
+     "edmRights": {
+      "resource": "http://creativecommons.org/licenses/by/3.0/",
+      "lang": null,
+      "$": ""
+     },
+     "dcTermsRights": {
+      "resource": "http://creativecommons.org/licenses/by/3.0/de/",
+      "lang": null,
+      "$": ""
+     },
+     "creator": null
+    },
+    {
+     "about": "https://www2.landesarchiv-bw.de/exporte/digitalisate/archiv_5/olf/bestand_0000005698/titlaufn_0000475861/05_0000475861_0002_5-475861-2.png",
+     "type": {
+      "resource": "http://ddb.vocnet.org/medientyp/mt003",
+      "lang": null,
+      "$": ""
+     },
+     "edmRights": {
+      "resource": "http://creativecommons.org/licenses/by/3.0/",
+      "lang": null,
+      "$": ""
+     },
+     "dcTermsRights": {
+      "resource": "http://creativecommons.org/licenses/by/3.0/de/",
+      "lang": null,
+      "$": ""
+     },
+     "creator": null
+    },
+    {
+     "about": "https://www2.landesarchiv-bw.de/exporte/digitalisate/archiv_5/olf/bestand_0000005698/titlaufn_0000475861/05_0000475861_0003_5-475861-3.png",
+     "type": {
+      "resource": "http://ddb.vocnet.org/medientyp/mt003",
+      "lang": null,
+      "$": ""
+     },
+     "edmRights": {
+      "resource": "http://creativecommons.org/licenses/by/3.0/",
+      "lang": null,
+      "$": ""
+     },
+     "dcTermsRights": {
+      "resource": "http://creativecommons.org/licenses/by/3.0/de/",
+      "lang": null,
+      "$": ""
+     },
+     "creator": null
+    },
+    {
+     "about": "https://www2.landesarchiv-bw.de/exporte/digitalisate/archiv_5/olf/bestand_0000005698/titlaufn_0000475861/05_0000475861_0004_5-475861-4.png",
+     "type": {
+      "resource": "http://ddb.vocnet.org/medientyp/mt003",
+      "lang": null,
+      "$": ""
+     },
+     "edmRights": {
+      "resource": "http://creativecommons.org/licenses/by/3.0/",
+      "lang": null,
+      "$": ""
+     },
+     "dcTermsRights": {
+      "resource": "http://creativecommons.org/licenses/by/3.0/de/",
+      "lang": null,
+      "$": ""
+     },
+     "creator": null
+    },
+    {
+     "about": "https://www2.landesarchiv-bw.de/exporte/digitalisate/archiv_5/olf/bestand_0000005698/titlaufn_0000475861/05_0000475861_0005_5-475861-5.png",
+     "type": {
+      "resource": "http://ddb.vocnet.org/medientyp/mt003",
+      "lang": null,
+      "$": ""
+     },
+     "edmRights": {
+      "resource": "http://creativecommons.org/licenses/by/3.0/",
+      "lang": null,
+      "$": ""
+     },
+     "dcTermsRights": {
+      "resource": "http://creativecommons.org/licenses/by/3.0/de/",
+      "lang": null,
+      "$": ""
+     },
+     "creator": null
+    },
+    {
+     "about": "https://www2.landesarchiv-bw.de/exporte/digitalisate/archiv_5/olf/bestand_0000005698/titlaufn_0000475861/05_0000475861_0006_5-475861-6.png",
+     "type": {
+      "resource": "http://ddb.vocnet.org/medientyp/mt003",
+      "lang": null,
+      "$": ""
+     },
+     "edmRights": {
+      "resource": "http://creativecommons.org/licenses/by/3.0/",
+      "lang": null,
+      "$": ""
+     },
+     "dcTermsRights": {
+      "resource": "http://creativecommons.org/licenses/by/3.0/de/",
+      "lang": null,
+      "$": ""
+     },
+     "creator": null
+    },
+    {
+     "about": "https://www2.landesarchiv-bw.de/exporte/digitalisate/archiv_5/olf/bestand_0000005698/titlaufn_0000475861/05_0000475861_0007_5-475861-7.png",
+     "type": {
+      "resource": "http://ddb.vocnet.org/medientyp/mt003",
+      "lang": null,
+      "$": ""
+     },
+     "edmRights": {
+      "resource": "http://creativecommons.org/licenses/by/3.0/",
+      "lang": null,
+      "$": ""
+     },
+     "dcTermsRights": {
+      "resource": "http://creativecommons.org/licenses/by/3.0/de/",
+      "lang": null,
+      "$": ""
+     },
+     "creator": null
+    },
+    {
+     "about": "https://www2.landesarchiv-bw.de/exporte/digitalisate/archiv_5/olf/bestand_0000005698/titlaufn_0000475861/05_0000475861_0008_5-475861-8.png",
+     "type": {
+      "resource": "http://ddb.vocnet.org/medientyp/mt003",
+      "lang": null,
+      "$": ""
+     },
+     "edmRights": {
+      "resource": "http://creativecommons.org/licenses/by/3.0/",
+      "lang": null,
+      "$": ""
+     },
+     "dcTermsRights": {
+      "resource": "http://creativecommons.org/licenses/by/3.0/de/",
+      "lang": null,
+      "$": ""
+     },
+     "creator": null
+    },
+    {
+     "about": "https://www2.landesarchiv-bw.de/exporte/digitalisate/archiv_5/olf/bestand_0000005698/titlaufn_0000475861/05_0000475861_0009_5-475861-9.png",
+     "type": {
+      "resource": "http://ddb.vocnet.org/medientyp/mt003",
+      "lang": null,
+      "$": ""
+     },
+     "edmRights": {
+      "resource": "http://creativecommons.org/licenses/by/3.0/",
+      "lang": null,
+      "$": ""
+     },
+     "dcTermsRights": {
+      "resource": "http://creativecommons.org/licenses/by/3.0/de/",
+      "lang": null,
+      "$": ""
+     },
+     "creator": null
+    },
+    {
+     "about": "https://www2.landesarchiv-bw.de/exporte/digitalisate/archiv_5/olf/bestand_0000005698/titlaufn_0000475861/05_0000475861_0010_5-475861-10.png",
+     "type": {
+      "resource": "http://ddb.vocnet.org/medientyp/mt003",
+      "lang": null,
+      "$": ""
+     },
+     "edmRights": {
+      "resource": "http://creativecommons.org/licenses/by/3.0/",
+      "lang": null,
+      "$": ""
+     },
+     "dcTermsRights": {
+      "resource": "http://creativecommons.org/licenses/by/3.0/de/",
+      "lang": null,
+      "$": ""
+     },
+     "creator": null
+    }
+   ],
+   "Concept": [
+    {
+     "about": "http://ddb.vocnet.org/sparte/sparte001",
+     "notation": "sec_01",
+     "prefLabel": null
+    },
+    {
+     "about": "http://ddb.vocnet.org/medientyp/mt003",
+     "notation": "mediatype_003",
+     "prefLabel": null
+    },
+    {
+     "about": "http://ddb.vocnet.org/medientyp/mt003",
+     "notation": "mediatype_003",
+     "prefLabel": null
+    },
+    {
+     "about": "http://ddb.vocnet.org/medientyp/mt003",
+     "notation": "mediatype_003",
+     "prefLabel": null
+    },
+    {
+     "about": "http://ddb.vocnet.org/medientyp/mt003",
+     "notation": "mediatype_003",
+     "prefLabel": null
+    },
+    {
+     "about": "http://ddb.vocnet.org/medientyp/mt003",
+     "notation": "mediatype_003",
+     "prefLabel": null
+    },
+    {
+     "about": "http://ddb.vocnet.org/medientyp/mt003",
+     "notation": "mediatype_003",
+     "prefLabel": null
+    },
+    {
+     "about": "http://ddb.vocnet.org/medientyp/mt003",
+     "notation": "mediatype_003",
+     "prefLabel": null
+    },
+    {
+     "about": "http://ddb.vocnet.org/medientyp/mt003",
+     "notation": "mediatype_003",
+     "prefLabel": null
+    },
+    {
+     "about": "http://ddb.vocnet.org/medientyp/mt003",
+     "notation": "mediatype_003",
+     "prefLabel": null
+    },
+    {
+     "about": "http://ddb.vocnet.org/medientyp/mt003",
+     "notation": "mediatype_003",
+     "prefLabel": null
+    },
+    {
+     "about": "http://ddb.vocnet.org/medientyp/mt003",
+     "notation": "mediatype_003",
+     "prefLabel": null
+    },
+    {
+     "about": "https://d-nb.info/gnd/4142968-0",
+     "notation": null,
+     "prefLabel": {
+      "resource": null,
+      "lang": "de",
+      "$": "Archivale"
+     }
+    }
+   ],
+   "Agent": [
+    {
+     "about": "http://www.deutsche-digitale-bibliothek.de/organization/XYMQPA4OHAYDDFYWHV6Q4RFUIISTLQJV",
+     "prefLabel": [
+      {
+       "lang": null,
+       "$": "Landesarchiv Baden-Württemberg"
+      }
+     ],
+     "altLabel": null,
+     "note": null,
+     "date": null,
+     "type": {
+      "resource": "http://ddb.vocnet.org/sparte/sparte001",
+      "$": ""
+     },
+     "identifier": null,
+     "hasPart": null,
+     "isPartOf": null,
+     "begin": null,
+     "end": null,
+     "hasMet": null,
+     "isRelatedTo": null,
+     "name": null,
+     "biographicalInformation": null,
+     "dateOfBirth": null,
+     "dateOfDeath": null,
+     "dateOfEstablishment": null,
+     "dateOfTermination": null,
+     "gender": null,
+     "placeOfBirth": null,
+     "placeOfDeath": null,
+     "professionOrOccupation": null,
+     "sameAs": null,
+     "wasPresentAt": null
+    }
+   ],
+   "PhysicalThing": [
+    {
+     "title": {
+      "resource": null,
+      "lang": null,
+      "$": "Breisach; Amtsgericht"
+     },
+     "hierarchyType": "htype_031",
+     "aggregationEntity": "true",
+     "hierarchyPosition": "000000000000202",
+     "isPartOf": [
+      {
+       "resource": "http://www.deutsche-digitale-bibliothek.de/item/7U3WCEBXA3L2WPHOSUJFBTLEGCJMKNAU",
+       "lang": null,
+       "$": ""
+      }
+     ],
+     "about": "2QSXNQ3RFL6B3ZENX4F2WWGOSCUSOUUM"
+    }
+   ],
+   "ProvidedCHO": {
+    "about": "http://www.deutsche-digitale-bibliothek.de/item/2EF3J2O7CMX2HKZ7YX3GRUT3WIWLCAA5",
+    "hasType": [
+     {
+      "resource": "https://d-nb.info/gnd/4142968-0",
+      "lang": null,
+      "$": ""
+     }
+    ],
+    "hasMet": [
+     {
+      "resource": "MEBFQRWRC37SQGZOIMZ45JKUQ7QBVBO3",
+      "$": ""
+     }
+    ],
+    "edmType": "TEXT",
+    "description": [
+     {
+      "resource": null,
+      "lang": "ger",
+      "$": "Hierarchie: Standesbücher >> Breisach; Amtsgericht"
+     }
+    ],
+    "identifier": [
+     "Abt. Staatsarchiv Freiburg, L 10 Nr. 510"
+    ],
+    "date": [
+     "1847-01-01/1870-12-31"
+    ],
+    "language": "ger",
+    "dcSubject": [
+     {
+      "resource": "http://d-nb.info/gnd/7563153-2",
+      "lang": "ger",
+      "$": "Niederrimsingen : Breisach am Rhein FR; Standesbuch (1810-1870)"
+     }
+    ],
+    "title": {
+     "resource": null,
+     "lang": null,
+     "$": "Niederrimsingen, Breisach am Rhein FR; Katholische Gemeinde: Standesbuch 1847-1870"
+    },
+    "dcTermsSubject": [
+     {
+      "resource": "http://d-nb.info/gnd/7563153-2",
+      "lang": null,
+      "$": ""
+     }
+    ],
+    "dcTermsLanguage": [
+     {
+      "resource": "http://id.loc.gov/vocabulary/iso639-2/ger",
+      "lang": null,
+      "$": ""
+     }
+    ],
+    "isPartOf": [
+     {
+      "resource": "2QSXNQ3RFL6B3ZENX4F2WWGOSCUSOUUM",
+      "lang": null,
+      "$": ""
+     }
+    ],
+    "hierarchyType": "htype_034",
+    "aggregationEntity": "false",
+    "hierarchyPosition": "000000000000258",
+    "extent": [
+     {
+      "resource": null,
+      "lang": "zxx",
+      "$": "1 Bd."
+     }
+    ],
+    "dcTermSubject": [
+     {
+      "resource": "http://d-nb.info/gnd/7563153-2",
+      "lang": null,
+      "$": ""
+     }
+    ]
+   },
+   "Event": [
+    {
+     "about": "MEBFQRWRC37SQGZOIMZ45JKUQ7QBVBO3",
+     "hasType": {
+      "resource": "http://terminology.lido-schema.org/lido00012",
+      "lang": null,
+      "$": ""
+     },
+     "happenedAt": null,
+     "occuredAt": [
+      {
+       "resource": "TNM6UZNEDD74VR6GLQPKZYROWG3M5M54",
+       "lang": null,
+       "$": ""
+      }
+     ],
+     "P11_had_participant": null
+    }
+   ],
+   "Place": [
+    {
+     "about": "http://d-nb.info/gnd/7563153-2",
+     "lat": null,
+     "long": null,
+     "alt": null,
+     "prefLabel": [
+      {
+       "lang": "ger",
+       "$": "Niederrimsingen : Breisach am Rhein FR; Standesbuch (1810-1870)"
+      }
+     ],
+     "altLabel": null,
+     "note": null,
+     "hasPart": null,
+     "isNextInSequence": null,
+     "sameAs": null,
+     "type": null,
+     "isPartOf": null
+    }
+   ],
+   "Organization": null,
+   "Address": null,
+   "TimeSpan": {
+    "about": "TNM6UZNEDD74VR6GLQPKZYROWG3M5M54",
+    "begin": {
+     "lang": null,
+     "$": "1847-01-01"
+    },
+    "end": {
+     "lang": null,
+     "$": "1870-12-31"
+    }
+   }
+  }
+ },
+ "indexing-profile": {
+  "item-id": "2EF3J2O7CMX2HKZ7YX3GRUT3WIWLCAA5",
+  "facet": [
+   {
+    "name": "place_fct",
+    "value": [
+     "Niederrimsingen : Breisach am Rhein FR; Standesbuch (1810-1870)"
+    ]
+   },
+   {
+    "name": "place_fct_autocomplete",
+    "value": [
+     "Niederrimsingen : Breisach am Rhein FR; Standesbuch (1810-1870)"
+    ]
+   },
+   {
+    "name": "place_fct_normdata",
+    "value": [
+     "http://d-nb.info/gnd/7563153-2"
+    ]
+   },
+   {
+    "name": "keywords_fct",
+    "value": [
+     "Archivale"
+    ]
+   },
+   {
+    "name": "keywords_fct_autocomplete",
+    "value": [
+     "Archivale"
+    ]
+   },
+   {
+    "name": "objecttype_fct",
+    "value": [
+     "Archivale"
+    ]
+   },
+   {
+    "name": "objecttype_fct_autocomplete",
+    "value": [
+     "Archivale"
+    ]
+   },
+   {
+    "name": "language_fct",
+    "value": [
+     "ger"
+    ]
+   },
+   {
+    "name": "type_fct",
+    "value": [
+     "mediatype_003"
+    ]
+   },
+   {
+    "name": "provider_fct",
+    "value": [
+     "Landesarchiv Baden-Württemberg"
+    ]
+   },
+   {
+    "name": "provider_fct_autocomplete",
+    "value": [
+     "Landesarchiv Baden-Württemberg"
+    ]
+   },
+   {
+    "name": "provider_fct_normdata",
+    "value": [
+     "http://www.deutsche-digitale-bibliothek.de/organization/XYMQPA4OHAYDDFYWHV6Q4RFUIISTLQJV"
+    ]
+   },
+   {
+    "name": "dataprovider_fct",
+    "value": [
+     "Landesarchiv Baden-Württemberg"
+    ]
+   },
+   {
+    "name": "dataprovider_fct_autocomplete",
+    "value": [
+     "Landesarchiv Baden-Württemberg"
+    ]
+   },
+   {
+    "name": "dataprovider_fct_normdata",
+    "value": [
+     "http://www.deutsche-digitale-bibliothek.de/organization/XYMQPA4OHAYDDFYWHV6Q4RFUIISTLQJV"
+    ]
+   },
+   {
+    "name": "sector_fct",
+    "value": [
+     "sec_01"
+    ]
+   },
+   {
+    "name": "last_update",
+    "value": [
+     "2025-11-27T15:26:48+0100"
+    ]
+   }
+  ]
+ },
+ "preview": {
+  "media": "text",
+  "type": "Kultur",
+  "title": "Niederrimsingen, Breisach am Rhein FR; Katholische Gemeinde: Standesbuch 1847-1870",
+  "subtitle": "1847-1870, Landesarchiv Baden-Württemberg, Abt. Staatsarchiv Freiburg, L 10 Nr. 510",
+  "thumbnail": {
+   "href": "23f905ca-e819-4174-b18f-e564dbbfe455"
+  }
+ },
+ "view": {
+  "item": {
+   "identifier": "labw-5-475861",
+   "label": "Niederrimsingen, Breisach am Rhein FR; Katholische Gemeinde: Standesbuch 1847-1870",
+   "title": "Niederrimsingen, Breisach am Rhein FR; Katholische Gemeinde: Standesbuch 1847-1870",
+   "subtitle": "1847-1870, Landesarchiv Baden-Württemberg, Abt. Staatsarchiv Freiburg, L 10 Nr. 510",
+   "rights": "Es gelten die <a href=\"http://www.landesarchiv-bw.de/nutzungsbedingungen\">Nutzungsbedingungen des Landesarchivs Baden-Württemberg.</a>",
+   "metdata-rights": "http://creativecommons.org/publicdomain/zero/1.0/",
+   "origin": "https://www.landesarchiv-bw.de/plink/?f=5-475861",
+   "category": "Kultur",
+   "media": "text",
+   "thumbnail": "",
+   "latitude": "",
+   "longitude": "",
+   "license": {
+    "resource": "http://creativecommons.org/licenses/by/3.0/de/"
+   },
+   "institution": {
+    "id": "XYMQPA4OHAYDDFYWHV6Q4RFUIISTLQJV",
+    "url": "http://www.landesarchiv-bw.de",
+    "name": "Landesarchiv Baden-Württemberg",
+    "logo-institution-ddbid": "XYMQPA4OHAYDDFYWHV6Q4RFUIISTLQJV"
+   },
+   "viewers": {
+    "viewer": []
+   },
+   "fields": [
+    {
+     "usage": "display",
+     "field": [
+      {
+       "id": "flex_arch_004",
+       "name": "Archivaliensignatur",
+       "value": [
+        {
+         "content": "Abt. Staatsarchiv Freiburg, L 10 Nr. 510",
+         "resource": null,
+         "rightsinfo": null,
+         "rightsholder": null,
+         "creditline": null
+        }
+       ],
+       "georeference": null
+      },
+      {
+       "id": "flex_arch_001",
+       "name": "Bestand",
+       "value": [
+        {
+         "content": "Landesarchiv Baden-Württemberg, Abt. Staatsarchiv Freiburg, L 10 Standesbücher",
+         "resource": null,
+         "rightsinfo": null,
+         "rightsholder": null,
+         "creditline": null
+        }
+       ],
+       "georeference": null
+      },
+      {
+       "id": "flex_arch_029",
+       "name": "Kontext",
+       "value": [
+        {
+         "content": "Standesbücher >> Breisach; Amtsgericht",
+         "resource": null,
+         "rightsinfo": null,
+         "rightsholder": null,
+         "creditline": null
+        }
+       ],
+       "georeference": null
+      },
+      {
+       "id": "flex_arch_008",
+       "name": "Laufzeit",
+       "value": [
+        {
+         "content": "1847-1870",
+         "resource": null,
+         "rightsinfo": null,
+         "rightsholder": null,
+         "creditline": null
+        }
+       ],
+       "georeference": null
+      },
+      {
+       "id": "flex_arch_011",
+       "name": "Umfang",
+       "value": [
+        {
+         "content": "1 Bd.",
+         "resource": null,
+         "rightsinfo": null,
+         "rightsholder": null,
+         "creditline": null
+        }
+       ],
+       "georeference": null
+      },
+      {
+       "id": "flex_arch_016",
+       "name": "Archivalientyp",
+       "value": [
+        {
+         "content": "Archivale",
+         "resource": null,
+         "rightsinfo": null,
+         "rightsholder": null,
+         "creditline": null
+        }
+       ],
+       "georeference": null
+      },
+      {
+       "id": "flex_arch_033",
+       "name": "Indexbegriffe Ort",
+       "value": [
+        {
+         "content": "Niederrimsingen : Breisach am Rhein FR; Standesbuch (1810-1870)",
+         "resource": "http://d-nb.info/gnd/7563153-2",
+         "rightsinfo": null,
+         "rightsholder": null,
+         "creditline": null
+        }
+       ],
+       "georeference": null
+      },
+      {
+       "id": "flex_arch_009",
+       "name": "Digitalisat im Angebot des Archivs",
+       "value": [
+        {
+         "content": "https://www.landesarchiv-bw.de/plink/?f=5-475861-1",
+         "resource": null,
+         "rightsinfo": null,
+         "rightsholder": null,
+         "creditline": null
+        }
+       ],
+       "georeference": null
+      }
+     ]
+    },
+    {
+     "usage": "index",
+     "field": [
+      {
+       "id": "title",
+       "name": "Titel",
+       "value": [
+        {
+         "content": "Niederrimsingen, Breisach am Rhein FR; Katholische Gemeinde: Standesbuch 1847-1870",
+         "resource": null,
+         "rightsinfo": null,
+         "rightsholder": null,
+         "creditline": null
+        }
+       ],
+       "georeference": null
+      },
+      {
+       "id": "license",
+       "name": "Lizenz",
+       "value": [
+        {
+         "content": "http://creativecommons.org/licenses/by/3.0/de/",
+         "resource": null,
+         "rightsinfo": null,
+         "rightsholder": null,
+         "creditline": null
+        }
+       ],
+       "georeference": null
+      },
+      {
+       "id": "license_group",
+       "name": "Lizenzstatus",
+       "value": [
+        {
+         "content": "rights_002",
+         "resource": null,
+         "rightsinfo": null,
+         "rightsholder": null,
+         "creditline": null
+        }
+       ],
+       "georeference": null
+      },
+      {
+       "id": "object_type",
+       "name": "Objekttyp aus Lieferdaten",
+       "value": [
+        {
+         "content": "Archivale",
+         "resource": null,
+         "rightsinfo": null,
+         "rightsholder": null,
+         "creditline": null
+        }
+       ],
+       "georeference": null
+      },
+      {
+       "id": "digitalisat",
+       "name": "digitalisat",
+       "value": [
+        {
+         "content": "true",
+         "resource": null,
+         "rightsinfo": null,
+         "rightsholder": null,
+         "creditline": null
+        }
+       ],
+       "georeference": null
+      },
+      {
+       "id": "dataset_id",
+       "name": "dataset_id",
+       "value": [
+        {
+         "content": "3312443806427448EqjL",
+         "resource": null,
+         "rightsinfo": null,
+         "rightsholder": null,
+         "creditline": null
+        }
+       ],
+       "georeference": null
+      },
+      {
+       "id": "dataset_label",
+       "name": "dataset_label",
+       "value": [
+        {
+         "content": "Findbuch (Gesamtlieferung) - Landesarchiv Baden-Württemberg (Abt. Staatsarchiv Freiburg (labw_5)) - EAD",
+         "resource": null,
+         "rightsinfo": null,
+         "rightsholder": null,
+         "creditline": null
+        }
+       ],
+       "georeference": null
+      },
+      {
+       "id": "delivery_id",
+       "name": "delivery_id",
+       "value": [
+        {
+         "content": "61715989459073513KFTv",
+         "resource": null,
+         "rightsinfo": null,
+         "rightsholder": null,
+         "creditline": null
+        }
+       ],
+       "georeference": null
+      },
+      {
+       "id": "supplier_id",
+       "name": "supplier_id",
+       "value": [
+        {
+         "content": "00000896",
+         "resource": null,
+         "rightsinfo": null,
+         "rightsholder": null,
+         "creditline": null
+        }
+       ],
+       "georeference": null
+      },
+      {
+       "id": "mapping_version",
+       "name": "mapping_version",
+       "value": [
+        {
+         "content": "6.15",
+         "resource": null,
+         "rightsinfo": null,
+         "rightsholder": null,
+         "creditline": null
+        }
+       ],
+       "georeference": null
+      },
+      {
+       "id": "md_format",
+       "name": "Metadata Format",
+       "value": [
+        {
+         "content": "ead",
+         "resource": null,
+         "rightsinfo": null,
+         "rightsholder": null,
+         "creditline": null
+        }
+       ],
+       "georeference": null
+      },
+      {
+       "id": "source_format",
+       "name": "source_format",
+       "value": [
+        {
+         "content": "urn:isbn:1-931666-22-9",
+         "resource": null,
+         "rightsinfo": null,
+         "rightsholder": null,
+         "creditline": null
+        }
+       ],
+       "georeference": null
+      },
+      {
+       "id": "apd_context",
+       "name": "Kontext",
+       "value": [
+        {
+         "content": "Standesbücher >> Breisach; Amtsgericht",
+         "resource": null,
+         "rightsinfo": null,
+         "rightsholder": null,
+         "creditline": null
+        }
+       ],
+       "georeference": null
+      },
+      {
+       "id": "apd_level_of_description",
+       "name": "Verzeichnungsstufe",
+       "value": [
+        {
+         "content": "htype_034",
+         "resource": null,
+         "rightsinfo": null,
+         "rightsholder": null,
+         "creditline": null
+        }
+       ],
+       "georeference": null
+      },
+      {
+       "id": "apd_document_type",
+       "name": "Archivalientyp",
+       "value": [
+        {
+         "content": "Archivale",
+         "resource": null,
+         "rightsinfo": null,
+         "rightsholder": null,
+         "creditline": null
+        }
+       ],
+       "georeference": null
+      },
+      {
+       "id": "apd_xml_sort",
+       "name": "Sortierung nach XML-Position",
+       "value": [
+        {
+         "content": "Landesarchiv Baden-Württemberg_Abt. Staatsarchiv Freiburg, L 10_000000000000258",
+         "resource": null,
+         "rightsinfo": null,
+         "rightsholder": null,
+         "creditline": null
+        }
+       ],
+       "georeference": null
+      },
+      {
+       "id": "begin_time",
+       "name": "Anfang",
+       "value": [
+        {
+         "content": "674239",
+         "resource": null,
+         "rightsinfo": null,
+         "rightsholder": null,
+         "creditline": null
+        }
+       ],
+       "georeference": null
+      },
+      {
+       "id": "end_time",
+       "name": "Ende",
+       "value": [
+        {
+         "content": "683004",
+         "resource": null,
+         "rightsinfo": null,
+         "rightsholder": null,
+         "creditline": null
+        }
+       ],
+       "georeference": null
+      },
+      {
+       "id": "apd_reference_number",
+       "name": "(Vor-)Signatur",
+       "value": [
+        {
+         "content": "Abt. Staatsarchiv Freiburg, L 10 Nr. 510",
+         "resource": null,
+         "rightsinfo": null,
+         "rightsholder": null,
+         "creditline": null
+        }
+       ],
+       "georeference": null
+      },
+      {
+       "id": "context",
+       "name": "Parent Hierarchien",
+       "value": [
+        {
+         "content": "LC4GZBI42EZUKKH4YF3BERBDEQSBPZK6",
+         "resource": null,
+         "rightsinfo": null,
+         "rightsholder": null,
+         "creditline": null
+        },
+        {
+         "content": "56VDQBOVRW4CDN774UPGP2LCYQETMALV",
+         "resource": null,
+         "rightsinfo": null,
+         "rightsholder": null,
+         "creditline": null
+        },
+        {
+         "content": "FLQMYDCHRAC3WQLL2MWDBH5ZJEGSYA4U",
+         "resource": null,
+         "rightsinfo": null,
+         "rightsholder": null,
+         "creditline": null
+        },
+        {
+         "content": "QZ3PEJPLUNWKQEKM2CFJJEA6PTKXAC3U",
+         "resource": null,
+         "rightsinfo": null,
+         "rightsholder": null,
+         "creditline": null
+        },
+        {
+         "content": "XYMQPA4OHAYDDFYWHV6Q4RFUIISTLQJV",
+         "resource": null,
+         "rightsinfo": null,
+         "rightsholder": null,
+         "creditline": null
+        },
+        {
+         "content": "LC4GZBI42EZUKKH4YF3BERBDEQSBPZK6",
+         "resource": null,
+         "rightsinfo": null,
+         "rightsholder": null,
+         "creditline": null
+        },
+        {
+         "content": "YSN4TX44INPJJFYIGMZNMGTDBTQJPWME",
+         "resource": null,
+         "rightsinfo": null,
+         "rightsholder": null,
+         "creditline": null
+        }
+       ],
+       "georeference": null
+      },
+      {
+       "id": "ranking",
+       "name": "Ranking",
+       "value": [
+        {
+         "content": "Niederrimsingen : Breisach am Rhein FR; Standesbuch (1810-1870)",
+         "resource": null,
+         "rightsinfo": null,
+         "rightsholder": null,
+         "creditline": null
+        }
+       ],
+       "georeference": null
+      }
+     ]
+    }
+   ]
+  },
+  "cortex-institution": null
+ },
+ "source": {
+  "description": {
+   "id": "2EF3J2O7CMX2HKZ7YX3GRUT3WIWLCAA5",
+   "record": {
+    "ref": "LC4GZBI42EZUKKH4YF3BERBDEQSBPZK6",
+    "href": "/items/LC4GZBI42EZUKKH4YF3BERBDEQSBPZK6/source/record",
+    "type": "urn:isbn:1-931666-22-9",
+    "id": [
+     {
+      "type": "c[@level='collection']/@id",
+      "value": "labw-5-5698"
+     },
+     {
+      "type": "c[@level='file']/@id",
+      "value": "labw-5-475861"
+     }
+    ]
+   }
+  }
+ },
+ "aggregator-info": null,
+ "binaries": {
+  "binary": [
+   {
+    "ref": "23f905ca-e819-4174-b18f-e564dbbfe455",
+    "name": "Bild 1",
+    "name2": null,
+    "name3": "Digitalisierung: Landesarchiv Baden-Württemberg",
+    "kind": "http://creativecommons.org/licenses/by/3.0/de/",
+    "mimetype": "image/jpeg",
+    "position": 1,
+    "primary": true,
+    "local_pathname": "https://www2.landesarchiv-bw.de/exporte/digitalisate/archiv_5/olf/bestand_0000005698/titlaufn_0000475861/05_0000475861_0001_5-475861-1.png",
+    "license_group": "rights_002"
+   },
+   {
+    "ref": "8e30a167-2ba2-4674-bcf0-49fbf47486eb",
+    "name": "Bild 2",
+    "name2": null,
+    "name3": "Digitalisierung: Landesarchiv Baden-Württemberg",
+    "kind": "http://creativecommons.org/licenses/by/3.0/de/",
+    "mimetype": "image/jpeg",
+    "position": 2,
+    "primary": false,
+    "local_pathname": "https://www2.landesarchiv-bw.de/exporte/digitalisate/archiv_5/olf/bestand_0000005698/titlaufn_0000475861/05_0000475861_0002_5-475861-2.png",
+    "license_group": "rights_002"
+   },
+   {
+    "ref": "33bb0144-a69f-499b-aea3-c16ecd089cac",
+    "name": "Bild 3",
+    "name2": null,
+    "name3": "Digitalisierung: Landesarchiv Baden-Württemberg",
+    "kind": "http://creativecommons.org/licenses/by/3.0/de/",
+    "mimetype": "image/jpeg",
+    "position": 3,
+    "primary": false,
+    "local_pathname": "https://www2.landesarchiv-bw.de/exporte/digitalisate/archiv_5/olf/bestand_0000005698/titlaufn_0000475861/05_0000475861_0003_5-475861-3.png",
+    "license_group": "rights_002"
+   },
+   {
+    "ref": "b5040b06-16f6-4bd4-b34b-dcb0e2055025",
+    "name": "Bild 4",
+    "name2": null,
+    "name3": "Digitalisierung: Landesarchiv Baden-Württemberg",
+    "kind": "http://creativecommons.org/licenses/by/3.0/de/",
+    "mimetype": "image/jpeg",
+    "position": 4,
+    "primary": false,
+    "local_pathname": "https://www2.landesarchiv-bw.de/exporte/digitalisate/archiv_5/olf/bestand_0000005698/titlaufn_0000475861/05_0000475861_0004_5-475861-4.png",
+    "license_group": "rights_002"
+   },
+   {
+    "ref": "a208c00a-6f0c-460f-ae14-4c68909e59f3",
+    "name": "Bild 5",
+    "name2": null,
+    "name3": "Digitalisierung: Landesarchiv Baden-Württemberg",
+    "kind": "http://creativecommons.org/licenses/by/3.0/de/",
+    "mimetype": "image/jpeg",
+    "position": 5,
+    "primary": false,
+    "local_pathname": "https://www2.landesarchiv-bw.de/exporte/digitalisate/archiv_5/olf/bestand_0000005698/titlaufn_0000475861/05_0000475861_0005_5-475861-5.png",
+    "license_group": "rights_002"
+   },
+   {
+    "ref": "7cdbb93f-1095-4de3-8158-db7c22064da4",
+    "name": "Bild 6",
+    "name2": null,
+    "name3": "Digitalisierung: Landesarchiv Baden-Württemberg",
+    "kind": "http://creativecommons.org/licenses/by/3.0/de/",
+    "mimetype": "image/jpeg",
+    "position": 6,
+    "primary": false,
+    "local_pathname": "https://www2.landesarchiv-bw.de/exporte/digitalisate/archiv_5/olf/bestand_0000005698/titlaufn_0000475861/05_0000475861_0006_5-475861-6.png",
+    "license_group": "rights_002"
+   },
+   {
+    "ref": "02943baf-bcff-41f9-b7aa-de9b879c6ff1",
+    "name": "Bild 7",
+    "name2": null,
+    "name3": "Digitalisierung: Landesarchiv Baden-Württemberg",
+    "kind": "http://creativecommons.org/licenses/by/3.0/de/",
+    "mimetype": "image/jpeg",
+    "position": 7,
+    "primary": false,
+    "local_pathname": "https://www2.landesarchiv-bw.de/exporte/digitalisate/archiv_5/olf/bestand_0000005698/titlaufn_0000475861/05_0000475861_0007_5-475861-7.png",
+    "license_group": "rights_002"
+   },
+   {
+    "ref": "8ed4f10c-0322-498a-b902-01ba73208d55",
+    "name": "Bild 8",
+    "name2": null,
+    "name3": "Digitalisierung: Landesarchiv Baden-Württemberg",
+    "kind": "http://creativecommons.org/licenses/by/3.0/de/",
+    "mimetype": "image/jpeg",
+    "position": 8,
+    "primary": false,
+    "local_pathname": "https://www2.landesarchiv-bw.de/exporte/digitalisate/archiv_5/olf/bestand_0000005698/titlaufn_0000475861/05_0000475861_0008_5-475861-8.png",
+    "license_group": "rights_002"
+   },
+   {
+    "ref": "49fc7c70-a8e8-4375-9658-d34891c9fedf",
+    "name": "Bild 9",
+    "name2": null,
+    "name3": "Digitalisierung: Landesarchiv Baden-Württemberg",
+    "kind": "http://creativecommons.org/licenses/by/3.0/de/",
+    "mimetype": "image/jpeg",
+    "position": 9,
+    "primary": false,
+    "local_pathname": "https://www2.landesarchiv-bw.de/exporte/digitalisate/archiv_5/olf/bestand_0000005698/titlaufn_0000475861/05_0000475861_0009_5-475861-9.png",
+    "license_group": "rights_002"
+   },
+   {
+    "ref": "810aabd7-3320-40d1-bbc4-4291fe985925",
+    "name": "Bild 10",
+    "name2": null,
+    "name3": "Digitalisierung: Landesarchiv Baden-Württemberg",
+    "kind": "http://creativecommons.org/licenses/by/3.0/de/",
+    "mimetype": "image/jpeg",
+    "position": 10,
+    "primary": false,
+    "local_pathname": "https://www2.landesarchiv-bw.de/exporte/digitalisate/archiv_5/olf/bestand_0000005698/titlaufn_0000475861/05_0000475861_0010_5-475861-10.png",
+    "license_group": "rights_002"
+   }
+  ]
+ },
+ "wgs84-position": null,
+ "ddbObject": {
+  "typePortal": [],
+  "category": [
+   {
+    "standardised": [
+     {
+      "value": "Kulturobjekt",
+      "href": null,
+      "resource": null,
+      "relationType": null,
+      "translated": null,
+      "type": null,
+      "typeUri": null,
+      "lang": null,
+      "import": "technicalMapping"
+     }
+    ],
+    "literal": [],
+    "synonym": [],
+    "detail": null,
+    "hierarchyType": null,
+    "machineGenerated": null,
+    "translated": null,
+    "typeAgent": null,
+    "type": null,
+    "typeUri": null,
+    "lang": null
+   }
+  ],
+  "identifier": {
+   "objectID": {
+    "value": "labw-5-475861",
+    "href": null,
+    "resource": null,
+    "relationType": null,
+    "translated": null,
+    "type": null,
+    "typeUri": null,
+    "lang": null,
+    "import": null
+   },
+   "referenceNumber": [],
+   "formerReferenceNumber": [],
+   "inventoryNumber": [],
+   "isbn": [],
+   "issn": [],
+   "vd16": [],
+   "vd17": [],
+   "vd18": [],
+   "otherNumber": [],
+   "archivalReferenceNumber": [],
+   "holdingReferenceNumber": [],
+   "identifierLIDO": [],
+   "doi": [],
+   "handle": [],
+   "purl": [],
+   "urn": [],
+   "detail": null,
+   "hierarchyType": null,
+   "machineGenerated": null,
+   "translated": null,
+   "typeAgent": null,
+   "type": null,
+   "typeUri": null,
+   "lang": null
+  },
+  "mediaType": {
+   "standardised": [],
+   "literal": [
+    {
+     "value": "text",
+     "href": null,
+     "resource": null,
+     "relationType": null,
+     "translated": null,
+     "type": null,
+     "typeUri": null,
+     "lang": null,
+     "import": null
+    }
+   ],
+   "synonym": [],
+   "detail": null,
+   "hierarchyType": null,
+   "machineGenerated": null,
+   "translated": null,
+   "typeAgent": null,
+   "type": null,
+   "typeUri": null,
+   "lang": null
+  },
+  "monumentType": [],
+  "objectType": [],
+  "objectGenre": [],
+  "title": [
+   {
+    "value": "Niederrimsingen, Breisach am Rhein FR; Katholische Gemeinde: Standesbuch 1847-1870",
+    "href": null,
+    "resource": null,
+    "relationType": null,
+    "translated": null,
+    "type": null,
+    "typeUri": null,
+    "lang": null,
+    "import": null
+   }
+  ],
+  "otherTitles": null,
+  "language": [],
+  "measurements": [],
+  "extent": null,
+  "edition": null,
+  "circulation": null,
+  "materialsTechniques": [],
+  "inscriptions": [],
+  "lettering": [],
+  "culturalAttribution": [],
+  "condition": [],
+  "notes": [],
+  "description": [],
+  "origin": [],
+  "significanceIndigenousContext": [],
+  "formalDescription": [],
+  "abstractOfHolding": [],
+  "furtherInformation": [],
+  "containsNote": [],
+  "location": null,
+  "sources": [],
+  "collection": [],
+  "provenances": [],
+  "preProvenance": [],
+  "agent": [],
+  "creator": [],
+  "contributor": [],
+  "publisher": [],
+  "creationDate": [],
+  "durationDate": [],
+  "durationOfHoldingDate": [],
+  "publicationDate": [],
+  "relatedObjectAndLiterature": [],
+  "relatedObject": [],
+  "relatedLiterature": [],
+  "relatedWork": [],
+  "secondaryLiterature": [],
+  "context": [],
+  "holdingOnline": [],
+  "holding": [],
+  "accessRestriction": [],
+  "classification": [],
+  "sponsorship": [],
+  "appreciation": [],
+  "event": [],
+  "binaries": null,
+  "subjectWhat": [],
+  "subjectWho": [],
+  "subjectWhen": [],
+  "subjectWhere": [],
+  "subjectEvent": [],
+  "subject": [],
+  "digitalObjectAtArchive": [],
+  "bibliographicCitation": [],
+  "series": [],
+  "tableOfContent": [],
+  "linkToCatalogueOPAC": [],
+  "rightsInformations": [],
+  "legalStatus": [],
+  "metadataRights": null,
+  "otherRights": [],
+  "objectViewDataprovider": null,
+  "project": [],
+  "properties": null,
+  "providerInfo": null,
+  "aggregatorInfo": null,
+  "ranking": null,
+  "sourceRecord": null,
+  "type": null,
+  "verified": null,
+  "abstract": []
+ }
+}

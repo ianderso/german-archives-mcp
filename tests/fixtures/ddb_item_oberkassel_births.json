@@ -1,0 +1,1350 @@
+{
+ "properties": {
+  "item-id": "6MOPYW4SNPH5WPLCP74BOLX6PX6NMSQG",
+  "dataset-id": "31190652982918399eqAM",
+  "dataset-label": "Gesamtlieferung (Findbuch) - EAD",
+  "revision-id": "64",
+  "ingest-date": "2026-08-28T14:59:53+0200",
+  "cortex-type": "Kultur",
+  "mapping-version": "6.25",
+  "automatically-translated": false
+ },
+ "provider-info": {
+  "domains": [
+   "http://ddb.vocnet.org/sparte/sparte001",
+   "",
+   ""
+  ],
+  "provider-name": "Stadtarchiv Düsseldorf",
+  "provider-europeana-name": "",
+  "provider-parent-id": "",
+  "provider-facebook": "",
+  "provider-twitter": "",
+  "provider-uri": "https://www.duesseldorf.de/stadtarchiv/",
+  "provider-email": "stadtarchiv@duesseldorf.de",
+  "provider-collection": "",
+  "provider-item-id": "Vz_208b7a0d-fa73-477c-b9f1-cf52b4072f4d",
+  "provider-item-id-type": "",
+  "provider-id": "oid1471506614573",
+  "provider-ddb-id": "K7ASHIR6IB5DKETZDZFBM3CQXCWK2K5H",
+  "provider-isil": "http://ld.zdb-services.de/resource/organisations/DE-Due75",
+  "provider-logo": "https://registrierung.deutsche-digitale-bibliothek.de/logos/oid1471506614573.jpg",
+  "provider-longitude": "6.7962246",
+  "provider-latitude": "51.2227032",
+  "provider-state": "Nordrhein-Westfalen",
+  "provider-parents": {
+   "parents": null
+  }
+ },
+ "edm": {
+  "RDF": {
+   "Aggregation": {
+    "about": "LIL2ZB5PKFZP5RMIWHV3REELDZZDLHYZ",
+    "aggregatedCHO": {
+     "resource": "http://www.deutsche-digitale-bibliothek.de/item/6MOPYW4SNPH5WPLCP74BOLX6PX6NMSQG",
+     "lang": null,
+     "$": ""
+    },
+    "isShownAt": {
+     "resource": "https://www.archive.nrw.de/ms/search?link=VERZEICHUNGSEINHEIT-Vz_208b7a0d-fa73-477c-b9f1-cf52b4072f4d",
+     "lang": null,
+     "$": ""
+    },
+    "isShownBy": {
+     "resource": "https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0001.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0002.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0003.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0004.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0005.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0006.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0007.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0008.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0009.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0010.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0011.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0012.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0013.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0014.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0015.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0016.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0017.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0018.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0019.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0020.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0021.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0022.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0023.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0024.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0025.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0026.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0027.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0028.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0029.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0030.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0031.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0032.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0033.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0034.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0035.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0036.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0037.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0038.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0039.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0040.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0041.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0042.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0043.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0044.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0045.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0046.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0047.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0048.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0049.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0050.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0051.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0052.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0053.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0054.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0055.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0056.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0057.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0058.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0059.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0060.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0061.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0062.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0063.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0064.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0065.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0066.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0067.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0068.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0069.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0070.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0071.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0072.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0073.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0074.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0075.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0076.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0077.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0078.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0079.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0080.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0081.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0082.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0083.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0084.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0085.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0086.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0087.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0088.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0089.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0090.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0091.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0092.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0093.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0094.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0095.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0096.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0097.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0098.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0099.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0100.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0101.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0102.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0103.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0104.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0105.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0106.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0107.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0108.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0109.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0110.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0111.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0112.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0113.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0114.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0115.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0116.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0117.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0118.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0119.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0120.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0121.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0122.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0123.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0124.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0125.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0126.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0127.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0128.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0129.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0130.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0131.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0132.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0133.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0134.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0135.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0136.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0137.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0138.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0139.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0140.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0141.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0142.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0143.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0144.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0145.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0146.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0147.jpg",
+     "lang": null,
+     "$": ""
+    },
+    "edmRights": {
+     "resource": "http://rightsstatements.org/vocab/CNE/1.0/",
+     "lang": null,
+     "$": ""
+    },
+    "dcTermsRights": {
+     "resource": "http://creativecommons.org/publicdomain/zero/1.0/",
+     "lang": null,
+     "$": ""
+    },
+    "provider": "Deutsche Digitale Bibliothek",
+    "dataProvider": [
+     {
+      "resource": null,
+      "lang": null,
+      "$": "Stadtarchiv Düsseldorf"
+     },
+     {
+      "resource": "http://www.deutsche-digitale-bibliothek.de/organization/K7ASHIR6IB5DKETZDZFBM3CQXCWK2K5H",
+      "lang": null,
+      "$": ""
+     }
+    ],
+    "object": {
+     "resource": "https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0001.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0002.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0003.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0004.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0005.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0006.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0007.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0008.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0009.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0010.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0011.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0012.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0013.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0014.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0015.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0016.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0017.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0018.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0019.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0020.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0021.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0022.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0023.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0024.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0025.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0026.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0027.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0028.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0029.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0030.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0031.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0032.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0033.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0034.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0035.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0036.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0037.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0038.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0039.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0040.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0041.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0042.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0043.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0044.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0045.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0046.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0047.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0048.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0049.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0050.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0051.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0052.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0053.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0054.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0055.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0056.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0057.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0058.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0059.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0060.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0061.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0062.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0063.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0064.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0065.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0066.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0067.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0068.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0069.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0070.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0071.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0072.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0073.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0074.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0075.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0076.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0077.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0078.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0079.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0080.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0081.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0082.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0083.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0084.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0085.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0086.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0087.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0088.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0089.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0090.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0091.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0092.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0093.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0094.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0095.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0096.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0097.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0098.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0099.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0100.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0101.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0102.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0103.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0104.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0105.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0106.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0107.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0108.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0109.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0110.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0111.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0112.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0113.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0114.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0115.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0116.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0117.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0118.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0119.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0120.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0121.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0122.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0123.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0124.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0125.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0126.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0127.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0128.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0129.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0130.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0131.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0132.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0133.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0134.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0135.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0136.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0137.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0138.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0139.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0140.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0141.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0142.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0143.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0144.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0145.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0146.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0147.jpg",
+     "lang": null,
+     "$": ""
+    },
+    "aggregator": {
+     "resource": "http://www.deutsche-digitale-bibliothek.de/organization/2IMVIKUTVTEKVX6C7CFHG73D4B4GZL5A",
+     "lang": null,
+     "$": ""
+    },
+    "hasView": null
+   },
+   "WebResource": [
+    {
+     "about": "https://www.archive.nrw.de/ms/search?link=VERZEICHUNGSEINHEIT-Vz_208b7a0d-fa73-477c-b9f1-cf52b4072f4d",
+     "type": {
+      "resource": "http://ddb.vocnet.org/medientyp/mt003",
+      "lang": null,
+      "$": ""
+     },
+     "edmRights": {
+      "resource": "http://rightsstatements.org/vocab/CNE/1.0/",
+      "lang": null,
+      "$": ""
+     },
+     "dcTermsRights": {
+      "resource": "http://rightsstatements.org/vocab/CNE/1.0/",
+      "lang": null,
+      "$": ""
+     },
+     "creator": null
+    },
+    {
+     "about": "https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0001.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0002.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0003.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0004.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0005.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0006.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0007.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0008.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0009.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0010.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0011.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0012.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0013.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0014.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0015.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0016.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0017.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0018.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0019.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0020.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0021.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0022.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0023.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0024.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0025.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0026.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0027.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0028.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0029.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0030.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0031.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0032.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0033.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0034.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0035.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0036.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0037.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0038.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0039.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0040.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0041.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0042.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0043.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0044.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0045.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0046.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0047.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0048.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0049.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0050.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0051.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0052.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0053.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0054.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0055.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0056.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0057.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0058.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0059.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0060.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0061.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0062.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0063.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0064.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0065.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0066.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0067.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0068.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0069.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0070.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0071.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0072.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0073.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0074.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0075.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0076.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0077.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0078.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0079.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0080.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0081.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0082.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0083.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0084.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0085.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0086.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0087.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0088.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0089.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0090.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0091.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0092.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0093.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0094.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0095.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0096.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0097.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0098.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0099.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0100.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0101.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0102.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0103.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0104.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0105.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0106.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0107.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0108.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0109.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0110.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0111.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0112.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0113.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0114.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0115.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0116.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0117.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0118.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0119.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0120.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0121.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0122.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0123.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0124.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0125.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0126.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0127.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0128.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0129.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0130.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0131.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0132.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0133.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0134.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0135.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0136.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0137.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0138.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0139.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0140.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0141.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0142.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0143.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0144.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0145.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0146.jpg https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0147.jpg",
+     "type": {
+      "resource": "http://ddb.vocnet.org/medientyp/mt003",
+      "lang": null,
+      "$": ""
+     },
+     "edmRights": {
+      "resource": "http://rightsstatements.org/vocab/CNE/1.0/",
+      "lang": null,
+      "$": ""
+     },
+     "dcTermsRights": {
+      "resource": "http://rightsstatements.org/vocab/CNE/1.0/",
+      "lang": null,
+      "$": ""
+     },
+     "creator": null
+    }
+   ],
+   "Concept": [
+    {
+     "about": "http://ddb.vocnet.org/sparte/sparte001",
+     "notation": "sec_01",
+     "prefLabel": null
+    },
+    {
+     "about": "http://ddb.vocnet.org/medientyp/mt003",
+     "notation": "mediatype_003",
+     "prefLabel": null
+    },
+    {
+     "about": "http://ddb.vocnet.org/medientyp/mt003",
+     "notation": "mediatype_003",
+     "prefLabel": null
+    },
+    {
+     "about": "https://d-nb.info/gnd/4173923-1",
+     "notation": null,
+     "prefLabel": {
+      "resource": null,
+      "lang": "de",
+      "$": "Personenstandsregister"
+     }
+    }
+   ],
+   "Agent": [
+    {
+     "about": "http://www.deutsche-digitale-bibliothek.de/organization/2IMVIKUTVTEKVX6C7CFHG73D4B4GZL5A",
+     "prefLabel": [
+      {
+       "lang": null,
+       "$": "Archive in NRW"
+      }
+     ],
+     "altLabel": null,
+     "note": null,
+     "date": null,
+     "type": null,
+     "identifier": null,
+     "hasPart": null,
+     "isPartOf": null,
+     "begin": null,
+     "end": null,
+     "hasMet": null,
+     "isRelatedTo": null,
+     "name": null,
+     "biographicalInformation": null,
+     "dateOfBirth": null,
+     "dateOfDeath": null,
+     "dateOfEstablishment": null,
+     "dateOfTermination": null,
+     "gender": null,
+     "placeOfBirth": null,
+     "placeOfDeath": null,
+     "professionOrOccupation": null,
+     "sameAs": null,
+     "wasPresentAt": null
+    },
+    {
+     "about": "http://www.deutsche-digitale-bibliothek.de/organization/K7ASHIR6IB5DKETZDZFBM3CQXCWK2K5H",
+     "prefLabel": [
+      {
+       "lang": null,
+       "$": "Stadtarchiv Düsseldorf"
+      }
+     ],
+     "altLabel": null,
+     "note": null,
+     "date": null,
+     "type": {
+      "resource": "http://ddb.vocnet.org/sparte/sparte001",
+      "$": ""
+     },
+     "identifier": null,
+     "hasPart": null,
+     "isPartOf": null,
+     "begin": null,
+     "end": null,
+     "hasMet": null,
+     "isRelatedTo": null,
+     "name": null,
+     "biographicalInformation": null,
+     "dateOfBirth": null,
+     "dateOfDeath": null,
+     "dateOfEstablishment": null,
+     "dateOfTermination": null,
+     "gender": null,
+     "placeOfBirth": null,
+     "placeOfDeath": null,
+     "professionOrOccupation": null,
+     "sameAs": null,
+     "wasPresentAt": null
+    }
+   ],
+   "PhysicalThing": [
+    {
+     "title": {
+      "resource": null,
+      "lang": null,
+      "$": "7-0-7-9.0000 Standesamt Oberkassel"
+     },
+     "hierarchyType": "htype_031",
+     "aggregationEntity": "true",
+     "hierarchyPosition": "000000000001116",
+     "isPartOf": [
+      {
+       "resource": "http://www.deutsche-digitale-bibliothek.de/item/TFZZQES3NJC4SPHWUDVEZEZHRUOKYP25",
+       "lang": null,
+       "$": ""
+      }
+     ],
+     "about": "A5VUAXXAW6YZ7VJPSV2EFJYJ7657QIGD"
+    }
+   ],
+   "ProvidedCHO": {
+    "about": "http://www.deutsche-digitale-bibliothek.de/item/6MOPYW4SNPH5WPLCP74BOLX6PX6NMSQG",
+    "hasType": [
+     {
+      "resource": "https://d-nb.info/gnd/4173923-1",
+      "lang": null,
+      "$": ""
+     }
+    ],
+    "hasMet": [
+     {
+      "resource": "I43FLKAXV6LAVCRK6G33FW7TYRX4WXRA",
+      "$": ""
+     }
+    ],
+    "edmType": "TEXT",
+    "description": [
+     {
+      "resource": null,
+      "lang": "ger",
+      "$": "Hierarchie: Standesamtsregister: Geburtsurkunden >> 7-0-7-9.0000 Standesamt Oberkassel"
+     },
+     {
+      "resource": null,
+      "lang": "ger",
+      "$": "Ergänzende Hinweise: Oberkassel: Urk. jahrgangsw. nummeriert;"
+     },
+     {
+      "resource": null,
+      "lang": "ger",
+      "$": "Registertyp: Geburtsregister - Standesamt Oberkassel"
+     }
+    ],
+    "identifier": [
+     "7-0-7 Standesamtsregister: Geburtsurkunden, 7-0-7- 9.0003"
+    ],
+    "date": [
+     "1811-01-01/1816-12-31"
+    ],
+    "language": "ger",
+    "dcType": [
+     {
+      "resource": null,
+      "lang": "ger",
+      "$": "Personenstandsregister"
+     }
+    ],
+    "title": {
+     "resource": null,
+     "lang": null,
+     "$": "Geburtsregister Standesamt Oberkassel"
+    },
+    "dcTermsLanguage": [
+     {
+      "resource": "http://id.loc.gov/vocabulary/iso639-2/ger",
+      "lang": null,
+      "$": ""
+     }
+    ],
+    "isPartOf": [
+     {
+      "resource": "A5VUAXXAW6YZ7VJPSV2EFJYJ7657QIGD",
+      "lang": null,
+      "$": ""
+     }
+    ],
+    "hierarchyType": "htype_034",
+    "aggregationEntity": "false",
+    "hierarchyPosition": "000000000001119"
+   },
+   "Event": [
+    {
+     "about": "I43FLKAXV6LAVCRK6G33FW7TYRX4WXRA",
+     "hasType": {
+      "resource": "http://terminology.lido-schema.org/lido00012",
+      "lang": null,
+      "$": ""
+     },
+     "happenedAt": null,
+     "occuredAt": [
+      {
+       "resource": "QDQ5GJBT2LD3FIAB24JVPXWBSQTB5QXK",
+       "lang": null,
+       "$": ""
+      }
+     ],
+     "P11_had_participant": null
+    }
+   ],
+   "Place": null,
+   "Organization": null,
+   "Address": null,
+   "TimeSpan": {
+    "about": "QDQ5GJBT2LD3FIAB24JVPXWBSQTB5QXK",
+    "begin": {
+     "lang": null,
+     "$": "1811-01-01"
+    },
+    "end": {
+     "lang": null,
+     "$": "1816-12-31"
+    }
+   }
+  }
+ },
+ "indexing-profile": {
+  "item-id": "6MOPYW4SNPH5WPLCP74BOLX6PX6NMSQG",
+  "facet": [
+   {
+    "name": "keywords_fct",
+    "value": [
+     "Personenstandsregister"
+    ]
+   },
+   {
+    "name": "keywords_fct_autocomplete",
+    "value": [
+     "Personenstandsregister"
+    ]
+   },
+   {
+    "name": "objecttype_fct",
+    "value": [
+     "Personenstandsregister"
+    ]
+   },
+   {
+    "name": "objecttype_fct_autocomplete",
+    "value": [
+     "Personenstandsregister"
+    ]
+   },
+   {
+    "name": "language_fct",
+    "value": [
+     "ger"
+    ]
+   },
+   {
+    "name": "type_fct",
+    "value": [
+     "mediatype_003"
+    ]
+   },
+   {
+    "name": "provider_fct",
+    "value": [
+     "Archive in NRW",
+     "Stadtarchiv Düsseldorf"
+    ]
+   },
+   {
+    "name": "provider_fct_autocomplete",
+    "value": [
+     "Archive in NRW",
+     "Stadtarchiv Düsseldorf"
+    ]
+   },
+   {
+    "name": "provider_fct_normdata",
+    "value": [
+     "http://www.deutsche-digitale-bibliothek.de/organization/2IMVIKUTVTEKVX6C7CFHG73D4B4GZL5A",
+     "http://www.deutsche-digitale-bibliothek.de/organization/K7ASHIR6IB5DKETZDZFBM3CQXCWK2K5H"
+    ]
+   },
+   {
+    "name": "dataprovider_fct",
+    "value": [
+     "Stadtarchiv Düsseldorf"
+    ]
+   },
+   {
+    "name": "dataprovider_fct_autocomplete",
+    "value": [
+     "Stadtarchiv Düsseldorf"
+    ]
+   },
+   {
+    "name": "dataprovider_fct_normdata",
+    "value": [
+     "http://www.deutsche-digitale-bibliothek.de/organization/K7ASHIR6IB5DKETZDZFBM3CQXCWK2K5H"
+    ]
+   },
+   {
+    "name": "sector_fct",
+    "value": [
+     "sec_01"
+    ]
+   },
+   {
+    "name": "last_update",
+    "value": [
+     "2026-08-28T14:59:53+0200"
+    ]
+   }
+  ]
+ },
+ "preview": {
+  "media": "text",
+  "type": "Kultur",
+  "title": "Geburtsregister Standesamt Oberkassel",
+  "subtitle": "1811-1816, Stadtarchiv Düsseldorf, 7-0-7 Standesamtsregister: Geburtsurkunden, 7-0-7- 9.0003",
+  "thumbnail": {
+   "href": "4a68dccc-d01a-4f0f-8ecf-200e5b88b99f"
+  }
+ },
+ "view": {
+  "item": {
+   "identifier": "Vz_208b7a0d-fa73-477c-b9f1-cf52b4072f4d",
+   "label": "Geburtsregister Standesamt Oberkassel",
+   "title": "Geburtsregister Standesamt Oberkassel",
+   "subtitle": "1811-1816, Stadtarchiv Düsseldorf, 7-0-7 Standesamtsregister: Geburtsurkunden, 7-0-7- 9.0003",
+   "rights": "",
+   "metdata-rights": "http://creativecommons.org/publicdomain/zero/1.0/",
+   "origin": "https://www.archive.nrw.de/ms/search?link=VERZEICHUNGSEINHEIT-Vz_208b7a0d-fa73-477c-b9f1-cf52b4072f4d",
+   "category": "Kultur",
+   "media": "text",
+   "thumbnail": "",
+   "latitude": "",
+   "longitude": "",
+   "license": {
+    "resource": "http://rightsstatements.org/vocab/CNE/1.0/"
+   },
+   "institution": {
+    "id": "K7ASHIR6IB5DKETZDZFBM3CQXCWK2K5H",
+    "url": "https://www.duesseldorf.de/stadtarchiv/",
+    "name": "Stadtarchiv Düsseldorf",
+    "logo-institution-ddbid": "K7ASHIR6IB5DKETZDZFBM3CQXCWK2K5H"
+   },
+   "viewers": {
+    "viewer": [
+     {
+      "name": {
+       "value": [
+        "DFG-Viewer"
+       ],
+       "id": "dfgKey"
+      },
+      "url": "http://dfg-viewer.de/show/?tx_dlf%5Bid%5D=https%3A%2F%2Fwww.duesseldorf.de%2Fstadtarchiv%2Farchivenrw%2F7%2F0%2F7%2F7_0_7_9_0003%2Fmets.xml"
+     }
+    ]
+   },
+   "fields": [
+    {
+     "usage": "display",
+     "field": [
+      {
+       "id": "flex_arch_004",
+       "name": "Archivaliensignatur",
+       "value": [
+        {
+         "content": "7-0-7 Standesamtsregister: Geburtsurkunden, 7-0-7- 9.0003",
+         "resource": null,
+         "rightsinfo": null,
+         "rightsholder": null,
+         "creditline": null
+        }
+       ],
+       "georeference": null
+      },
+      {
+       "id": "flex_arch_001",
+       "name": "Bestand",
+       "value": [
+        {
+         "content": "7-0-7 Standesamtsregister: Geburtsurkunden Standesamtsregister: Geburtsurkunden",
+         "resource": null,
+         "rightsinfo": null,
+         "rightsholder": null,
+         "creditline": null
+        }
+       ],
+       "georeference": null
+      },
+      {
+       "id": "flex_arch_029",
+       "name": "Kontext",
+       "value": [
+        {
+         "content": "Standesamtsregister: Geburtsurkunden >> 7-0-7-9.0000 Standesamt Oberkassel",
+         "resource": null,
+         "rightsinfo": null,
+         "rightsholder": null,
+         "creditline": null
+        }
+       ],
+       "georeference": null
+      },
+      {
+       "id": "flex_arch_008",
+       "name": "Laufzeit",
+       "value": [
+        {
+         "content": "1811-1816",
+         "resource": null,
+         "rightsinfo": null,
+         "rightsholder": null,
+         "creditline": null
+        }
+       ],
+       "georeference": null
+      },
+      {
+       "id": "flex_arch_010",
+       "name": "Enthältvermerke",
+       "value": [
+        {
+         "content": "Ergänzende Hinweise: Oberkassel: Urk. jahrgangsw. nummeriert;",
+         "resource": null,
+         "rightsinfo": null,
+         "rightsholder": null,
+         "creditline": null
+        }
+       ],
+       "georeference": null
+      },
+      {
+       "id": "flex_arch_016",
+       "name": "Archivalientyp",
+       "value": [
+        {
+         "content": "Personenstandsregister",
+         "resource": null,
+         "rightsinfo": null,
+         "rightsholder": null,
+         "creditline": null
+        }
+       ],
+       "georeference": null
+      },
+      {
+       "id": "flex_arch_019",
+       "name": "Sonstige Erschließungsangaben",
+       "value": [
+        {
+         "content": "Registertyp: Geburtsregister",
+         "resource": null,
+         "rightsinfo": null,
+         "rightsholder": null,
+         "creditline": null
+        },
+        {
+         "content": "Standesamt Oberkassel",
+         "resource": null,
+         "rightsinfo": null,
+         "rightsholder": null,
+         "creditline": null
+        }
+       ],
+       "georeference": null
+      }
+     ]
+    },
+    {
+     "usage": "index",
+     "field": [
+      {
+       "id": "title",
+       "name": "Titel",
+       "value": [
+        {
+         "content": "Geburtsregister Standesamt Oberkassel",
+         "resource": null,
+         "rightsinfo": null,
+         "rightsholder": null,
+         "creditline": null
+        }
+       ],
+       "georeference": null
+      },
+      {
+       "id": "description",
+       "name": "Beschreibung",
+       "value": [
+        {
+         "content": "Ergänzende Hinweise: Oberkassel: Urk. jahrgangsw. nummeriert;",
+         "resource": "http://purl.org/dc/elements/1.1/description",
+         "rightsinfo": null,
+         "rightsholder": null,
+         "creditline": null
+        }
+       ],
+       "georeference": null
+      },
+      {
+       "id": "license",
+       "name": "Lizenz",
+       "value": [
+        {
+         "content": "http://rightsstatements.org/vocab/CNE/1.0/",
+         "resource": null,
+         "rightsinfo": null,
+         "rightsholder": null,
+         "creditline": null
+        }
+       ],
+       "georeference": null
+      },
+      {
+       "id": "license_group",
+       "name": "Lizenzstatus",
+       "value": [
+        {
+         "content": "rights_003",
+         "resource": null,
+         "rightsinfo": null,
+         "rightsholder": null,
+         "creditline": null
+        }
+       ],
+       "georeference": null
+      },
+      {
+       "id": "objecttype_delivered",
+       "name": "Objekttyp aus Lieferdaten",
+       "value": [
+        {
+         "content": "Personenstandsregister",
+         "resource": null,
+         "rightsinfo": null,
+         "rightsholder": null,
+         "creditline": null
+        }
+       ],
+       "georeference": null
+      },
+      {
+       "id": "digitalisat",
+       "name": "digitalisat",
+       "value": [
+        {
+         "content": "true",
+         "resource": null,
+         "rightsinfo": null,
+         "rightsholder": null,
+         "creditline": null
+        }
+       ],
+       "georeference": null
+      },
+      {
+       "id": "aggregator_id",
+       "name": "aggregator_id",
+       "value": [
+        {
+         "content": "00019824",
+         "resource": null,
+         "rightsinfo": null,
+         "rightsholder": null,
+         "creditline": null
+        }
+       ],
+       "georeference": null
+      },
+      {
+       "id": "dataset_id",
+       "name": "dataset_id",
+       "value": [
+        {
+         "content": "31190652982918399eqAM",
+         "resource": null,
+         "rightsinfo": null,
+         "rightsholder": null,
+         "creditline": null
+        }
+       ],
+       "georeference": null
+      },
+      {
+       "id": "dataset_label",
+       "name": "dataset_label",
+       "value": [
+        {
+         "content": "Gesamtlieferung (Findbuch) - EAD",
+         "resource": null,
+         "rightsinfo": null,
+         "rightsholder": null,
+         "creditline": null
+        }
+       ],
+       "georeference": null
+      },
+      {
+       "id": "delivery_id",
+       "name": "delivery_id",
+       "value": [
+        {
+         "content": "473974291354726MbSJ",
+         "resource": null,
+         "rightsinfo": null,
+         "rightsholder": null,
+         "creditline": null
+        }
+       ],
+       "georeference": null
+      },
+      {
+       "id": "supplier_id",
+       "name": "supplier_id",
+       "value": [
+        {
+         "content": "00019824",
+         "resource": null,
+         "rightsinfo": null,
+         "rightsholder": null,
+         "creditline": null
+        }
+       ],
+       "georeference": null
+      },
+      {
+       "id": "mapping_version",
+       "name": "mapping_version",
+       "value": [
+        {
+         "content": "6.25",
+         "resource": null,
+         "rightsinfo": null,
+         "rightsholder": null,
+         "creditline": null
+        }
+       ],
+       "georeference": null
+      },
+      {
+       "id": "md_format",
+       "name": "Metadata Format",
+       "value": [
+        {
+         "content": "ead",
+         "resource": null,
+         "rightsinfo": null,
+         "rightsholder": null,
+         "creditline": null
+        }
+       ],
+       "georeference": null
+      },
+      {
+       "id": "source_format",
+       "name": "source_format",
+       "value": [
+        {
+         "content": "urn:isbn:1-931666-22-9",
+         "resource": null,
+         "rightsinfo": null,
+         "rightsholder": null,
+         "creditline": null
+        }
+       ],
+       "georeference": null
+      },
+      {
+       "id": "apd_abstracts",
+       "name": "Enthält",
+       "value": [
+        {
+         "content": "Ergänzende Hinweise: Oberkassel: Urk. jahrgangsw. nummeriert;",
+         "resource": null,
+         "rightsinfo": null,
+         "rightsholder": null,
+         "creditline": null
+        }
+       ],
+       "georeference": null
+      },
+      {
+       "id": "apd_context",
+       "name": "Kontext",
+       "value": [
+        {
+         "content": "Standesamtsregister: Geburtsurkunden >> 7-0-7-9.0000 Standesamt Oberkassel",
+         "resource": null,
+         "rightsinfo": null,
+         "rightsholder": null,
+         "creditline": null
+        }
+       ],
+       "georeference": null
+      },
+      {
+       "id": "apd_level_of_description",
+       "name": "Verzeichnungsstufe",
+       "value": [
+        {
+         "content": "htype_034",
+         "resource": null,
+         "rightsinfo": null,
+         "rightsholder": null,
+         "creditline": null
+        }
+       ],
+       "georeference": null
+      },
+      {
+       "id": "apd_document_type",
+       "name": "Archivalientyp",
+       "value": [
+        {
+         "content": "Personenstandsregister",
+         "resource": null,
+         "rightsinfo": null,
+         "rightsholder": null,
+         "creditline": null
+        }
+       ],
+       "georeference": null
+      },
+      {
+       "id": "apd_xml_sort",
+       "name": "Sortierung nach XML-Position",
+       "value": [
+        {
+         "content": "Stadtarchiv Düsseldorf_7-0-7 Standesamtsregister: Geburtsurkunden_000000000001119",
+         "resource": null,
+         "rightsinfo": null,
+         "rightsholder": null,
+         "creditline": null
+        }
+       ],
+       "georeference": null
+      },
+      {
+       "id": "begin_time",
+       "name": "Anfang",
+       "value": [
+        {
+         "content": "661090",
+         "resource": null,
+         "rightsinfo": null,
+         "rightsholder": null,
+         "creditline": null
+        }
+       ],
+       "georeference": null
+      },
+      {
+       "id": "end_time",
+       "name": "Ende",
+       "value": [
+        {
+         "content": "663281",
+         "resource": null,
+         "rightsinfo": null,
+         "rightsholder": null,
+         "creditline": null
+        }
+       ],
+       "georeference": null
+      },
+      {
+       "id": "apd_reference_number",
+       "name": "(Vor-)Signatur",
+       "value": [
+        {
+         "content": "7-0-7 Standesamtsregister: Geburtsurkunden, 7-0-7- 9.0003",
+         "resource": null,
+         "rightsinfo": null,
+         "rightsholder": null,
+         "creditline": null
+        }
+       ],
+       "georeference": null
+      },
+      {
+       "id": "context",
+       "name": "Parent Hierarchien",
+       "value": [
+        {
+         "content": "NIWVYF6CDBYWQ3DXLCCF2CXNW3UEFV53",
+         "resource": null,
+         "rightsinfo": null,
+         "rightsholder": null,
+         "creditline": null
+        },
+        {
+         "content": "GBRS4YLQNLSF2KO5DGWRNYZPZN7GATHL",
+         "resource": null,
+         "rightsinfo": null,
+         "rightsholder": null,
+         "creditline": null
+        },
+        {
+         "content": "XBMSB4ECDMP2I7AUV2WFJZ4US5WXPKR2",
+         "resource": null,
+         "rightsinfo": null,
+         "rightsholder": null,
+         "creditline": null
+        },
+        {
+         "content": "W6HTNEHLR7QWMRX62AQFPJPRHAHUPBGL",
+         "resource": null,
+         "rightsinfo": null,
+         "rightsholder": null,
+         "creditline": null
+        },
+        {
+         "content": "K7ASHIR6IB5DKETZDZFBM3CQXCWK2K5H",
+         "resource": null,
+         "rightsinfo": null,
+         "rightsholder": null,
+         "creditline": null
+        },
+        {
+         "content": "NIWVYF6CDBYWQ3DXLCCF2CXNW3UEFV53",
+         "resource": null,
+         "rightsinfo": null,
+         "rightsholder": null,
+         "creditline": null
+        },
+        {
+         "content": "Y6GUU5SWQXL73GUDRXDGTRKNXGNLCBCY",
+         "resource": null,
+         "rightsinfo": null,
+         "rightsholder": null,
+         "creditline": null
+        }
+       ],
+       "georeference": null
+      }
+     ]
+    }
+   ]
+  },
+  "cortex-institution": null
+ },
+ "source": {
+  "description": {
+   "id": "6MOPYW4SNPH5WPLCP74BOLX6PX6NMSQG",
+   "record": {
+    "ref": "NIWVYF6CDBYWQ3DXLCCF2CXNW3UEFV53",
+    "href": "/items/NIWVYF6CDBYWQ3DXLCCF2CXNW3UEFV53/source/record",
+    "type": "urn:isbn:1-931666-22-9",
+    "id": [
+     {
+      "type": "c[@level='collection']/@id",
+      "value": "Best_368C3EEF-312B-4527-AA5E-A1AA933BF26C"
+     },
+     {
+      "type": "c[@level='file']/@id",
+      "value": "Vz_208b7a0d-fa73-477c-b9f1-cf52b4072f4d"
+     }
+    ]
+   }
+  }
+ },
+ "aggregator-info": {
+  "aggregator-domains": {
+   "aggregatorDomainList": [
+    "http://ddb.vocnet.org/sparte/sparte001",
+    "",
+    ""
+   ]
+  },
+  "aggregator-name": "Archive in NRW",
+  "aggregator-europeana-name": null,
+  "aggregator-europeana-id": null,
+  "aggregator-parent-id": "",
+  "aggregator-facebook": null,
+  "aggregator-twitter": null,
+  "aggregator-uri": "http://www.archive.nrw.de",
+  "aggregator-email": "",
+  "aggregator-collection": null,
+  "aggregator-item-id": null,
+  "aggregator-item-id-type": "",
+  "aggregator-id": "00019824",
+  "aggregator-ddb-id": "2IMVIKUTVTEKVX6C7CFHG73D4B4GZL5A",
+  "aggregator-isil": null,
+  "aggregator-logo": "https://registrierung.deutsche-digitale-bibliothek.de/logos/00019824.png",
+  "aggregator-longitude": "6.7585203",
+  "aggregator-latitude": "51.4374644",
+  "aggregator-state": null,
+  "aggregator-parents": null
+ },
+ "binaries": {
+  "binary": [
+   {
+    "ref": "4a68dccc-d01a-4f0f-8ecf-200e5b88b99f",
+    "name": "Geburtsregister Standesamt Oberkassel",
+    "name2": null,
+    "name3": "Digitalisierung: Stadtarchiv Düsseldorf",
+    "kind": "http://rightsstatements.org/vocab/CNE/1.0/",
+    "mimetype": "image/jpeg",
+    "position": 1,
+    "primary": true,
+    "local_pathname": "https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0001.jpg",
+    "license_group": "rights_003"
+   },
+   {
+    "ref": "d8199f0b-507b-41db-a0bd-be113c1acdc0",
+    "name": "Geburtsregister Standesamt Oberkassel",
+    "name2": null,
+    "name3": "Digitalisierung: Stadtarchiv Düsseldorf",
+    "kind": "http://rightsstatements.org/vocab/CNE/1.0/",
+    "mimetype": "image/jpeg",
+    "position": 2,
+    "primary": false,
+    "local_pathname": "https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0002.jpg",
+    "license_group": "rights_003"
+   },
+   {
+    "ref": "99fc576b-c593-4f58-8301-a58076f28a74",
+    "name": "Geburtsregister Standesamt Oberkassel",
+    "name2": null,
+    "name3": "Digitalisierung: Stadtarchiv Düsseldorf",
+    "kind": "http://rightsstatements.org/vocab/CNE/1.0/",
+    "mimetype": "image/jpeg",
+    "position": 3,
+    "primary": false,
+    "local_pathname": "https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0003.jpg",
+    "license_group": "rights_003"
+   },
+   {
+    "ref": "81a89e70-4aab-4ec7-98a9-9c569d32e7bb",
+    "name": "Geburtsregister Standesamt Oberkassel",
+    "name2": null,
+    "name3": "Digitalisierung: Stadtarchiv Düsseldorf",
+    "kind": "http://rightsstatements.org/vocab/CNE/1.0/",
+    "mimetype": "image/jpeg",
+    "position": 4,
+    "primary": false,
+    "local_pathname": "https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0004.jpg",
+    "license_group": "rights_003"
+   },
+   {
+    "ref": "c468253f-d702-439e-ba19-4285ef3446ee",
+    "name": "Geburtsregister Standesamt Oberkassel",
+    "name2": null,
+    "name3": "Digitalisierung: Stadtarchiv Düsseldorf",
+    "kind": "http://rightsstatements.org/vocab/CNE/1.0/",
+    "mimetype": "image/jpeg",
+    "position": 5,
+    "primary": false,
+    "local_pathname": "https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0005.jpg",
+    "license_group": "rights_003"
+   },
+   {
+    "ref": "7c50e94e-baa0-49cc-8bf3-efdb98a185bd",
+    "name": "Geburtsregister Standesamt Oberkassel",
+    "name2": null,
+    "name3": "Digitalisierung: Stadtarchiv Düsseldorf",
+    "kind": "http://rightsstatements.org/vocab/CNE/1.0/",
+    "mimetype": "image/jpeg",
+    "position": 6,
+    "primary": false,
+    "local_pathname": "https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0006.jpg",
+    "license_group": "rights_003"
+   },
+   {
+    "ref": "4ac669fa-ea7d-4e08-8973-47cdaa8e7531",
+    "name": "Geburtsregister Standesamt Oberkassel",
+    "name2": null,
+    "name3": "Digitalisierung: Stadtarchiv Düsseldorf",
+    "kind": "http://rightsstatements.org/vocab/CNE/1.0/",
+    "mimetype": "image/jpeg",
+    "position": 7,
+    "primary": false,
+    "local_pathname": "https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0007.jpg",
+    "license_group": "rights_003"
+   },
+   {
+    "ref": "dc3a8e80-d232-4a1a-9e20-26d5c596200c",
+    "name": "Geburtsregister Standesamt Oberkassel",
+    "name2": null,
+    "name3": "Digitalisierung: Stadtarchiv Düsseldorf",
+    "kind": "http://rightsstatements.org/vocab/CNE/1.0/",
+    "mimetype": "image/jpeg",
+    "position": 8,
+    "primary": false,
+    "local_pathname": "https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0008.jpg",
+    "license_group": "rights_003"
+   },
+   {
+    "ref": "20c85340-29f9-4af5-8c19-09daeb57bf1b",
+    "name": "Geburtsregister Standesamt Oberkassel",
+    "name2": null,
+    "name3": "Digitalisierung: Stadtarchiv Düsseldorf",
+    "kind": "http://rightsstatements.org/vocab/CNE/1.0/",
+    "mimetype": "image/jpeg",
+    "position": 9,
+    "primary": false,
+    "local_pathname": "https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0009.jpg",
+    "license_group": "rights_003"
+   },
+   {
+    "ref": "6950b070-8218-4e6a-a87a-e75789554e96",
+    "name": "Geburtsregister Standesamt Oberkassel",
+    "name2": null,
+    "name3": "Digitalisierung: Stadtarchiv Düsseldorf",
+    "kind": "http://rightsstatements.org/vocab/CNE/1.0/",
+    "mimetype": "image/jpeg",
+    "position": 10,
+    "primary": false,
+    "local_pathname": "https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0010.jpg",
+    "license_group": "rights_003"
+   },
+   {
+    "ref": "40a22642-0307-413b-8c07-0d15ca066271",
+    "name": "Geburtsregister Standesamt Oberkassel",
+    "name2": null,
+    "name3": "Digitalisierung: Stadtarchiv Düsseldorf",
+    "kind": "http://rightsstatements.org/vocab/CNE/1.0/",
+    "mimetype": "image/jpeg",
+    "position": 11,
+    "primary": false,
+    "local_pathname": "https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0011.jpg",
+    "license_group": "rights_003"
+   },
+   {
+    "ref": "84a928cc-4f92-4bda-956f-92bac78004ac",
+    "name": "Geburtsregister Standesamt Oberkassel",
+    "name2": null,
+    "name3": "Digitalisierung: Stadtarchiv Düsseldorf",
+    "kind": "http://rightsstatements.org/vocab/CNE/1.0/",
+    "mimetype": "image/jpeg",
+    "position": 12,
+    "primary": false,
+    "local_pathname": "https://www.duesseldorf.de/stadtarchiv/archivenrw/7/0/7/7_0_7_9_0003/7_0_7_9_0003_0000S0012.jpg",
+    "license_group": "rights_003"
+   }
+  ]
+ },
+ "wgs84-position": null,
+ "ddbObject": {
+  "typePortal": [],
+  "category": [
+   {
+    "standardised": [
+     {
+      "value": "Kulturobjekt",
+      "href": null,
+      "resource": null,
+      "relationType": null,
+      "translated": null,
+      "type": null,
+      "typeUri": null,
+      "lang": null,
+      "import": "technicalMapping"
+     }
+    ],
+    "literal": [],
+    "synonym": [],
+    "detail": null,
+    "hierarchyType": null,
+    "machineGenerated": null,
+    "translated": null,
+    "typeAgent": null,
+    "type": null,
+    "typeUri": null,
+    "lang": null
+   }
+  ],
+  "identifier": {
+   "objectID": {
+    "value": "Vz_208b7a0d-fa73-477c-b9f1-cf52b4072f4d",
+    "href": null,
+    "resource": null,
+    "relationType": null,
+    "translated": null,
+    "type": null,
+    "typeUri": null,
+    "lang": null,
+    "import": null
+   },
+   "referenceNumber": [],
+   "formerReferenceNumber": [],
+   "inventoryNumber": [],
+   "isbn": [],
+   "issn": [],
+   "vd16": [],
+   "vd17": [],
+   "vd18": [],
+   "otherNumber": [],
+   "archivalReferenceNumber": [],
+   "holdingReferenceNumber": [],
+   "identifierLIDO": [],
+   "doi": [],
+   "handle": [],
+   "purl": [],
+   "urn": [],
+   "detail": null,
+   "hierarchyType": null,
+   "machineGenerated": null,
+   "translated": null,
+   "typeAgent": null,
+   "type": null,
+   "typeUri": null,
+   "lang": null
+  },
+  "mediaType": {
+   "standardised": [],
+   "literal": [
+    {
+     "value": "text",
+     "href": null,
+     "resource": null,
+     "relationType": null,
+     "translated": null,
+     "type": null,
+     "typeUri": null,
+     "lang": null,
+     "import": null
+    }
+   ],
+   "synonym": [],
+   "detail": null,
+   "hierarchyType": null,
+   "machineGenerated": null,
+   "translated": null,
+   "typeAgent": null,
+   "type": null,
+   "typeUri": null,
+   "lang": null
+  },
+  "monumentType": [],
+  "objectType": [],
+  "objectGenre": [],
+  "title": [
+   {
+    "value": "Geburtsregister Standesamt Oberkassel",
+    "href": null,
+    "resource": null,
+    "relationType": null,
+    "translated": null,
+    "type": null,
+    "typeUri": null,
+    "lang": null,
+    "import": null
+   }
+  ],
+  "otherTitles": null,
+  "language": [],
+  "measurements": [],
+  "extent": null,
+  "edition": null,
+  "circulation": null,
+  "materialsTechniques": [],
+  "inscriptions": [],
+  "lettering": [],
+  "culturalAttribution": [],
+  "condition": [],
+  "notes": [],
+  "description": [],
+  "origin": [],
+  "significanceIndigenousContext": [],
+  "formalDescription": [],
+  "abstractOfHolding": [],
+  "furtherInformation": [],
+  "containsNote": [],
+  "location": null,
+  "sources": [],
+  "collection": [],
+  "provenances": [],
+  "preProvenance": [],
+  "agent": [],
+  "creator": [],
+  "contributor": [],
+  "publisher": [],
+  "creationDate": [],
+  "durationDate": [],
+  "durationOfHoldingDate": [],
+  "publicationDate": [],
+  "relatedObjectAndLiterature": [],
+  "relatedObject": [],
+  "relatedLiterature": [],
+  "relatedWork": [],
+  "secondaryLiterature": [],
+  "context": [],
+  "holdingOnline": [],
+  "holding": [],
+  "accessRestriction": [],
+  "classification": [],
+  "sponsorship": [],
+  "appreciation": [],
+  "event": [],
+  "binaries": null,
+  "subjectWhat": [],
+  "subjectWho": [],
+  "subjectWhen": [],
+  "subjectWhere": [],
+  "subjectEvent": [],
+  "subject": [],
+  "digitalObjectAtArchive": [],
+  "bibliographicCitation": [],
+  "series": [],
+  "tableOfContent": [],
+  "linkToCatalogueOPAC": [],
+  "rightsInformations": [],
+  "legalStatus": [],
+  "metadataRights": null,
+  "otherRights": [],
+  "objectViewDataprovider": null,
+  "project": [],
+  "properties": null,
+  "providerInfo": null,
+  "aggregatorInfo": null,
+  "ranking": null,
+  "sourceRecord": null,
+  "type": null,
+  "verified": null,
+  "abstract": []
+ }
+}
